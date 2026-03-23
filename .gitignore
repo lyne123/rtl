@@ -1,0 +1,35 @@
+# ==========================================
+# FPGA / IC 仿真忽略列表 (ModelSim & Vivado/Quartus 兼容)
+# ==========================================
+
+# 1. 仿真波形文件 (绝对不能传，动辄几十MB甚至GB)
+*.vcd
+*.wlf
+*.fsdb
+*.vpd
+
+# 2. ModelSim/Questasim 编译生成的库文件和临时日志
+work/
+modelsim.ini  # (注意：如果你根目录那个 .ini 是自己写的自定义配置，这行可以删掉；如果是自动生成的缓存，就保留这行)
+transcript
+vsim.wlf
+*.mti
+*.mpf
+
+# 3. 各种编译工具产生的中间文件
+*.out
+*.o
+*.obj
+
+# 4. 编辑器和系统缓存文件
+.vscode/  # (如果你不想把 tasks.json 同步给别人，可以取消注释这行。但如果你想跨电脑保持配置，建议保留 .vscode 文件夹)
+.claude/  # 忽略 Claude Code 的本地聊天记录和缓存
+.DS_Store # macOS 系统自动生成的垃圾文件
+Thumbs.db # Windows 系统自动生成的缩略图缓存
+
+# 5. 综合/实现产生的庞大网表 (如果你后续加入 FPGA 综合流程)
+*.qws     # Quartus
+*.sof
+*.pof
+*.bit     # Vivado
+*.log

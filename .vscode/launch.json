@@ -1,0 +1,30 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "ModelSim TDC仿真",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "vsim",
+            "args": [
+                "-gui",
+                "-do",
+                "cd ${workspaceFolder} && do modelsim_setup/modelsim_config.tcl"
+            ],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "environment": [],
+            "externalConsole": true,
+            "MIMode": "gdb",
+            "setupCommands": [
+                {
+                    "description": "为gdb启用整齐打印",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                }
+            ],
+            "preLaunchTask": "ModelSim: 编译TDC",
+            "miDebuggerPath": "gdb"
+        }
+    ]
+}

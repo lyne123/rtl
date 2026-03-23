@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(move \"d:\\\\01-Codes\\\\XilinxCode\\\\Vernier_tdc\\\\rtl\\\\Vernier_tdc.v\" \"d:\\\\01-Codes\\\\XilinxCode\\\\Vernier_tdc\\\\rtl\\\\v1_original_design\"\")",
+      "Bash(cmd /c \"move d:\\\\01-Codes\\\\XilinxCode\\\\Vernier_tdc\\\\rtl\\\\Vernier_tdc.v d:\\\\01-Codes\\\\XilinxCode\\\\Vernier_tdc\\\\rtl\\\\v1_original_design\"\")",
+      "Bash(grep -E \"\\\\.\\(v|txt|md\\)$\")",
+      "Bash(grep -E \"\\\\.\\(v|txt|md|tcl\\)$\")",
+      "Bash(vlog -work work +incdir+../rtl/ tdc_top_carry4.v coarse_counter_400m.v timestamp_synthesizer.v)"
+    ]
+  }
+}

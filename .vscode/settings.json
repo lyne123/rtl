@@ -1,0 +1,28 @@
+{
+    "files.associations": {
+        "*.v": "systemverilog",
+        "*.sv": "systemverilog",
+        "*.tcl": "tcl"
+    },
+    "systemverilog.linter": "verilator",
+    "systemverilog.formatCommand": "verible-verilog-format",
+    "editor.rulers": [80, 120],
+    "editor.tabSize": 4,
+    "editor.insertSpaces": false,
+    "files.trimTrailingWhitespace": true,
+    "files.insertFinalNewline": true,
+    "files.trimFinalNewlines": true,
+    "search.exclude": {
+        "**/work": true,
+        "**/*.vcd": true,
+        "**/*.wlf": true
+    },
+    "files.exclude": {
+        "**/work": true
+    },
+    "terminal.integrated.env.windows": {
+        "MODELSIM": "${workspaceFolder}/modelsim_setup/modelsim_config.tcl"
+    },
+    "verilog.linting.linter": "verilator",
+    "verilog.formatting.verilogFormatter": "verible"
+}

@@ -1,0 +1,163 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "ModelSim: 编译TDC",
+            "type": "shell",
+            "command": "vsim",
+            "args": [
+                "-c",
+                "-do",
+                "do modelsim_setup/modelsim_config.tcl; compile_tdc; quit"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "group": "test",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared",
+                "showReuseMessage": true,
+                "clear": true
+            },
+            "problemMatcher": {
+                "owner": "verilog",
+                "fileLocation": "relative",
+                "pattern": {
+                    "regexp": "^(.*)\\((\\d+)\\)?:\\s+(.*)$",
+                    "file": 1,
+                    "line": 2,
+                    "message": 3
+                }
+            },
+            "detail": "编译所有TDC设计文件"
+        },
+        {
+            "label": "ModelSim: 运行10ps TDC仿真",
+            "type": "shell",
+            "command": "vsim",
+            "args": [
+                "-c",
+                "-do",
+                "do modelsim_setup/modelsim_config.tcl; run_10ps_simulation; quit"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "group": "test",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared",
+                "clear": true
+            },
+            "problemMatcher": {
+                "owner": "verilog",
+                "fileLocation": "relative",
+                "pattern": {
+                    "regexp": "^(.*)\\((\\d+)\\)?:\\s+(.*)$",
+                    "file": 1,
+                    "line": 2,
+                    "message": 3
+                }
+            },
+            "detail": "运行10ps精度TDC的完整仿真测试"
+        },
+        {
+            "label": "ModelSim: 运行进位链TDC仿真",
+            "type": "shell",
+            "command": "vsim",
+            "args": [
+                "-c",
+                "-do",
+                "do modelsim_setup/modelsim_config.tcl; run_carry_chain_simulation; quit"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "group": "test",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared",
+                "clear": true
+            },
+            "problemMatcher": {
+                "owner": "verilog",
+                "fileLocation": "relative",
+                "pattern": {
+                    "regexp": "^(.*)\\((\\d+)\\)?:\\s+(.*)$",
+                    "file": 1,
+                    "line": 2,
+                    "message": 3
+                }
+            },
+            "detail": "运行进位链TDC仿真测试"
+        },
+        {
+            "label": "ModelSim: 打开GUI界面",
+            "type": "shell",
+            "command": "vsim",
+            "args": [
+                "-gui",
+                "-do",
+                "do modelsim_setup/modelsim_config.tcl"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "group": "test",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": true,
+                "panel": "new"
+            },
+            "problemMatcher": [],
+            "detail": "打开ModelSim图形界面进行交互式仿真"
+        },
+        {
+            "label": "ModelSim: 测试特定时间间隔",
+            "type": "shell",
+            "command": "vsim",
+            "args": [
+                "-c",
+                "-do",
+                "do modelsim_setup/modelsim_config.tcl; test_specific_interval ${input:timeInterval}; quit"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "group": "test",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared",
+                "clear": true
+            },
+            "problemMatcher": {
+                "owner": "verilog",
+                "fileLocation": "relative",
+                "pattern": {
+                    "regexp": "^(.*)\\((\\d+)\\)?:\\s+(.*)$",
+                    "file": 1,
+                    "line": 2,
+                    "message": 3
+                }
+            },
+            "detail": "测试特定的时间间隔（需要输入ps值）"
+        }
+    ],
+    "inputs": [
+        {
+            "id": "timeInterval",
+            "description": "请输入要测试的时间间隔（单位：ps）:",
+            "default": "100"
+        }
+    ]
+}

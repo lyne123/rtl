@@ -1,0 +1,94 @@
+# 最终项目文件结构
+
+## ✅ 推荐使用的文件 (核心工作文件)
+
+### 🎯 10ps精度TDC (主要推荐)
+- **vernier_tdc_10ps.v** - 10ps精度游标TDC主模块
+- **tb_10ps_test.v** - 10ps专用测试平台
+- **10ps_design_spec.txt** - 详细设计规格书
+
+### 🚀 进位链TDC (备选方案)
+- **tdc_top.v** - 进位链TDC主模块 (25ps精度)
+- **tb_tdc_top.v** - 进位链测试平台
+- **tdc_analysis.txt** - 性能分析报告
+
+### 📋 项目管理文件
+- **VERSION_CONTROL.md** - 版本管理指南
+- **README_USAGE.md** - 快速使用说明
+- **PROJECT_STRUCTURE.txt** - 本文件
+
+## 📚 参考资料 (原始设计，仅供参考)
+
+### 原始Vernier TDC设计
+- **Vernier_tdc.v** - 你的原始游标TDC设计
+- **tdc.v** - 原始对齐核心
+- **tb_Vernier_tdc.v** - 原始测试平台
+
+> ⚠️ 注意: 原始设计中的延迟单元不可综合，仅作学习参考
+
+## 🗑️ 已清理的重复文件
+
+以下文件已被清理，不再需要:
+- 第二代游标TDC/ 目录 (重复内容)
+- tb/ 目录 (重复测试文件)
+- 新建文件夹/ 目录 (重复备份)
+
+## 🎯 针对你的需求的最优选择
+
+**你的要求**: 10ps精度 + 大量程 + xc7a100tfgg484-2 + Vivado
+
+**推荐文件组合**:
+```
+1. vernier_tdc_10ps.v     ← 核心设计文件
+2. tb_10ps_test.v         ← 验证测试文件
+3. 10ps_design_spec.txt   ← 设计参考文档
+4. README_USAGE.md        ← 快速上手指南
+```
+
+## 🚀 立即开始使用
+
+### 步骤1: 复制核心文件
+```bash
+cp vernier_tdc_10ps.v ./your_project/
+cp README_USAGE.md ./your_project/
+```
+
+### 步骤2: 查看使用说明
+```bash
+cat README_USAGE.md
+```
+
+### 步骤3: 运行测试验证
+```bash
+# 在Vivado中
+source tb_10ps_test.v
+```
+
+## 📊 性能对比总结
+
+| 文件 | 精度 | 量程 | 推荐度 | 说明 |
+|------|------|------|--------|------|
+| vernier_tdc_10ps.v | 10ps | 83.9ms | ⭐⭐⭐⭐⭐ | **强烈推荐** |
+| tdc_top.v | 25ps | 167ms | ⭐⭐⭐⭐ | 备选方案 |
+| Vernier_tdc.v | 2ns | 有限 | ⭐⭐ | 仅参考 |
+
+## 🔧 开发建议
+
+1. **新手**: 先阅读 `README_USAGE.md` 快速上手
+2. **进阶**: 查看 `10ps_design_spec.txt` 了解设计细节
+3. **验证**: 运行 `tb_10ps_test.v` 确认功能正确
+4. **部署**: 使用 `vernier_tdc_10ps.v` 集成到你的项目
+
+## 📞 支持信息
+
+- **核心设计**: vernier_tdc_10ps.v
+- **最后更新**: 2026-03-18
+- **目标器件**: xc7a100tfgg484-2
+- **开发工具**: Vivado
+- **精度目标**: 10ps
+
+---
+
+**结论**: 使用 `vernier_tdc_10ps.v` + `README_USAGE.md` 开始你的10ps TDC项目！
+
+项目已整理完毕，文件结构清晰，可以直接投入开发使用。 🎉
