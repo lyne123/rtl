@@ -11,7 +11,9 @@ module carry4_delay_chain #(
     input wire rst_n,             // 异步复位
     input wire start_signal,      // START信号(进入延迟链)
     input wire stop_signal,       // STOP信号(触发采样)
-    output reg [CHAIN_LENGTH-1:0] thermometer_code // 温度计码输出
+    output reg [CHAIN_LENGTH-1:0] thermometer_code, // 温度计码输出
+    output reg zero_flag,         // 边界情况标记 (a=0或b=0)
+    output reg metastable_warning // 亚稳态警告信号
 );
 
     // =========================================================================
@@ -21,19 +23,28 @@ module carry4_delay_chain #(
     // 延迟链信号 (CHAIN_LENGTH+1个节点)
     wire [CHAIN_LENGTH:0] carry_chain;
 
-    // 采样寄存器 (两级同步，减少亚稳态)
+    // 输入信号同步链（减少亚稳态风险）
+    reg [2:0] start_sync_chain;   // 三级同步START信号
+    reg [2:0] stop_sync_chain;    // 三级同步STOP信号
+
+    // 采样寄存器 (三级同步，进一步减少亚稳态)
     reg [CHAIN_LENGTH-1:0] sample_reg1;
     reg [CHAIN_LENGTH-1:0] sample_reg2;
+    reg [CHAIN_LENGTH-1:0] sample_reg3;
 
     // 控制信号
     reg sampling_active;          // 采样状态标志
     reg stop_signal_d1;           // STOP信号延迟
+    reg start_delayed;            // 延迟一个周期的START信号
+
+    // 亚稳态检测信号
+    reg metastable_warning;       // 亚稳态警告信号
 
     // =========================================================================
     // 延迟链连接
     // =========================================================================
 
-    assign carry_chain[0] = start_signal;  // 输入信号连接到延迟链起点
+    assign carry_chain[0] = start_delayed;  // 使用延迟后的START信号，确保可靠采样
 
     // =========================================================================
     // CARRY4延迟链生成
@@ -63,31 +74,51 @@ module carry4_delay_chain #(
     endgenerate
 
     // =========================================================================
-    // 采样控制逻辑
+    // 输入信号同步逻辑 - 三级同步减少亚稳态
+    // =========================================================================
+
+    always @(posedge clk_400m or negedge rst_n) begin
+        if (!rst_n) begin
+            start_sync_chain <= 3'b000;
+            stop_sync_chain <= 3'b000;
+            start_delayed <= 1'b0;
+            stop_signal_d1 <= 1'b0;
+        end else begin
+            // 三级同步START信号
+            start_sync_chain <= {start_sync_chain[1:0], start_signal};
+
+            // 三级同步STOP信号
+            stop_sync_chain <= {stop_sync_chain[1:0], stop_signal};
+
+            // 使用同步后的信号
+            start_delayed <= start_sync_chain[2];
+            stop_signal_d1 <= stop_sync_chain[2];
+        end
+    end
+
+    // =========================================================================
+    // 采样控制逻辑 - 改进版本，支持边界情况处理
     // =========================================================================
 
     always @(posedge clk_400m or negedge rst_n) begin
         if (!rst_n) begin
             sampling_active <= 1'b0;
-            stop_signal_d1 <= 1'b0;
             sample_reg1 <= {CHAIN_LENGTH{1'b0}};
             sample_reg2 <= {CHAIN_LENGTH{1'b0}};
             thermometer_code <= {CHAIN_LENGTH{1'b0}};
+            zero_flag <= 1'b0;
         end else begin
 
-            // 延迟STOP信号一个周期，用于边沿检测
-            stop_signal_d1 <= stop_signal;
-
-            // 采样状态控制
-            if (start_signal && !sampling_active) begin
-                // START信号有效且未在采样中，开始新的采样
+            // 采样状态控制 - 使用延迟后的START信号
+            if (start_delayed && !sampling_active) begin
+                // 延迟后的START信号有效且未在采样中，开始新的采样
                 sampling_active <= 1'b1;
             end else if (stop_signal && !stop_signal_d1 && sampling_active) begin
                 // 检测到STOP信号的上升沿且正在采样中，完成采样
                 sampling_active <= 1'b0;
             end
 
-            // 两级同步采样，减少亚稳态风险
+            // 三级同步采样，进一步减少亚稳态风险
             if (sampling_active) begin
                 // 第一级采样
                 sample_reg1 <= carry_chain[CHAIN_LENGTH:1];
@@ -95,14 +126,26 @@ module carry4_delay_chain #(
                 // 第二级采样(进一步减少亚稳态)
                 sample_reg2 <= sample_reg1;
 
+                // 第三级采样(最终稳定)
+                sample_reg3 <= sample_reg2;
+
                 // 当STOP信号有效时，锁存最终结果
-                if (stop_signal && !stop_signal_d1) begin
-                    thermometer_code <= sample_reg2;
+                if (stop_sync_chain[2] && !stop_signal_d1) begin
+                    thermometer_code <= sample_reg3;
+                    // 标记是否为0值情况（a=0或b=0的边界情况）
+                    zero_flag <= (sample_reg3 == {CHAIN_LENGTH{1'b0}});
+
+                    // 检测可能的亚稳态情况
+                    metastable_warning <= (sample_reg1 != sample_reg2) ||
+                                       (sample_reg2 != sample_reg3);
                 end
             end else begin
                 // 非采样期间清零
                 sample_reg1 <= {CHAIN_LENGTH{1'b0}};
                 sample_reg2 <= {CHAIN_LENGTH{1'b0}};
+                sample_reg3 <= {CHAIN_LENGTH{1'b0}};
+                zero_flag <= 1'b0;
+                metastable_warning <= 1'b0;
             end
 
         end

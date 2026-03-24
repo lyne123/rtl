@@ -9,7 +9,8 @@ module tdc_top_carry4 (
     input wire rst_n,             // 异步复位信号(低电平有效)
     input wire pwm_in,            // PWM信号输入
     output wire [37:0] time_interval, // 时间间隔测量结果[37:0]
-    output wire valid             // 数据有效信号
+    output wire valid,            // 数据有效信号
+    output wire measurement_error // 测量错误指示（亚稳态或边界情况）
 );
 
     // =========================================================================
@@ -41,13 +42,23 @@ module tdc_top_carry4 (
     wire start_sync;                  // 同步后的start信号
     wire stop_sync;                   // 同步后的stop信号
 
+    // 时钟参考信号
+    wire prev_clk_ref;                // TDC-A的参考时钟（前一个时钟边沿）
+    wire next_clk_ref;                // TDC-B的参考时钟（下一个时钟边沿）
+
     // 粗计数信号 (时间戳模式)
     wire [COARSE_WIDTH-1:0] start_coarse_ts;  // START时刻粗时间戳
     wire [COARSE_WIDTH-1:0] stop_coarse_ts;   // STOP时刻粗时间戳
 
-    // 细计数信号
-    wire [CARRY4_STAGES-1:0] thermometer_code; // 温度计码
-    wire [FINE_WIDTH-1:0] fine_count;  // 细计数值
+    // 细计数信号 - 双TDC架构
+    wire [CARRY4_STAGES-1:0] thermometer_code_a; // TDC-A温度计码 (测量a)
+    wire [CARRY4_STAGES-1:0] thermometer_code_b; // TDC-B温度计码 (测量b)
+    wire [FINE_WIDTH-1:0] fine_count_a;  // TDC-A细计数值 (a值)
+    wire [FINE_WIDTH-1:0] fine_count_b;  // TDC-B细计数值 (b值)
+    wire tdc_a_zero_flag;                // TDC-A边界情况标记
+    wire tdc_b_zero_flag;                // TDC-B边界情况标记
+    wire tdc_a_metastable;               // TDC-A亚稳态警告
+    wire tdc_b_metastable;               // TDC-B亚稳态警告
 
     // 时间合成信号
     wire [37:0] timestamp_raw;        // 原始时间戳
@@ -89,28 +100,64 @@ module tdc_top_carry4 (
         .free_run_count()
     );
 
-    // 4. CARRY4延迟链细计数
+    // 4. TDC-A: 测量上升沿偏移a (从参考时钟到PWM上升沿)
+    // 测量PWM上升沿的"迟到"时间
     carry4_delay_chain #(
         .CHAIN_LENGTH(CARRY4_STAGES)
-    ) u_carry4_chain (
+    ) u_tdc_a (
         .clk_400m(clk_400m),
         .rst_n(rst_n && mmcm_locked),
-        .start_signal(start_sync),
-        .stop_signal(stop_sync),
-        .thermometer_code(thermometer_code)
+        .start_signal(prev_clk_ref),      // 前一个时钟参考边沿
+        .stop_signal(start_sync),         // PWM上升沿
+        .thermometer_code(thermometer_code_a),
+        .zero_flag(tdc_a_zero_flag),     // a=0的边界情况标记
+        .metastable_warning(tdc_a_metastable) // 亚稳态警告
     );
 
-    // 5. 温度计码解码器
+    // 5. TDC-B: 测量下降沿偏移b (从PWM下降沿到下一个时钟)
+    // 测量PWM下降沿的"早退"时间
+    carry4_delay_chain #(
+        .CHAIN_LENGTH(CARRY4_STAGES)
+    ) u_tdc_b (
+        .clk_400m(clk_400m),
+        .rst_n(rst_n && mmcm_locked),
+        .start_signal(stop_sync),         // PWM下降沿
+        .stop_signal(next_clk_ref),       // 下一个时钟参考边沿
+        .thermometer_code(thermometer_code_b),
+        .zero_flag(tdc_b_zero_flag),     // b=0的边界情况标记
+        .metastable_warning(tdc_b_metastable) // 亚稳态警告
+    );
+
+    // 6. 温度计码解码器 - TDC-A
     thermometer_decoder #(
         .INPUT_WIDTH(CARRY4_STAGES),
         .OUTPUT_WIDTH(FINE_WIDTH)
-    ) u_therm_decoder (
-        .thermometer_in(thermometer_code),
-        .binary_out(fine_count)
+    ) u_therm_decoder_a (
+        .thermometer_in(thermometer_code_a),
+        .binary_out(fine_count_a)
     );
 
-    // 6. 时间戳合成器
-    timestamp_synthesizer #(
+    // 7. 温度计码解码器 - TDC-B
+    thermometer_decoder #(
+        .INPUT_WIDTH(CARRY4_STAGES),
+        .OUTPUT_WIDTH(FINE_WIDTH)
+    ) u_therm_decoder_b (
+        .thermometer_in(thermometer_code_b),
+        .binary_out(fine_count_b)
+    );
+
+    // 8. 时钟参考信号生成
+    clock_reference_gen u_clk_ref (
+        .clk_400m(clk_400m),
+        .rst_n(rst_n && mmcm_locked),
+        .start_sync(start_sync),
+        .stop_sync(stop_sync),
+        .prev_clk_ref(prev_clk_ref),  // TDC-A参考时钟
+        .next_clk_ref(next_clk_ref)   // TDC-B参考时钟
+    );
+
+    // 9. 时间戳合成器（双TDC版本）
+    timestamp_synthesizer_dual #(
         .COARSE_WIDTH(COARSE_WIDTH),
         .FINE_WIDTH(FINE_WIDTH),
         .COARSE_PERIOD(COARSE_PERIOD),
@@ -118,7 +165,8 @@ module tdc_top_carry4 (
     ) u_timestamp_synth (
         .start_coarse_ts(start_coarse_ts),
         .stop_coarse_ts(stop_coarse_ts),
-        .fine_count(fine_count),
+        .fine_a(fine_count_a),        // TDC-A测量结果（a值）
+        .fine_b(fine_count_b),        // TDC-B测量结果（b值）
         .timestamp(timestamp_raw)
     );
 
@@ -145,8 +193,14 @@ module tdc_top_carry4 (
     // 输出赋值
     // =========================================================================
 
+    // 测量错误检测
+    wire metastable_error = tdc_a_metastable || tdc_b_metastable;
+    wire boundary_error = (tdc_a_zero_flag && tdc_b_zero_flag &&
+                          (start_coarse_ts != stop_coarse_ts));
+
     assign time_interval = timestamp_reg;
     assign valid = valid_reg;
+    assign measurement_error = metastable_error || boundary_error;
 
     // =========================================================================
     // 调试信号 (可选)
