@@ -9,7 +9,7 @@ module timestamp_synthesizer_dual #(
     parameter COARSE_WIDTH = 32,      // 粗计数位宽
     parameter FINE_WIDTH = 7,          // 细计数位宽 (72<128=2^7)
     parameter COARSE_PERIOD = 2.5,     // 粗计数周期(ns)
-    parameter FINE_PERIOD = 34.7       // 细计数周期(ns) = 2.5ns/72
+    parameter FINE_PERIOD = 35.0       // 细计数周期(ns)，需通过码密度统计法校准确定
 )(
     input wire [COARSE_WIDTH-1:0] start_coarse_ts,  // START时刻粗时间戳
     input wire [COARSE_WIDTH-1:0] stop_coarse_ts,   // STOP时刻粗时间戳
@@ -24,7 +24,7 @@ module timestamp_synthesizer_dual #(
 
     // 时间计算常数（转换为皮秒精度，避免浮点运算）
     localparam COARSE_PERIOD_PS = 2500;              // 2.5ns = 2500ps
-    localparam FINE_PERIOD_PS = 35;                  // 34.7ps ≈ 35ps (取整便于计算)
+    localparam FINE_PERIOD_PS = 35;                  // 35ps，需通过实际校准调整
 
     // 位宽定义
     localparam CALC_WIDTH = 32;                      // 计算中间结果位宽
@@ -123,9 +123,9 @@ module timestamp_synthesizer_dual #(
     // 检测短脉冲（脉宽小于一个粗计数周期）
     assign short_pulse_detection = (coarse_diff == 0);
 
-    // 检测极短脉冲（a + b > 72，可能测量错误）
+    // 检测极短脉冲（a + b > 80，可能测量错误）
     assign very_short_pulse_detection = (coarse_diff == 0) &&
-                                       ({1'b0, fine_a} + {1'b0, fine_b} > 72);
+                                       ({1'b0, fine_a} + {1'b0, fine_b} > 80);
 
     // =========================================================================
     // 计算示例说明

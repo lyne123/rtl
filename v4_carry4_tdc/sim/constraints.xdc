@@ -56,9 +56,12 @@ set_multicycle_path 2 -hold -from [get_registers *pwm_sync_reg[0]*] -to [get_reg
 set_multicycle_path 2 -setup -from [get_registers *start_edge_sync2*] -to [get_registers *counting_active*]
 set_multicycle_path 1 -hold -from [get_registers *start_edge_sync2*] -to [get_registers *counting_active*]
 
-# CARRY4延迟链接口路径
-set_multicycle_path 2 -setup -from [get_registers *carry4_delay_chain*] -to [get_registers *sample_reg1*]
-set_multicycle_path 1 -hold -from [get_registers *carry4_delay_chain*] -to [get_registers *sample_reg1*]
+# CARRY4延迟链接口路径 (方案一优化)
+set_multicycle_path 3 -setup -from [get_pins *carry4_delay_chain*/carry_chain[*]] -to [get_registers *sample_reg1*]
+set_multicycle_path 2 -hold -from [get_pins *carry4_delay_chain*/carry_chain[*]] -to [get_registers *sample_reg1*]
+
+# CARRY4内部延迟路径约束
+set_false_path -from [get_pins *carry4_delay_chain*/carry_chain[*]] -to [get_pins *carry4_delay_chain*/carry_chain[*]]
 
 # 温度计码解码路径
 set_multicycle_path 2 -setup -from [get_registers *thermometer_code*] -to [get_registers *binary_out*]
@@ -207,10 +210,10 @@ set_property STEPS.ROUTE_DESIGN.ARGS.DIRECTIVE Explore [get_runs impl_1]
 # - 保持时间裕量: > 0.1ns
 # - 最大工作频率: 400MHz
 
-# 资源目标:
+# 资源目标 (方案一优化后):
 # - LUT使用: < 1000
 # - FF使用: < 800
-# - CARRY4使用: ~60
+# - CARRY4使用: ~18 (优化后，原为72)
 # - MMCM使用: 1
 
 # 功耗目标:

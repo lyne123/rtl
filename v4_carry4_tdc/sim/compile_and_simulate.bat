@@ -21,7 +21,7 @@ if not exist "%MODELSIM_PATH%\vlog.exe" (
 )
 
 REM 切换到工作目录
-cd /d %WORK_DIR%
+cd /d %WORK_DIR%\src
 
 echo =======================================
 echo CARRY4 TDC 编译和仿真脚本
@@ -54,7 +54,8 @@ echo [3/6] 编译核心模块...
 %MODELSIM_PATH%\vlog.exe -work work -timescale 1ns/1ps +incdir+%RTL_DIR% coarse_counter_400m.v
 %MODELSIM_PATH%\vlog.exe -work work -timescale 1ns/1ps +incdir+%RTL_DIR% edge_detector_sync.v
 %MODELSIM_PATH%\vlog.exe -work work -timescale 1ns/1ps +incdir+%RTL_DIR% thermometer_decoder.v
-%MODELSIM_PATH%\vlog.exe -work work -timescale 1ns/1ps +incdir+%RTL_DIR% timestamp_synthesizer.v
+%MODELSIM_PATH%\vlog.exe -work work -timescale 1ns/1ps +incdir+%RTL_DIR% timestamp_synthesizer_dual.v
+%MODELSIM_PATH%\vlog.exe -work work -timescale 1ns/1ps +incdir+%RTL_DIR% clock_reference_gen.v
 %MODELSIM_PATH%\vlog.exe -work work -timescale 1ns/1ps +incdir+%RTL_DIR% mmcm_50m_to_400m.v
 if errorlevel 1 (
     echo Error: Failed to compile core modules
