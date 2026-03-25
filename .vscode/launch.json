@@ -1,0 +1,46 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "ModelSim 仿真调试",
+            "type": "cppvsdbg",
+            "request": "launch",
+            "program": "${env:MODELSIM_PATH}/vsim.exe",
+            "args": [
+                "-gui",
+                "-do",
+                "vsim work.tb_carry4_tdc; add wave *; run -all"
+            ],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}/v4_carry4_tdc/src",
+            "environment": [],
+            "externalConsole": true,
+            "preLaunchTask": "ModelSim: 编译和仿真",
+            "presentation": {
+                "hidden": false,
+                "group": "ModelSim",
+                "order": 1
+            }
+        },
+        {
+            "name": "ModelSim 交互式仿真",
+            "type": "cppvsdbg",
+            "request": "launch",
+            "program": "${env:MODELSIM_PATH}/vsim.exe",
+            "args": [
+                "-gui",
+                "work.tb_carry4_tdc"
+            ],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}/v4_carry4_tdc/src",
+            "environment": [],
+            "externalConsole": true,
+            "preLaunchTask": "ModelSim: 仅编译",
+            "presentation": {
+                "hidden": false,
+                "group": "ModelSim",
+                "order": 2
+            }
+        }
+    ]
+}

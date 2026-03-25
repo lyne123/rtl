@@ -1,0 +1,10 @@
+{
+    "verilog.linting.linter": "verilator",
+    "verilog.highlighting.standard": "SystemVerilog",
+    "files.associations": {
+        "*.v": "verilog"
+    },
+    "terminal.integrated.shell.windows": "cmd.exe",
+    "verilog.systemverilogExtensions": [".v", ".sv"],
+    "verilog.verilogExtensions": [".v"]
+}

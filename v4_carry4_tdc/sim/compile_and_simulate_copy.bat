@@ -1,38 +1,43 @@
 @echo off
-REM ===========================================================================
-REM CARRY4 TDC 编译和仿真批处理脚本
-REM 功能: 编译所有Verilog文件并运行仿真
-REM 注意: 使用-timescale参数统一时间单位
-REM ===========================================================================
+REM CARRY4 TDC compile and simulate batch script
+REM Function: compile all Verilog files and run simulation
 
-REM 设置工作目录
+REM Set working directories
 set WORK_DIR=d:\01-Codes\XilinxCode\Vernier_tdc\rtl\v4_carry4_tdc
 set RTL_DIR=d:\01-Codes\XilinxCode\Vernier_tdc\rtl
 
-REM 设置ModelSim路径 (根据实际情况修改)
-set MODELSIM_PATH=C:\modeltech64_10.7\win64
+REM Set ModelSim path
+set MODELSIM_PATH=C:\modeltech64_2020.4\win64
 
-REM 检查ModelSim是否可用
+REM Check if ModelSim is available
+echo Checking ModelSim path: %MODELSIM_PATH%
 if not exist "%MODELSIM_PATH%\vlog.exe" (
-    echo Error: ModelSim not found at %MODELSIM_PATH%
+    echo Error: vlog.exe not found at %MODELSIM_PATH%
     echo Please set correct ModelSim path
     pause
     exit /b 1
 )
+if not exist "%MODELSIM_PATH%\vsim.exe" (
+    echo Error: vsim.exe not found at %MODELSIM_PATH%
+    echo Please set correct ModelSim path
+    pause
+    exit /b 1
+)
+echo ModelSim path check passed
 
-REM 切换到工作目录
+REM Change to working directory
 cd /d %WORK_DIR%\src
 
-echo =======================================
-echo CARRY4 TDC 编译和仿真脚本
-echo 工作目录: %WORK_DIR%
-echo ModelSim路径: %MODELSIM_PATH%
-echo 时间单位: 1ns/1ps
-echo =======================================
+echo ========================================
+echo CARRY4 TDC compile and simulate script
+echo Working directory: %WORK_DIR%
+echo ModelSim path: %MODELSIM_PATH%
+echo Time unit: 1ns/1ps
+echo ========================================
 echo.
 
-REM 创建work库
-echo [1/6] 创建work库...
+REM Create work library
+echo [1/6] Creating work library...
 if exist work rmdir /s /q work
 %MODELSIM_PATH%\vlib.exe work
 if errorlevel 1 (
@@ -41,7 +46,7 @@ if errorlevel 1 (
     exit /b 1
 )
 
-echo [2/6] 编译顶层模块...
+echo [2/6] Compiling top module...
 %MODELSIM_PATH%\vlog.exe -work work -timescale 1ns/1ps +incdir+%RTL_DIR% tdc_top_carry4.v
 if errorlevel 1 (
     echo Error: Failed to compile tdc_top_carry4.v
@@ -49,7 +54,7 @@ if errorlevel 1 (
     exit /b 1
 )
 
-echo [3/6] 编译核心模块...
+echo [3/6] Compiling core modules...
 %MODELSIM_PATH%\vlog.exe -work work -timescale 1ns/1ps +incdir+%RTL_DIR% carry4_delay_chain.v
 %MODELSIM_PATH%\vlog.exe -work work -timescale 1ns/1ps +incdir+%RTL_DIR% coarse_counter_400m.v
 %MODELSIM_PATH%\vlog.exe -work work -timescale 1ns/1ps +incdir+%RTL_DIR% edge_detector_sync.v
@@ -63,7 +68,7 @@ if errorlevel 1 (
     exit /b 1
 )
 
-echo [4/6] 编译测试平台...
+echo [4/6] Compiling testbench...
 %MODELSIM_PATH%\vlog.exe -work work -timescale 1ns/1ps +incdir+%RTL_DIR% tb_carry4_tdc.v
 if errorlevel 1 (
     echo Error: Failed to compile testbench
@@ -71,34 +76,34 @@ if errorlevel 1 (
     exit /b 1
 )
 
-echo [5/6] 启动仿真...
-echo 正在启动ModelSim，请稍候...
+echo [5/6] Starting simulation...
+echo Starting ModelSim, please wait...
 %MODELSIM_PATH%\vsim.exe -c -do "vsim work.tb_carry4_tdc; run -all; quit"
 if errorlevel 1 (
     echo Warning: Simulation may have warnings
 )
 
-echo [6/6] 检查仿真结果...
+echo [6/6] Checking simulation results...
 if exist tb_carry4_tdc.vcd (
-    echo 仿真完成! 波形文件已生成: tb_carry4_tdc.vcd
-    echo 可以使用ModelSim打开波形文件查看详细结果
+    echo Simulation completed! Waveform file generated: tb_carry4_tdc.vcd
+    echo You can use ModelSim to open the waveform file for detailed analysis
 ) else (
-    echo Warning: 波形文件未生成，请检查仿真是否成功
+    echo Warning: Waveform file not generated, please check if simulation succeeded
 )
 
 echo.
-echo =======================================
-echo 编译和仿真完成!
-echo =======================================
+echo ========================================
+echo Compile and simulation completed!
+echo ========================================
 echo.
-echo 文件生成情况:
-echo - work/: 编译库文件
-echo - tb_carry4_tdc.vcd: 仿真波形文件
+echo Generated files:
+echo - work/: compiled library files
+echo - tb_carry4_tdc.vcd: simulation waveform file
 echo.
-echo 后续步骤:
-echo 1. 使用ModelSim打开波形文件分析结果
-echo 2. 检查仿真输出是否符合预期
-echo 3. 如有问题，修改代码后重新运行此脚本
+echo Next steps:
+echo 1. Use ModelSim to open waveform file for analysis
+echo 2. Check simulation output matches expectations
+echo 3. If issues found, modify code and re-run this script
 echo.
 
 pause

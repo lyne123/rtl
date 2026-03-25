@@ -1,4 +1,14 @@
 {
+  "env": {
+    "ANTHROPIC_AUTH_TOKEN": "ak_2ZS2fg0Zh4z12oL7ju6mM6N45yd4d",
+    "ANTHROPIC_BASE_URL": "https://api.longcat.chat/anthropic",
+    "ANTHROPIC_MODEL": "LongCat-Flash-Thinking-2601",
+    "ANTHROPIC_SMALL_FAST_MODEL": "LongCat-Flash-Chat",
+    "ANTHROPIC_DEFAULT_SONNET_MODEL": "LongCat-Flash-Thinking-2601",
+    "ANTHROPIC_DEFAULT_OPUS_MODEL": "LongCat-Flash-Thinking-2601",
+    "CLAUDE_CODE_MAX_OUTPUT_TOKENS": "6000",
+    "CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC": 1
+  },
   "permissions": {
     "allow": [
       "Bash(move \"d:\\\\01-Codes\\\\XilinxCode\\\\Vernier_tdc\\\\rtl\\\\Vernier_tdc.v\" \"d:\\\\01-Codes\\\\XilinxCode\\\\Vernier_tdc\\\\rtl\\\\v1_original_design\"\")",
@@ -6,7 +16,11 @@
       "Bash(grep -E \"\\\\.\\(v|txt|md\\)$\")",
       "Bash(grep -E \"\\\\.\\(v|txt|md|tcl\\)$\")",
       "Bash(vlog -work work +incdir+../rtl/ tdc_top_carry4.v coarse_counter_400m.v timestamp_synthesizer.v)",
-      "WebSearch"
+      "WebSearch",
+      "Bash(\"C:\\\\modeltech64_2020.4\\\\win64\\\\vlib.exe\" work:*)",
+      "Bash(\"C:\\\\modeltech64_2020.4\\\\win64\\\\vlog.exe\" -work work -timescale 1ns/1ps +incdir+d:/01-Codes/XilinxCode/Vernier_tdc/rtl mmcm_50m_to_400m.v carry4_delay_chain.v coarse_counter_400m.v edge_detector_sync.v thermometer_decoder.v timestamp_synthesizer_dual.v clock_reference_gen.v tdc_top_carry4.v tb_carry4_tdc.v)",
+      "Bash(\"C:\\\\modeltech64_2020.4\\\\win64\\\\vlog.exe\" -work work -timescale 1ns/1ps +incdir+d:/01-Codes/XilinxCode/Vernier_tdc/rtl mmcm_simple.v carry4_simple.v coarse_counter_400m.v edge_detector_sync.v thermometer_decoder.v timestamp_synthesizer_dual.v clock_reference_gen.v tb_simple.v)",
+      "Bash(git checkout:*)"
     ]
   }
 }

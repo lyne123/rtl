@@ -44,8 +44,8 @@ module tdc_top_carry4 (
     wire stop_sync;                   // 同步后的stop信号
 
     // 时钟参考信号
-    wire prev_clk_ref;                // TDC-A的参考时钟（前一个时钟边沿）
-    wire next_clk_ref;                // TDC-B的参考时钟（下一个时钟边沿）
+    wire tdc_a_ref;                   // TDC-A的参考时钟（下一时钟边沿）
+    wire tdc_b_ref;                   // TDC-B的参考时钟（下一时钟边沿）
 
     // 粗计数信号 (时间戳模式)
     wire [COARSE_WIDTH-1:0] start_coarse_ts;  // START时刻粗时间戳
@@ -101,23 +101,23 @@ module tdc_top_carry4 (
         .free_run_count()
     );
 
-    // 4. TDC-A: 测量上升沿偏移a (从参考时钟到PWM上升沿)
-    // 测量PWM上升沿的"迟到"时间
+    // 4. TDC-A: 测量PWM上升沿到下一时钟的时间(c)
+    // 测量PWM上升沿的"提前"时间
     carry4_delay_chain #(
         .CARRY4_COUNT(CARRY4_COUNT),
         .TOTAL_STAGES(TOTAL_STAGES)
     ) u_tdc_a (
         .clk_400m(clk_400m),
         .rst_n(rst_n && mmcm_locked),
-        .start_signal(prev_clk_ref),      // 前一个时钟参考边沿
-        .stop_signal(start_sync),         // PWM上升沿
+        .start_signal(start_sync),         // PWM上升沿
+        .stop_signal(tdc_a_ref),          // 下一时钟参考边沿
         .thermometer_code(thermometer_code_a),
-        .zero_flag(tdc_a_zero_flag),     // a=0的边界情况标记
+        .zero_flag(tdc_a_zero_flag),     // c=0的边界情况标记
         .metastable_warning(tdc_a_metastable) // 亚稳态警告
     );
 
-    // 5. TDC-B: 测量下降沿偏移b (从PWM下降沿到下一个时钟)
-    // 测量PWM下降沿的"早退"时间
+    // 5. TDC-B: 测量PWM下降沿到下一时钟的时间(d)
+    // 测量PWM下降沿的"提前"时间
     carry4_delay_chain #(
         .CARRY4_COUNT(CARRY4_COUNT),
         .TOTAL_STAGES(TOTAL_STAGES)
@@ -125,9 +125,9 @@ module tdc_top_carry4 (
         .clk_400m(clk_400m),
         .rst_n(rst_n && mmcm_locked),
         .start_signal(stop_sync),         // PWM下降沿
-        .stop_signal(next_clk_ref),       // 下一个时钟参考边沿
+        .stop_signal(tdc_b_ref),          // 下一时钟参考边沿
         .thermometer_code(thermometer_code_b),
-        .zero_flag(tdc_b_zero_flag),     // b=0的边界情况标记
+        .zero_flag(tdc_b_zero_flag),     // d=0的边界情况标记
         .metastable_warning(tdc_b_metastable) // 亚稳态警告
     );
 
@@ -155,8 +155,8 @@ module tdc_top_carry4 (
         .rst_n(rst_n && mmcm_locked),
         .start_sync(start_sync),
         .stop_sync(stop_sync),
-        .prev_clk_ref(prev_clk_ref),  // TDC-A参考时钟
-        .next_clk_ref(next_clk_ref)   // TDC-B参考时钟
+        .tdc_a_ref(tdc_a_ref),        // TDC-A参考时钟
+        .tdc_b_ref(tdc_b_ref)         // TDC-B参考时钟
     );
 
     // 9. 时间戳合成器（双TDC版本）
@@ -168,8 +168,8 @@ module tdc_top_carry4 (
     ) u_timestamp_synth (
         .start_coarse_ts(start_coarse_ts),
         .stop_coarse_ts(stop_coarse_ts),
-        .fine_a(fine_count_a),        // TDC-A测量结果（a值）
-        .fine_b(fine_count_b),        // TDC-B测量结果（b值）
+        .fine_a(fine_count_a),        // TDC-A测量结果（c值）
+        .fine_b(fine_count_b),        // TDC-B测量结果（d值）
         .timestamp(timestamp_raw)
     );
 

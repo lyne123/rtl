@@ -85,8 +85,6 @@ module mmcm_50m_to_400m (
         .CLKFBOUTB(),             // 反馈时钟反相输出(不使用)
 
         // 控制信号
-        .CLKFBSTOPPED(),          // 反馈时钟停止指示
-        .CLKINSTOPPED(),          // 输入时钟停止指示
         .LOCKED(locked),          // 锁定信号
         .PWRDWN(1'b0),           // 电源关闭(不使用)
         .RST(mmcm_reset)         // 复位信号
@@ -98,9 +96,16 @@ module mmcm_50m_to_400m (
     // =========================================================================
 
     // 使用BUFG原语将MMCM输出连接到全局时钟网络
-    BUFG bufg_inst (
-        .O(clk_out_400m),         // 缓冲后输出
-        .I(clk_out_400m_buf)      // 缓冲前输入
+    wire clk_out_400m_int;
+    assign clk_out_400m = clk_out_400m_int;
+
+    // 全局时钟缓冲
+    BUFGCTRL bufg_inst (
+        .O(clk_out_400m_int),     // 缓冲后输出
+        .I0(clk_out_400m_buf),    // 缓冲前输入
+        .CE0(1'b1),               // 使能信号
+        .S0(1'b1),                // 选择信号
+        .S1(1'b0)                 // 选择信号
     );
 
     // 反馈时钟缓冲

@@ -38,8 +38,7 @@ module carry4_delay_chain #(
     reg stop_signal_d1;           // STOP信号延迟
     reg start_delayed;            // 延迟一个周期的START信号
 
-    // 亚稳态检测信号
-    reg metastable_warning;       // 亚稳态警告信号
+    // 亚稳态检测信号（已在端口声明中定义，此处不需要重复声明）
 
     // =========================================================================
     // 延迟链连接

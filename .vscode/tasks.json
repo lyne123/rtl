@@ -1,0 +1,80 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "ModelSim: 语法检查",
+            "type": "shell",
+            "command": "cmd",
+            "args": ["/c", "cd ${workspaceFolder}/v4_carry4_tdc/src && syntax_check.bat"],
+            "group": {
+                "kind": "build",
+                "isDefault": false
+            },
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared",
+                "showReuseMessage": true,
+                "clear": false
+            },
+            "problemMatcher": [],
+            "detail": "运行 Verilog 语法检查"
+        },
+        {
+            "label": "ModelSim: 编译和仿真",
+            "type": "shell",
+            "command": "cmd",
+            "args": ["/c", "cd ${workspaceFolder}/v4_carry4_tdc/sim && compile_and_simulate.bat"],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared",
+                "showReuseMessage": true,
+                "clear": false
+            },
+            "problemMatcher": [],
+            "detail": "编译所有 Verilog 文件并运行仿真"
+        },
+        {
+            "label": "ModelSim: 仅编译",
+            "type": "shell",
+            "command": "cd ${workspaceFolder}/v4_carry4_tdc/sim && ${workspaceFolder}/v4_carry4_tdc/sim/compile_and_simulate.bat",
+            "args": ["compile-only"],
+            "group": {
+                "kind": "build",
+                "isDefault": false
+            },
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared"
+            },
+            "problemMatcher": [],
+            "detail": "仅编译 Verilog 文件，不运行仿真"
+        },
+        {
+            "label": "ModelSim: 打开波形",
+            "type": "shell",
+            "command": "cd ${workspaceFolder}/v4_carry4_tdc/sim && %MODELSIM_PATH%/vsim.exe tb_carry4_tdc.vcd",
+            "group": {
+                "kind": "test",
+                "isDefault": false
+            },
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared"
+            },
+            "problemMatcher": [],
+            "detail": "使用 ModelSim 打开波形文件"
+        }
+    ]
+}
