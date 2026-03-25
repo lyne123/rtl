@@ -2,12 +2,14 @@
 2020.2
 Nov 18 2020
 09:47:47
+D:/01-Codes/XilinxCode/Vernier_tdc/v4_carry4_tdc/prj/v4_carry4_tdc_1.gen/sources_1/ip/mmcm_50m_to_400m/mmcm_50m_to_400m.v,1774410617,verilog,,D:/01-Codes/XilinxCode/Vernier_tdc/v4_carry4_tdc/src/carry4_delay_chain.v,,mmcm_50m_to_400m,,,../../../../v4_carry4_tdc_1.gen/sources_1/ip/mmcm_50m_to_400m,,,,,
+D:/01-Codes/XilinxCode/Vernier_tdc/v4_carry4_tdc/prj/v4_carry4_tdc_1.gen/sources_1/ip/mmcm_50m_to_400m/mmcm_50m_to_400m_clk_wiz.v,1774410617,verilog,,D:/01-Codes/XilinxCode/Vernier_tdc/v4_carry4_tdc/prj/v4_carry4_tdc_1.gen/sources_1/ip/mmcm_50m_to_400m/mmcm_50m_to_400m.v,,mmcm_50m_to_400m_clk_wiz,,,../../../../v4_carry4_tdc_1.gen/sources_1/ip/mmcm_50m_to_400m,,,,,
 D:/01-Codes/XilinxCode/Vernier_tdc/v4_carry4_tdc/prj/v4_carry4_tdc_1.sim/sim_1/behav/xsim/glbl.v,1605673889,verilog,,,,glbl,,,,,,,,
-D:/01-Codes/XilinxCode/Vernier_tdc/v4_carry4_tdc/src/carry4_delay_chain.v,1774352686,verilog,,D:/01-Codes/XilinxCode/Vernier_tdc/v4_carry4_tdc/src/clock_reference_gen.v,,carry4_delay_chain,,,,,,,,
-D:/01-Codes/XilinxCode/Vernier_tdc/v4_carry4_tdc/src/clock_reference_gen.v,1774331956,verilog,,D:/01-Codes/XilinxCode/Vernier_tdc/v4_carry4_tdc/src/coarse_counter_400m.v,,clock_reference_gen,,,,,,,,
-D:/01-Codes/XilinxCode/Vernier_tdc/v4_carry4_tdc/src/coarse_counter_400m.v,1774279335,verilog,,D:/01-Codes/XilinxCode/Vernier_tdc/v4_carry4_tdc/src/edge_detector_sync.v,,coarse_counter_400m,,,,,,,,
-D:/01-Codes/XilinxCode/Vernier_tdc/v4_carry4_tdc/src/edge_detector_sync.v,1774261642,verilog,,D:/01-Codes/XilinxCode/Vernier_tdc/v4_carry4_tdc/src/mmcm_50m_to_400m.v,,edge_detector_sync,,,,,,,,
-D:/01-Codes/XilinxCode/Vernier_tdc/v4_carry4_tdc/src/mmcm_50m_to_400m.v,1774359116,verilog,,D:/01-Codes/XilinxCode/Vernier_tdc/v4_carry4_tdc/src/thermometer_decoder.v,,mmcm_50m_to_400m,,,,,,,,
-D:/01-Codes/XilinxCode/Vernier_tdc/v4_carry4_tdc/src/tdc_top_carry4.v,1774344821,verilog,,,,tdc_top_carry4,,,,,,,,
-D:/01-Codes/XilinxCode/Vernier_tdc/v4_carry4_tdc/src/thermometer_decoder.v,1774277784,verilog,,D:/01-Codes/XilinxCode/Vernier_tdc/v4_carry4_tdc/src/timestamp_synthesizer_dual.v,,thermometer_decoder,,,,,,,,
-D:/01-Codes/XilinxCode/Vernier_tdc/v4_carry4_tdc/src/timestamp_synthesizer_dual.v,1774359427,verilog,,D:/01-Codes/XilinxCode/Vernier_tdc/v4_carry4_tdc/src/tdc_top_carry4.v,,timestamp_synthesizer_dual,,,,,,,,
+D:/01-Codes/XilinxCode/Vernier_tdc/v4_carry4_tdc/sim/tb_carry4_tdc_readable.v,1774444203,verilog,,,,tb_carry4_tdc,,,../../../../v4_carry4_tdc_1.gen/sources_1/ip/mmcm_50m_to_400m,,,,,
+D:/01-Codes/XilinxCode/Vernier_tdc/v4_carry4_tdc/src/carry4_delay_chain.v,1774352686,verilog,,D:/01-Codes/XilinxCode/Vernier_tdc/v4_carry4_tdc/src/clock_reference_gen.v,,carry4_delay_chain,,,../../../../v4_carry4_tdc_1.gen/sources_1/ip/mmcm_50m_to_400m,,,,,
+D:/01-Codes/XilinxCode/Vernier_tdc/v4_carry4_tdc/src/clock_reference_gen.v,1774406310,verilog,,D:/01-Codes/XilinxCode/Vernier_tdc/v4_carry4_tdc/src/coarse_counter_400m.v,,clock_reference_gen,,,../../../../v4_carry4_tdc_1.gen/sources_1/ip/mmcm_50m_to_400m,,,,,
+D:/01-Codes/XilinxCode/Vernier_tdc/v4_carry4_tdc/src/coarse_counter_400m.v,1774279335,verilog,,D:/01-Codes/XilinxCode/Vernier_tdc/v4_carry4_tdc/src/edge_detector_sync.v,,coarse_counter_400m,,,../../../../v4_carry4_tdc_1.gen/sources_1/ip/mmcm_50m_to_400m,,,,,
+D:/01-Codes/XilinxCode/Vernier_tdc/v4_carry4_tdc/src/edge_detector_sync.v,1774261642,verilog,,D:/01-Codes/XilinxCode/Vernier_tdc/v4_carry4_tdc/src/tdc_top_carry4.v,,edge_detector_sync,,,../../../../v4_carry4_tdc_1.gen/sources_1/ip/mmcm_50m_to_400m,,,,,
+D:/01-Codes/XilinxCode/Vernier_tdc/v4_carry4_tdc/src/tdc_top_carry4.v,1774443554,verilog,,D:/01-Codes/XilinxCode/Vernier_tdc/v4_carry4_tdc/src/thermometer_decoder.v,,tdc_top_carry4,,,../../../../v4_carry4_tdc_1.gen/sources_1/ip/mmcm_50m_to_400m,,,,,
+D:/01-Codes/XilinxCode/Vernier_tdc/v4_carry4_tdc/src/thermometer_decoder.v,1774277784,verilog,,D:/01-Codes/XilinxCode/Vernier_tdc/v4_carry4_tdc/src/timestamp_synthesizer_dual.v,,thermometer_decoder,,,../../../../v4_carry4_tdc_1.gen/sources_1/ip/mmcm_50m_to_400m,,,,,
+D:/01-Codes/XilinxCode/Vernier_tdc/v4_carry4_tdc/src/timestamp_synthesizer_dual.v,1774405350,verilog,,D:/01-Codes/XilinxCode/Vernier_tdc/v4_carry4_tdc/sim/tb_carry4_tdc_readable.v,,timestamp_synthesizer_dual,,,../../../../v4_carry4_tdc_1.gen/sources_1/ip/mmcm_50m_to_400m,,,,,

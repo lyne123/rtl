@@ -1,0 +1,18 @@
+# compile verilog/system verilog design source files
+verilog xil_defaultlib  --include "../../../../v4_carry4_tdc_1.gen/sources_1/ip/mmcm_50m_to_400m" \
+"../../../../v4_carry4_tdc_1.gen/sources_1/ip/mmcm_50m_to_400m/mmcm_50m_to_400m_clk_wiz.v" \
+"../../../../v4_carry4_tdc_1.gen/sources_1/ip/mmcm_50m_to_400m/mmcm_50m_to_400m.v" \
+"../../../../../src/carry4_delay_chain.v" \
+"../../../../../src/clock_reference_gen.v" \
+"../../../../../src/coarse_counter_400m.v" \
+"../../../../../src/edge_detector_sync.v" \
+"../../../../../src/tdc_top_carry4.v" \
+"../../../../../src/thermometer_decoder.v" \
+"../../../../../src/timestamp_synthesizer_dual.v" \
+"../../../../../sim/tb_carry4_tdc_readable.v" \
+
+# compile glbl module
+verilog xil_defaultlib "glbl.v"
+
+# Do not sort compile order
+nosort

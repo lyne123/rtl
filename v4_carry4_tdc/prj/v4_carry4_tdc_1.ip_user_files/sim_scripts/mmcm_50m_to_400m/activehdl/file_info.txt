@@ -1,0 +1,5 @@
+xpm_cdc.sv,systemverilog,xpm,D:/Vivado/2020.2/data/ip/xpm/xpm_cdc/hdl/xpm_cdc.sv,incdir="../../../ipstatic"incdir="../../../ipstatic"
+xpm_VCOMP.vhd,vhdl,xpm,D:/Vivado/2020.2/data/ip/xpm/xpm_VCOMP.vhd,incdir="../../../ipstatic"incdir="../../../ipstatic"
+mmcm_50m_to_400m_clk_wiz.v,verilog,xil_defaultlib,../../../../v4_carry4_tdc_1.gen/sources_1/ip/mmcm_50m_to_400m/mmcm_50m_to_400m_clk_wiz.v,incdir="../../../ipstatic"incdir="../../../ipstatic"
+mmcm_50m_to_400m.v,verilog,xil_defaultlib,../../../../v4_carry4_tdc_1.gen/sources_1/ip/mmcm_50m_to_400m/mmcm_50m_to_400m.v,incdir="../../../ipstatic"incdir="../../../ipstatic"
+glbl.v,Verilog,xil_defaultlib,glbl.v

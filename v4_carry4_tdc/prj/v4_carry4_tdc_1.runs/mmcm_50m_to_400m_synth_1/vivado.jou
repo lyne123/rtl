@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Vivado v2020.2 (64-bit)
+# SW Build 3064766 on Wed Nov 18 09:12:45 MST 2020
+# IP Build 3064653 on Wed Nov 18 14:17:31 MST 2020
+# Start of session at: Wed Mar 25 11:50:21 2026
+# Process ID: 1192
+# Current directory: D:/01-Codes/XilinxCode/Vernier_tdc/v4_carry4_tdc/prj/v4_carry4_tdc_1.runs/mmcm_50m_to_400m_synth_1
+# Command line: vivado.exe -log mmcm_50m_to_400m.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source mmcm_50m_to_400m.tcl
+# Log file: D:/01-Codes/XilinxCode/Vernier_tdc/v4_carry4_tdc/prj/v4_carry4_tdc_1.runs/mmcm_50m_to_400m_synth_1/mmcm_50m_to_400m.vds
+# Journal file: D:/01-Codes/XilinxCode/Vernier_tdc/v4_carry4_tdc/prj/v4_carry4_tdc_1.runs/mmcm_50m_to_400m_synth_1\vivado.jou
+#-----------------------------------------------------------
+source mmcm_50m_to_400m.tcl -notrace

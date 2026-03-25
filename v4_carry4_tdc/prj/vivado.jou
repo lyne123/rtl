@@ -1,0 +1,90 @@
+#-----------------------------------------------------------
+# Vivado v2020.2 (64-bit)
+# SW Build 3064766 on Wed Nov 18 09:12:45 MST 2020
+# IP Build 3064653 on Wed Nov 18 14:17:31 MST 2020
+# Start of session at: Wed Mar 25 14:57:27 2026
+# Process ID: 24676
+# Current directory: D:/01-Codes/XilinxCode/Vernier_tdc/v4_carry4_tdc/prj
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent24984 D:\01-Codes\XilinxCode\Vernier_tdc\v4_carry4_tdc\prj\v4_carry4_tdc_1.xpr
+# Log file: D:/01-Codes/XilinxCode/Vernier_tdc/v4_carry4_tdc/prj/vivado.log
+# Journal file: D:/01-Codes/XilinxCode/Vernier_tdc/v4_carry4_tdc/prj\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project D:/01-Codes/XilinxCode/Vernier_tdc/v4_carry4_tdc/prj/v4_carry4_tdc_1.xpr
+update_compile_order -fileset sources_1
+launch_simulation
+source tb_carry4_tdc.tcl
+current_wave_config {Untitled 1}
+add_wave {{/tb_carry4_tdc/uut/u_mmcm/clk_out1}} 
+relaunch_sim
+current_wave_config {Untitled 1}
+add_wave {{/tb_carry4_tdc/uut/u_mmcm/locked}} 
+relaunch_sim
+current_wave_config {Untitled 1}
+add_wave {{/tb_carry4_tdc/uut/mmcm_locked}} 
+relaunch_sim
+relaunch_sim
+current_wave_config {Untitled 1}
+add_wave {{/tb_carry4_tdc/uut/u_mmcm/reset}} 
+relaunch_sim
+relaunch_sim
+relaunch_sim
+run 1 ms
+close_sim
+launch_simulation
+source tb_carry4_tdc.tcl
+current_wave_config {Untitled 2}
+add_wave {{/tb_carry4_tdc/uut/rst_n}} 
+current_wave_config {Untitled 2}
+add_wave {{/tb_carry4_tdc/uut/u_mmcm/locked}} 
+current_wave_config {Untitled 2}
+add_wave {{/tb_carry4_tdc/uut/u_mmcm/clk_out1}} 
+relaunch_sim
+run 1 us
+relaunch_sim
+run 1 us
+run 1 us
+run 1 us
+run 1 us
+run 1 us
+relaunch_sim
+run 1 us
+run 1 us
+run 1 us
+run 1 us
+run 1 us
+run 1 us
+relaunch_sim
+relaunch_sim
+synth_design -rtl -rtl_skip_mlo -name rtl_1
+synth_design -rtl -rtl_skip_mlo -name rtl_1
+close_sim
+launch_simulation
+source tb_carry4_tdc.tcl
+export_ip_user_files -of_objects  [get_files D:/01-Codes/XilinxCode/Vernier_tdc/v4_carry4_tdc/sim/tb_carry4_tdc.v] -no_script -reset -force -quiet
+remove_files  -fileset sim_1 D:/01-Codes/XilinxCode/Vernier_tdc/v4_carry4_tdc/sim/tb_carry4_tdc.v
+set_property SOURCE_SET sources_1 [get_filesets sim_1]
+add_files -fileset sim_1 -norecurse D:/01-Codes/XilinxCode/Vernier_tdc/v4_carry4_tdc/sim/tb_carry4_tdc.v
+update_compile_order -fileset sim_1
+update_compile_order -fileset sim_1
+export_ip_user_files -of_objects  [get_files D:/01-Codes/XilinxCode/Vernier_tdc/v4_carry4_tdc/sim/tb_carry4_tdc.v] -no_script -reset -force -quiet
+remove_files  -fileset sim_1 D:/01-Codes/XilinxCode/Vernier_tdc/v4_carry4_tdc/sim/tb_carry4_tdc.v
+set_property SOURCE_SET sources_1 [get_filesets sim_1]
+add_files -fileset sim_1 -norecurse D:/01-Codes/XilinxCode/Vernier_tdc/v4_carry4_tdc/sim/tb_carry4_tdc.v
+update_compile_order -fileset sim_1
+update_compile_order -fileset sim_1
+export_ip_user_files -of_objects  [get_files D:/01-Codes/XilinxCode/Vernier_tdc/v4_carry4_tdc/sim/tb_carry4_tdc.v] -no_script -reset -force -quiet
+remove_files  -fileset sim_1 D:/01-Codes/XilinxCode/Vernier_tdc/v4_carry4_tdc/sim/tb_carry4_tdc.v
+set_property SOURCE_SET sources_1 [get_filesets sim_1]
+add_files -fileset sim_1 -norecurse D:/01-Codes/XilinxCode/Vernier_tdc/v4_carry4_tdc/sim/tb_carry4_tdc.v
+update_compile_order -fileset sim_1
+update_compile_order -fileset sim_1
+relaunch_sim
+update_compile_order -fileset sim_1
+update_compile_order -fileset sim_1
+export_ip_user_files -of_objects  [get_files D:/01-Codes/XilinxCode/Vernier_tdc/v4_carry4_tdc/sim/tb_carry4_tdc.v] -no_script -reset -force -quiet
+remove_files  -fileset sim_1 D:/01-Codes/XilinxCode/Vernier_tdc/v4_carry4_tdc/sim/tb_carry4_tdc.v
+set_property SOURCE_SET sources_1 [get_filesets sim_1]
+add_files -fileset sim_1 -norecurse D:/01-Codes/XilinxCode/Vernier_tdc/v4_carry4_tdc/sim/tb_carry4_tdc_readable.v
+update_compile_order -fileset sim_1
+update_compile_order -fileset sim_1
