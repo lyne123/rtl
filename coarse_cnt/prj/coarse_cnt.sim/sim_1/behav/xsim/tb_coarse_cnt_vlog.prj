@@ -1,0 +1,11 @@
+# compile verilog/system verilog design source files
+verilog xil_defaultlib  \
+"../../../../../src/coarse_timestamp_generator.v" \
+"../../../../../src/tdc_coarse_cnt_top.v" \
+"../../../../../src/tb_coarse_cnt.v" \
+
+# compile glbl module
+verilog xil_defaultlib "glbl.v"
+
+# Do not sort compile order
+nosort

@@ -1,0 +1,8 @@
+0.7
+2020.2
+Nov 18 2020
+09:47:47
+D:/01-Codes/XilinxCode/Vernier_tdc/coarse_cnt/prj/coarse_cnt.sim/sim_1/behav/xsim/glbl.v,1605673889,verilog,,,,glbl,,,,,,,,
+D:/01-Codes/XilinxCode/Vernier_tdc/coarse_cnt/src/coarse_timestamp_generator.v,1774534979,verilog,,D:/01-Codes/XilinxCode/Vernier_tdc/coarse_cnt/src/tdc_coarse_cnt_top.v,,coarse_timestamp_generator,,,,,,,,
+D:/01-Codes/XilinxCode/Vernier_tdc/coarse_cnt/src/tb_coarse_cnt.v,1774536177,verilog,,,,tb_coarse_cnt,,,,,,,,
+D:/01-Codes/XilinxCode/Vernier_tdc/coarse_cnt/src/tdc_coarse_cnt_top.v,1774535734,verilog,,D:/01-Codes/XilinxCode/Vernier_tdc/coarse_cnt/src/tb_coarse_cnt.v,,pulse_width_calculator;tdc_coarse_cnt_top;timestamp_cdc_sync,,,,,,,,
