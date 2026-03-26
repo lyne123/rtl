@@ -1,0 +1,13 @@
+0.7
+2020.2
+Nov 18 2020
+09:47:47
+D:/01-Codes/XilinxCode/Vernier_tdc/v5_direct_sampling_tdc/prj/v5_direct_sampling_tdc.gen/sources_1/ip/mmcm_50m_to_400m/mmcm_50m_to_400m.v,1774493957,verilog,,D:/01-Codes/XilinxCode/Vernier_tdc/v5_direct_sampling_tdc/src/coarse_counter_pwm.v,,mmcm_50m_to_400m,,,../../../../v5_direct_sampling_tdc.gen/sources_1/ip/mmcm_50m_to_400m,,,,,
+D:/01-Codes/XilinxCode/Vernier_tdc/v5_direct_sampling_tdc/prj/v5_direct_sampling_tdc.gen/sources_1/ip/mmcm_50m_to_400m/mmcm_50m_to_400m_clk_wiz.v,1774493957,verilog,,D:/01-Codes/XilinxCode/Vernier_tdc/v5_direct_sampling_tdc/prj/v5_direct_sampling_tdc.gen/sources_1/ip/mmcm_50m_to_400m/mmcm_50m_to_400m.v,,mmcm_50m_to_400m_clk_wiz,,,../../../../v5_direct_sampling_tdc.gen/sources_1/ip/mmcm_50m_to_400m,,,,,
+D:/01-Codes/XilinxCode/Vernier_tdc/v5_direct_sampling_tdc/prj/v5_direct_sampling_tdc.sim/sim_1/behav/xsim/glbl.v,1605673889,verilog,,,,glbl,,,,,,,,
+D:/01-Codes/XilinxCode/Vernier_tdc/v5_direct_sampling_tdc/sim/tb_tdc_v5.v,1774495057,verilog,,,,tb_tdc_v5,,,../../../../v5_direct_sampling_tdc.gen/sources_1/ip/mmcm_50m_to_400m,,,,,
+D:/01-Codes/XilinxCode/Vernier_tdc/v5_direct_sampling_tdc/src/coarse_counter_pwm.v,1774491525,verilog,,D:/01-Codes/XilinxCode/Vernier_tdc/v5_direct_sampling_tdc/src/pwm_data_fusion_timestamp.v,,coarse_timestamp_generator,,,../../../../v5_direct_sampling_tdc.gen/sources_1/ip/mmcm_50m_to_400m,,,,,
+D:/01-Codes/XilinxCode/Vernier_tdc/v5_direct_sampling_tdc/src/pwm_data_fusion_timestamp.v,1774454172,verilog,,D:/01-Codes/XilinxCode/Vernier_tdc/v5_direct_sampling_tdc/src/pwm_delay_chain_sampler.v,,pwm_data_fusion_timestamp,,,../../../../v5_direct_sampling_tdc.gen/sources_1/ip/mmcm_50m_to_400m,,,,,
+D:/01-Codes/XilinxCode/Vernier_tdc/v5_direct_sampling_tdc/src/pwm_delay_chain_sampler.v,1774452883,verilog,,D:/01-Codes/XilinxCode/Vernier_tdc/v5_direct_sampling_tdc/src/tdc_top_v5.v,,pwm_delay_chain_sampler,,,../../../../v5_direct_sampling_tdc.gen/sources_1/ip/mmcm_50m_to_400m,,,,,
+D:/01-Codes/XilinxCode/Vernier_tdc/v5_direct_sampling_tdc/src/tdc_top_v5.v,1774494386,verilog,,D:/01-Codes/XilinxCode/Vernier_tdc/v5_direct_sampling_tdc/src/thermometer_decoder_72to7.v,,tdc_top_v5,,,../../../../v5_direct_sampling_tdc.gen/sources_1/ip/mmcm_50m_to_400m,,,,,
+D:/01-Codes/XilinxCode/Vernier_tdc/v5_direct_sampling_tdc/src/thermometer_decoder_72to7.v,1774493868,verilog,,D:/01-Codes/XilinxCode/Vernier_tdc/v5_direct_sampling_tdc/sim/tb_tdc_v5.v,,thermometer_decoder_72to7,,,../../../../v5_direct_sampling_tdc.gen/sources_1/ip/mmcm_50m_to_400m,,,,,

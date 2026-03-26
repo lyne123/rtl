@@ -1,0 +1,16 @@
+# compile verilog/system verilog design source files
+verilog xil_defaultlib  --include "../../../../v5_direct_sampling_tdc.gen/sources_1/ip/mmcm_50m_to_400m" \
+"../../../../v5_direct_sampling_tdc.gen/sources_1/ip/mmcm_50m_to_400m/mmcm_50m_to_400m_clk_wiz.v" \
+"../../../../v5_direct_sampling_tdc.gen/sources_1/ip/mmcm_50m_to_400m/mmcm_50m_to_400m.v" \
+"../../../../../src/coarse_counter_pwm.v" \
+"../../../../../src/pwm_data_fusion_timestamp.v" \
+"../../../../../src/pwm_delay_chain_sampler.v" \
+"../../../../../src/tdc_top_v5.v" \
+"../../../../../src/thermometer_decoder_72to7.v" \
+"../../../../../sim/tb_tdc_v5.v" \
+
+# compile glbl module
+verilog xil_defaultlib "glbl.v"
+
+# Do not sort compile order
+nosort

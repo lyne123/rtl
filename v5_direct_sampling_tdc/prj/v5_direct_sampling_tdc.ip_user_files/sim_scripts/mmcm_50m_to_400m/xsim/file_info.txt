@@ -1,0 +1,3 @@
+mmcm_50m_to_400m_clk_wiz.v,verilog,xil_defaultlib,../../../../v5_direct_sampling_tdc.gen/sources_1/ip/mmcm_50m_to_400m/mmcm_50m_to_400m_clk_wiz.v,incdir="$ref_dir/../../../ipstatic"incdir="../../../ipstatic"
+mmcm_50m_to_400m.v,verilog,xil_defaultlib,../../../../v5_direct_sampling_tdc.gen/sources_1/ip/mmcm_50m_to_400m/mmcm_50m_to_400m.v,incdir="$ref_dir/../../../ipstatic"incdir="../../../ipstatic"
+glbl.v,Verilog,xil_defaultlib,glbl.v
