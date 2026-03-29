@@ -1,0 +1,14 @@
+#-----------------------------------------------------------
+# Vivado v2020.2 (64-bit)
+# SW Build 3064766 on Wed Nov 18 09:12:45 MST 2020
+# IP Build 3064653 on Wed Nov 18 14:17:31 MST 2020
+# Start of session at: Sun Mar 29 14:04:17 2026
+# Process ID: 18256
+# Current directory: D:/01-Codes/XilinxCode/Vernier_tdc/fine_cnt/prj
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent24668 D:\01-Codes\XilinxCode\Vernier_tdc\fine_cnt\prj\fine_cnt.xpr
+# Log file: D:/01-Codes/XilinxCode/Vernier_tdc/fine_cnt/prj/vivado.log
+# Journal file: D:/01-Codes/XilinxCode/Vernier_tdc/fine_cnt/prj\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project D:/01-Codes/XilinxCode/Vernier_tdc/fine_cnt/prj/fine_cnt.xpr
+update_compile_order -fileset sources_1
