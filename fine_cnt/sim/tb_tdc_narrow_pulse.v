@@ -1,4 +1,4 @@
-`timescale 1ps / 1ps
+`timescale 1ps / 1fs
 // 编写时间：2026-03-29 13:59:23
 
 /**
@@ -17,7 +17,7 @@ module tb_tdc_narrow_pulse;
 // 参数定义
 //--------------------------------------------------------------------------
 parameter CLK_400M_PERIOD = 2500;     // 400MHz 时钟周期 (2500ps = 2.5ns)
-parameter SIM_TIME = 5000000;           // 仿真时间 (50ns)
+parameter SIM_TIME = 500000;           // 仿真时间 (50ns)
 parameter MIN_PULSE_WIDTH = 300;      // 最小脉宽 (300ps)
 parameter MAX_PULSE_WIDTH = 2400;     // 最大脉宽 (2400ps)
 parameter MIN_PHASE_OFFSET = 10;      // 最小相位偏移 (10ps)

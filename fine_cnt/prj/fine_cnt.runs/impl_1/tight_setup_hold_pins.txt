@@ -1,0 +1,11 @@
++--------------------------+--------------------------+----------------------------------------------------------------------------------------------------------+
+|       Launch Clock       |      Capture Clock       |                                                 Pin                                                      |
++--------------------------+--------------------------+----------------------------------------------------------------------------------------------------------+
+| clk_out1_mmcm_50m_to_400m |clk_out1_mmcm_50m_to_400m |                                         u_ila/inst/ila_core_inst/xsdb_memory_read_inst/read_addr_reg[2]/D|
+| clk_out1_mmcm_50m_to_400m |clk_out1_mmcm_50m_to_400m |                                         u_ila/inst/ila_core_inst/xsdb_memory_read_inst/read_addr_reg[1]/D|
+| clk_out1_mmcm_50m_to_400m |clk_out1_mmcm_50m_to_400m |                                         u_ila/inst/ila_core_inst/xsdb_memory_read_inst/read_addr_reg[3]/D|
+| clk_out1_mmcm_50m_to_400m |clk_out1_mmcm_50m_to_400m |                           u_ila/inst/ila_core_inst/u_ila_regs/MU_SRL[2].mu_srl_reg/current_state_reg[0]/D|
+| clk_out1_mmcm_50m_to_400m |clk_out1_mmcm_50m_to_400m |                           u_ila/inst/ila_core_inst/u_ila_regs/MU_SRL[2].mu_srl_reg/current_state_reg[2]/D|
+| clk_out1_mmcm_50m_to_400m |clk_out1_mmcm_50m_to_400m |                                       u_ila/inst/ila_core_inst/u_ila_cap_ctrl/U_NS1/I_YESLUT6.U_SRL32_D/D|
+| clk_out1_mmcm_50m_to_400m |clk_out1_mmcm_50m_to_400m |                                           u_ila/inst/ila_core_inst/u_ila_regs/reg_srl_fff/shadow_reg[2]/D|
++--------------------------+--------------------------+----------------------------------------------------------------------------------------------------------+

@@ -28,9 +28,9 @@ parameter CARRY4_BLOCKS = 20;     // CARRY4 模块数量（80/4 = 20）
 (* keep = "true" *) wire [DELAY_STAGES-1:0] delay_chain_a;  // 上升沿延迟线
 (* keep = "true" *) wire [DELAY_STAGES-1:0] delay_chain_b;  // 下降沿延迟线
 
-// 采样寄存器
-reg [DELAY_STAGES-1:0] sampled_chain_a;
-reg [DELAY_STAGES-1:0] sampled_chain_b;
+// 采样寄存器 //强制把这些触发器紧紧贴在 CARRY4 的旁边
+(* ASYNC_REG = "TRUE" *)reg [DELAY_STAGES-1:0] sampled_chain_a;
+(* ASYNC_REG = "TRUE" *)reg [DELAY_STAGES-1:0] sampled_chain_b;
 
 // 边沿检测信号
 reg pwm_d1, pwm_d2;
@@ -56,51 +56,67 @@ end
 // CARRY4 延迟链实现 - 使用进位链正确实现
 //--------------------------------------------------------------------------
 
-// 进位链信号 - 每个 CARRY4 有一个进位输出
-(* keep = "true" *) wire [CARRY4_BLOCKS:0] carry_chain_a;
-(* keep = "true" *) wire [CARRY4_BLOCKS:0] carry_chain_b;
-
-// 进位链初始化 - 实际上通过CYINIT连接输入信号，这里保持悬空
-// 因为CYINIT已经直接连接了输入信号
+// 进位链专用的级联信号 (只需 CARRY4_BLOCKS-1 根线，每根 1 bit)
+(* keep = "true" *)wire [CARRY4_BLOCKS-2:0] carry_cascade_a;
+(* keep = "true" *)wire [CARRY4_BLOCKS-2:0] carry_cascade_b;
 
 //--------------------------------------------------------------------------
-// 上升沿延迟链（用于测量 'a'）
+// 上升沿延迟链（用于测量 'a'）- 【已彻底修正物理映射】
 //--------------------------------------------------------------------------
 genvar i;
 generate
     for (i = 0; i < CARRY4_BLOCKS; i = i + 1) begin : rising_delay_chain
-        // 实例化 CARRY4 模块用于延迟链
+        
+        // 定义一个 4-bit 的 wire 完整接住当前 CARRY4 的 CO 输出
+        wire [3:0] co_out; 
+        
+        // 实例化 CARRY4 模块
         CARRY4 carry4_rising_inst (
-            .CO(carry_chain_a[i+1]),                // ✅ 进位输出连接到下一级
-            .O(delay_chain_a[i*4 +: 4]),            // 4位输出直接作为延迟抽头
-            .CI(i == 0 ? 1'b0 : carry_chain_a[i]),  // 第一级CI=0，后续级CI来自前级CO
-            .CYINIT(i == 0 ? rising_edge : 1'b0),   // 第一级CYINIT接输入信号
-            .DI(4'h0),                              // 数据输入全0
-            .S(4'hF)                                // 选择输入全1以获得最大延迟
+            .CO(co_out),                                    // ✅ 完整提取 4位进位输出
+            .O(),                                           // ✅ 坚决悬空 O 端口
+            .CI(i == 0 ? 1'b0 : carry_cascade_a[i-1]),      // ✅ 接收上一级的最高位进位
+            .CYINIT(i == 0 ? rising_edge : 1'b0),           // ✅ 第一级注入口
+            .DI(4'h0), 
+            .S(4'hF) 
         );
+
+        // 1. 将 4位 CO 直接作为真实的、未取反的延迟抽头
+        assign delay_chain_a[i*4 +: 4] = co_out;
+
+        // 2. 将最高位 CO[3] 提取出来，作为给下一级的物理级联输入
+        if (i < CARRY4_BLOCKS - 1) begin
+            assign carry_cascade_a[i] = co_out[3];
+        end
     end
 endgenerate
 
 //--------------------------------------------------------------------------
-// 下降沿延迟链（用于测量 'b'）
+// 下降沿延迟链（用于测量 'b'）- 【同理修正】
 //--------------------------------------------------------------------------
 generate
     for (i = 0; i < CARRY4_BLOCKS; i = i + 1) begin : falling_delay_chain
-        // 实例化 CARRY4 模块用于延迟链
+        
+        wire [3:0] co_out; 
+        
         CARRY4 carry4_falling_inst (
-            .CO(carry_chain_b[i+1]),                // ✅ 进位输出连接到下一级
-            .O(delay_chain_b[i*4 +: 4]),           // 4位输出直接作为延迟抽头
-            .CI(i == 0 ? 1'b0 : carry_chain_b[i]),  // 第一级CI=0，后续级CI来自前级CO
-            .CYINIT(i == 0 ? falling_edge : 1'b0),  // 第一级CYINIT接输入信号
-            .DI(4'h0),                             // 数据输入全0
-            .S(4'hF)                               // 选择输入全1以获得最大延迟
+            .CO(co_out), 
+            .O(), 
+            .CI(i == 0 ? 1'b0 : carry_cascade_b[i-1]), 
+            .CYINIT(i == 0 ? falling_edge : 1'b0), 
+            .DI(4'h0), 
+            .S(4'hF) 
         );
+
+        assign delay_chain_b[i*4 +: 4] = co_out;
+
+        if (i < CARRY4_BLOCKS - 1) begin
+            assign carry_cascade_b[i] = co_out[3];
+        end
     end
 endgenerate
-
 //--------------------------------------------------------------------------
 // 采样寄存器 - 在时钟边沿捕获延迟线状态
-// 注意：这里采样的是CARRY4的O输出，形成温度计码
+// 注意：这里采样的是CARRY4的 CO 真实进位输出，形成温度计码
 //--------------------------------------------------------------------------
 always @(posedge clk_400m or negedge rst_n) begin
     if (!rst_n) begin
@@ -170,7 +186,7 @@ end
 //
 // 需要添加额外的 XDC 约束：
 // 1. 设置从 pwm_signal 到延迟链的伪路径
-// 2. 设置延迟链传播的多周期路径
+// 2. 设置从 CARRY4 到采样寄存器的 FALSE PATH (异步豁免)
 // 3. 防止 CARRY4 链的布局优化
 
 endmodule

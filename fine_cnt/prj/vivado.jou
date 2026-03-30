@@ -2,13 +2,185 @@
 # Vivado v2020.2 (64-bit)
 # SW Build 3064766 on Wed Nov 18 09:12:45 MST 2020
 # IP Build 3064653 on Wed Nov 18 14:17:31 MST 2020
-# Start of session at: Sun Mar 29 14:04:17 2026
-# Process ID: 18256
+# Start of session at: Mon Mar 30 22:04:41 2026
+# Process ID: 16132
 # Current directory: D:/01-Codes/XilinxCode/Vernier_tdc/fine_cnt/prj
-# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent24668 D:\01-Codes\XilinxCode\Vernier_tdc\fine_cnt\prj\fine_cnt.xpr
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent8088 D:\01-Codes\XilinxCode\Vernier_tdc\fine_cnt\prj\fine_cnt.xpr
 # Log file: D:/01-Codes/XilinxCode/Vernier_tdc/fine_cnt/prj/vivado.log
 # Journal file: D:/01-Codes/XilinxCode/Vernier_tdc/fine_cnt/prj\vivado.jou
 #-----------------------------------------------------------
 start_gui
 open_project D:/01-Codes/XilinxCode/Vernier_tdc/fine_cnt/prj/fine_cnt.xpr
 update_compile_order -fileset sources_1
+reset_run synth_1
+launch_runs impl_1 -jobs 6
+wait_on_run impl_1
+open_run impl_1
+# =========================================================
+# TDC 绝对物理锁定 (LOC & BEL 自动化脚本)
+# 开启"上帝模式"，强制指定每一个 CARRY4 和触发器的绝对位置
+# =========================================================
+# ---------------------------------------------------------
+# 1. 锁定上升沿延迟链 (强制在 X10 列，从 Y0 到 Y19)
+# ---------------------------------------------------------
+set start_x_rise 10
+set start_y 0
+for {set i 0} {$i < 20} {incr i} {
+    set current_y [expr $start_y + $i]
+    set target_slice "SLICE_X${start_x_rise}Y${current_y}"
+    
+    set r0 [expr $i * 4 + 0]
+    set r1 [expr $i * 4 + 1]
+    set r2 [expr $i * 4 + 2]
+    set r3 [expr $i * 4 + 3]
+
+    # 使用 filter 配合双引号，防止 Tcl 中括号解析错误
+    set carry_cell [get_cells -hierarchical -filter "NAME =~ *rising_delay_chain\[${i}\]*carry4*"]
+    set reg_0 [get_cells -hierarchical -filter "NAME =~ *sampled_chain_a_reg\[${r0}\]*"]
+    set reg_1 [get_cells -hierarchical -filter "NAME =~ *sampled_chain_a_reg\[${r1}\]*"]
+    set reg_2 [get_cells -hierarchical -filter "NAME =~ *sampled_chain_a_reg\[${r2}\]*"]
+    set reg_3 [get_cells -hierarchical -filter "NAME =~ *sampled_chain_a_reg\[${r3}\]*"]
+
+    # 锁定 CARRY4 的 Slice 位置
+    set_property LOC $target_slice $carry_cell
+
+    # 锁定 4 个寄存器的 Slice 位置
+    set_property LOC $target_slice $reg_0
+    set_property LOC $target_slice $reg_1
+    set_property LOC $target_slice $reg_2
+    set_property LOC $target_slice $reg_3
+
+    # 锁定 4 个寄存器的具体槽位 (BEL)
+    set_property BEL AFF $reg_0
+    set_property BEL BFF $reg_1
+    set_property BEL CFF $reg_2
+    set_property BEL DFF $reg_3
+}
+# =========================================================
+# TDC 绝对物理锁定 (LOC & BEL 自动化脚本)
+# 开启"上帝模式"，强制指定每一个 CARRY4 和触发器的绝对位置
+# =========================================================
+# ---------------------------------------------------------
+# 1. 锁定上升沿延迟链 (强制在 X10 列，从 Y0 到 Y19)
+# ---------------------------------------------------------
+set start_x_rise 0
+set start_y 0
+for {set i 0} {$i < 20} {incr i} {
+    set current_y [expr $start_y + $i]
+    set target_slice "SLICE_X${start_x_rise}Y${current_y}"
+    
+    set r0 [expr $i * 4 + 0]
+    set r1 [expr $i * 4 + 1]
+    set r2 [expr $i * 4 + 2]
+    set r3 [expr $i * 4 + 3]
+
+    # 使用 filter 配合双引号，防止 Tcl 中括号解析错误
+    set carry_cell [get_cells -hierarchical -filter "NAME =~ *rising_delay_chain\[${i}\]*carry4*"]
+    set reg_0 [get_cells -hierarchical -filter "NAME =~ *sampled_chain_a_reg\[${r0}\]*"]
+    set reg_1 [get_cells -hierarchical -filter "NAME =~ *sampled_chain_a_reg\[${r1}\]*"]
+    set reg_2 [get_cells -hierarchical -filter "NAME =~ *sampled_chain_a_reg\[${r2}\]*"]
+    set reg_3 [get_cells -hierarchical -filter "NAME =~ *sampled_chain_a_reg\[${r3}\]*"]
+
+    # 锁定 CARRY4 的 Slice 位置
+    set_property LOC $target_slice $carry_cell
+
+    # 锁定 4 个寄存器的 Slice 位置
+    set_property LOC $target_slice $reg_0
+    set_property LOC $target_slice $reg_1
+    set_property LOC $target_slice $reg_2
+    set_property LOC $target_slice $reg_3
+
+    # 锁定 4 个寄存器的具体槽位 (BEL)
+    set_property BEL AFF $reg_0
+    set_property BEL BFF $reg_1
+    set_property BEL CFF $reg_2
+    set_property BEL DFF $reg_3
+}
+# =========================================================
+# TDC 绝对物理锁定 (LOC & BEL 自动化脚本)
+# 开启"上帝模式"，强制指定每一个 CARRY4 和触发器的绝对位置
+# =========================================================
+# ---------------------------------------------------------
+# 1. 锁定上升沿延迟链 (强制在 X10 列，从 Y0 到 Y19)
+# ---------------------------------------------------------
+set start_x_rise 1
+set start_y 0
+for {set i 0} {$i < 20} {incr i} {
+    set current_y [expr $start_y + $i]
+    set target_slice "SLICE_X${start_x_rise}Y${current_y}"
+    
+    set r0 [expr $i * 4 + 0]
+    set r1 [expr $i * 4 + 1]
+    set r2 [expr $i * 4 + 2]
+    set r3 [expr $i * 4 + 3]
+
+    # 使用 filter 配合双引号，防止 Tcl 中括号解析错误
+    set carry_cell [get_cells -hierarchical -filter "NAME =~ *rising_delay_chain\[${i}\]*carry4*"]
+    set reg_0 [get_cells -hierarchical -filter "NAME =~ *sampled_chain_a_reg\[${r0}\]*"]
+    set reg_1 [get_cells -hierarchical -filter "NAME =~ *sampled_chain_a_reg\[${r1}\]*"]
+    set reg_2 [get_cells -hierarchical -filter "NAME =~ *sampled_chain_a_reg\[${r2}\]*"]
+    set reg_3 [get_cells -hierarchical -filter "NAME =~ *sampled_chain_a_reg\[${r3}\]*"]
+
+    # 锁定 CARRY4 的 Slice 位置
+    set_property LOC $target_slice $carry_cell
+
+    # 锁定 4 个寄存器的 Slice 位置
+    set_property LOC $target_slice $reg_0
+    set_property LOC $target_slice $reg_1
+    set_property LOC $target_slice $reg_2
+    set_property LOC $target_slice $reg_3
+
+    # 锁定 4 个寄存器的具体槽位 (BEL)
+    set_property BEL AFF $reg_0
+    set_property BEL BFF $reg_1
+    set_property BEL CFF $reg_2
+    set_property BEL DFF $reg_3
+}
+# =========================================================
+# TDC 绝对物理锁定 (LOC & BEL 自动化脚本)
+# 开启"上帝模式"，强制指定每一个 CARRY4 和触发器的绝对位置
+# =========================================================
+# ---------------------------------------------------------
+# 1. 锁定上升沿延迟链 (强制在 X10 列，从 Y0 到 Y19)
+# ---------------------------------------------------------
+set start_x_rise 1
+set start_y 0
+for {set i 0} {$i < 20} {incr i} {
+    set current_y [expr $start_y + $i]
+    set target_slice "SLICE_X${start_x_rise}Y${current_y}"
+    
+    set r0 [expr $i * 4 + 0]
+    set r1 [expr $i * 4 + 1]
+    set r2 [expr $i * 4 + 2]
+    set r3 [expr $i * 4 + 3]
+
+    # 使用 filter 配合双引号，防止 Tcl 中括号解析错误
+    set carry_cell [get_cells -hierarchical -filter "NAME =~ *rising_delay_chain\[${i}\]*carry4*"]
+    set reg_0 [get_cells -hierarchical -filter "NAME =~ *sampled_chain_a_reg\[${r0}\]*"]
+    set reg_1 [get_cells -hierarchical -filter "NAME =~ *sampled_chain_a_reg\[${r1}\]*"]
+    set reg_2 [get_cells -hierarchical -filter "NAME =~ *sampled_chain_a_reg\[${r2}\]*"]
+    set reg_3 [get_cells -hierarchical -filter "NAME =~ *sampled_chain_a_reg\[${r3}\]*"]
+
+    # 锁定 CARRY4 的 Slice 位置
+    set_property LOC $target_slice $carry_cell
+
+    # 锁定 4 个寄存器的具体槽位 (BEL)
+    set_property BEL AFF $reg_0
+    set_property BEL BFF $reg_1
+    set_property BEL CFF $reg_2
+    set_property BEL DFF $reg_3
+
+    # 锁定 4 个寄存器的 Slice 位置
+    set_property LOC $target_slice $reg_0
+    set_property LOC $target_slice $reg_1
+    set_property LOC $target_slice $reg_2
+    set_property LOC $target_slice $reg_3
+}
+reset_run impl_1
+launch_runs impl_1 -jobs 6
+wait_on_run impl_1
+refresh_design
+reset_run impl_1
+reset_run synth_1
+launch_runs impl_1 -jobs 6
+wait_on_run impl_1

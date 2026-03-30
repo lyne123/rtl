@@ -1,0 +1,7 @@
+# compile verilog/system verilog design source files
+verilog xil_defaultlib  --include "../../../../../fine_cnt.gen/sources_1/ip/mmcm_50m_to_400m" \
+"tb_top_test_timing_time_impl.v" \
+"../../../../../../sim/tb_top_test_timing_gemini.v" \
+
+# Do not sort compile order
+nosort

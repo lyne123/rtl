@@ -1,0 +1,282 @@
+#-----------------------------------------------------------
+# Vivado v2020.2 (64-bit)
+# SW Build 3064766 on Wed Nov 18 09:12:45 MST 2020
+# IP Build 3064653 on Wed Nov 18 14:17:31 MST 2020
+# Start of session at: Mon Mar 30 22:49:45 2026
+# Process ID: 53320
+# Current directory: D:/01-Codes/XilinxCode/Vernier_tdc/fine_cnt/prj/fine_cnt.runs/synth_1
+# Command line: vivado.exe -log top_test.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source top_test.tcl
+# Log file: D:/01-Codes/XilinxCode/Vernier_tdc/fine_cnt/prj/fine_cnt.runs/synth_1/top_test.vds
+# Journal file: D:/01-Codes/XilinxCode/Vernier_tdc/fine_cnt/prj/fine_cnt.runs/synth_1\vivado.jou
+#-----------------------------------------------------------
+source top_test.tcl -notrace
+Command: synth_design -top top_test -part xc7a100tfgg484-2
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7a100t'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a100t'
+INFO: [Device 21-403] Loading part xc7a100tfgg484-2
+INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
+INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
+INFO: [Synth 8-7075] Helper process launched with PID 56264
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 1172.754 ; gain = 32.629
+---------------------------------------------------------------------------------
+INFO: [Synth 8-6157] synthesizing module 'top_test' [D:/01-Codes/XilinxCode/Vernier_tdc/fine_cnt/src/top_test.v:8]
+INFO: [Synth 8-6157] synthesizing module 'mmcm_50m_to_400m' [D:/01-Codes/XilinxCode/Vernier_tdc/fine_cnt/prj/fine_cnt.runs/synth_1/.Xil/Vivado-53320-lyne/realtime/mmcm_50m_to_400m_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'mmcm_50m_to_400m' (1#1) [D:/01-Codes/XilinxCode/Vernier_tdc/fine_cnt/prj/fine_cnt.runs/synth_1/.Xil/Vivado-53320-lyne/realtime/mmcm_50m_to_400m_stub.v:5]
+INFO: [Synth 8-6157] synthesizing module 'fine_counter_carry4' [D:/01-Codes/XilinxCode/Vernier_tdc/fine_cnt/src/fine_counter_carry4.v:13]
+	Parameter DELAY_STAGES bound to: 80 - type: integer 
+	Parameter CARRY4_BLOCKS bound to: 20 - type: integer 
+INFO: [Synth 8-6157] synthesizing module 'CARRY4' [D:/Vivado/2020.2/scripts/rt/data/unisim_comp.v:1487]
+INFO: [Synth 8-6155] done synthesizing module 'CARRY4' (2#1) [D:/Vivado/2020.2/scripts/rt/data/unisim_comp.v:1487]
+INFO: [Synth 8-6155] done synthesizing module 'fine_counter_carry4' (3#1) [D:/01-Codes/XilinxCode/Vernier_tdc/fine_cnt/src/fine_counter_carry4.v:13]
+WARNING: [Synth 8-4446] all outputs are unconnected for this instance and logic may be removed [D:/01-Codes/XilinxCode/Vernier_tdc/fine_cnt/src/top_test.v:45]
+INFO: [Synth 8-6157] synthesizing module 'ila_0' [D:/01-Codes/XilinxCode/Vernier_tdc/fine_cnt/prj/fine_cnt.runs/synth_1/.Xil/Vivado-53320-lyne/realtime/ila_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'ila_0' (4#1) [D:/01-Codes/XilinxCode/Vernier_tdc/fine_cnt/prj/fine_cnt.runs/synth_1/.Xil/Vivado-53320-lyne/realtime/ila_0_stub.v:6]
+INFO: [Synth 8-6071] Mark debug on the nets applies keep_hierarchy on instance 'u_fine_counter'. This will prevent further optimization [D:/01-Codes/XilinxCode/Vernier_tdc/fine_cnt/src/top_test.v:35]
+INFO: [Synth 8-6071] Mark debug on the nets applies keep_hierarchy on instance 'u_ila'. This will prevent further optimization [D:/01-Codes/XilinxCode/Vernier_tdc/fine_cnt/src/top_test.v:45]
+INFO: [Synth 8-6155] done synthesizing module 'top_test' (5#1) [D:/01-Codes/XilinxCode/Vernier_tdc/fine_cnt/src/top_test.v:8]
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 1231.516 ; gain = 91.391
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 1231.516 ; gain = 91.391
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 1231.516 ; gain = 91.391
+---------------------------------------------------------------------------------
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.005 . Memory (MB): peak = 1231.516 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 40 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Parsing XDC File [d:/01-Codes/XilinxCode/Vernier_tdc/fine_cnt/prj/fine_cnt.gen/sources_1/ip/mmcm_50m_to_400m/mmcm_50m_to_400m/mmcm_50m_to_400m_in_context.xdc] for cell 'u_mmcm'
+Finished Parsing XDC File [d:/01-Codes/XilinxCode/Vernier_tdc/fine_cnt/prj/fine_cnt.gen/sources_1/ip/mmcm_50m_to_400m/mmcm_50m_to_400m/mmcm_50m_to_400m_in_context.xdc] for cell 'u_mmcm'
+Parsing XDC File [d:/01-Codes/XilinxCode/Vernier_tdc/fine_cnt/prj/fine_cnt.gen/sources_1/ip/ila_0/ila_0/ila_0_in_context.xdc] for cell 'u_ila'
+Finished Parsing XDC File [d:/01-Codes/XilinxCode/Vernier_tdc/fine_cnt/prj/fine_cnt.gen/sources_1/ip/ila_0/ila_0/ila_0_in_context.xdc] for cell 'u_ila'
+Parsing XDC File [D:/01-Codes/XilinxCode/Vernier_tdc/fine_cnt/src/fine_counter_carry4_timing.xdc]
+Finished Parsing XDC File [D:/01-Codes/XilinxCode/Vernier_tdc/fine_cnt/src/fine_counter_carry4_timing.xdc]
+INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [D:/01-Codes/XilinxCode/Vernier_tdc/fine_cnt/src/fine_counter_carry4_timing.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/top_test_propImpl.xdc].
+Resolution: To avoid this warning, move constraints listed in [.Xil/top_test_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
+Completed Processing XDC Constraints
+
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1346.441 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.007 . Memory (MB): peak = 1346.441 ; gain = 0.000
+WARNING: [Timing 38-316] Clock period '10.000' specified during out-of-context synthesis of instance 'u_ila' at clock pin 'clk' is different from the actual clock period '2.500', this can lead to different synthesis results.
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:09 ; elapsed = 00:00:10 . Memory (MB): peak = 1350.371 ; gain = 210.246
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xc7a100tfgg484-2
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:09 ; elapsed = 00:00:10 . Memory (MB): peak = 1350.371 ; gain = 210.246
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying 'set_property' XDC Constraints
+---------------------------------------------------------------------------------
+Applied set_property IO_BUFFER_TYPE = NONE for sys_clk. (constraint file  d:/01-Codes/XilinxCode/Vernier_tdc/fine_cnt/prj/fine_cnt.gen/sources_1/ip/mmcm_50m_to_400m/mmcm_50m_to_400m/mmcm_50m_to_400m_in_context.xdc, line 3).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for sys_clk. (constraint file  d:/01-Codes/XilinxCode/Vernier_tdc/fine_cnt/prj/fine_cnt.gen/sources_1/ip/mmcm_50m_to_400m/mmcm_50m_to_400m/mmcm_50m_to_400m_in_context.xdc, line 4).
+Applied set_property DONT_TOUCH = true for u_fine_counter/\rising_delay_chain[0].carry4_rising_inst . (constraint file  D:/01-Codes/XilinxCode/Vernier_tdc/fine_cnt/src/fine_counter_carry4_timing.xdc, line 63).
+Applied set_property DONT_TOUCH = true for u_fine_counter/\rising_delay_chain[10].carry4_rising_inst . (constraint file  D:/01-Codes/XilinxCode/Vernier_tdc/fine_cnt/src/fine_counter_carry4_timing.xdc, line 63).
+Applied set_property DONT_TOUCH = true for u_fine_counter/\rising_delay_chain[11].carry4_rising_inst . (constraint file  D:/01-Codes/XilinxCode/Vernier_tdc/fine_cnt/src/fine_counter_carry4_timing.xdc, line 63).
+Applied set_property DONT_TOUCH = true for u_fine_counter/\rising_delay_chain[12].carry4_rising_inst . (constraint file  D:/01-Codes/XilinxCode/Vernier_tdc/fine_cnt/src/fine_counter_carry4_timing.xdc, line 63).
+Applied set_property DONT_TOUCH = true for u_fine_counter/\rising_delay_chain[13].carry4_rising_inst . (constraint file  D:/01-Codes/XilinxCode/Vernier_tdc/fine_cnt/src/fine_counter_carry4_timing.xdc, line 63).
+Applied set_property DONT_TOUCH = true for u_fine_counter/\rising_delay_chain[14].carry4_rising_inst . (constraint file  D:/01-Codes/XilinxCode/Vernier_tdc/fine_cnt/src/fine_counter_carry4_timing.xdc, line 63).
+Applied set_property DONT_TOUCH = true for u_fine_counter/\rising_delay_chain[15].carry4_rising_inst . (constraint file  D:/01-Codes/XilinxCode/Vernier_tdc/fine_cnt/src/fine_counter_carry4_timing.xdc, line 63).
+Applied set_property DONT_TOUCH = true for u_fine_counter/\rising_delay_chain[16].carry4_rising_inst . (constraint file  D:/01-Codes/XilinxCode/Vernier_tdc/fine_cnt/src/fine_counter_carry4_timing.xdc, line 63).
+Applied set_property DONT_TOUCH = true for u_fine_counter/\rising_delay_chain[17].carry4_rising_inst . (constraint file  D:/01-Codes/XilinxCode/Vernier_tdc/fine_cnt/src/fine_counter_carry4_timing.xdc, line 63).
+Applied set_property DONT_TOUCH = true for u_fine_counter/\rising_delay_chain[18].carry4_rising_inst . (constraint file  D:/01-Codes/XilinxCode/Vernier_tdc/fine_cnt/src/fine_counter_carry4_timing.xdc, line 63).
+Applied set_property DONT_TOUCH = true for u_fine_counter/\rising_delay_chain[19].carry4_rising_inst . (constraint file  D:/01-Codes/XilinxCode/Vernier_tdc/fine_cnt/src/fine_counter_carry4_timing.xdc, line 63).
+Applied set_property DONT_TOUCH = true for u_fine_counter/\rising_delay_chain[1].carry4_rising_inst . (constraint file  D:/01-Codes/XilinxCode/Vernier_tdc/fine_cnt/src/fine_counter_carry4_timing.xdc, line 63).
+Applied set_property DONT_TOUCH = true for u_fine_counter/\rising_delay_chain[2].carry4_rising_inst . (constraint file  D:/01-Codes/XilinxCode/Vernier_tdc/fine_cnt/src/fine_counter_carry4_timing.xdc, line 63).
+Applied set_property DONT_TOUCH = true for u_fine_counter/\rising_delay_chain[3].carry4_rising_inst . (constraint file  D:/01-Codes/XilinxCode/Vernier_tdc/fine_cnt/src/fine_counter_carry4_timing.xdc, line 63).
+Applied set_property DONT_TOUCH = true for u_fine_counter/\rising_delay_chain[4].carry4_rising_inst . (constraint file  D:/01-Codes/XilinxCode/Vernier_tdc/fine_cnt/src/fine_counter_carry4_timing.xdc, line 63).
+Applied set_property DONT_TOUCH = true for u_fine_counter/\rising_delay_chain[5].carry4_rising_inst . (constraint file  D:/01-Codes/XilinxCode/Vernier_tdc/fine_cnt/src/fine_counter_carry4_timing.xdc, line 63).
+Applied set_property DONT_TOUCH = true for u_fine_counter/\rising_delay_chain[6].carry4_rising_inst . (constraint file  D:/01-Codes/XilinxCode/Vernier_tdc/fine_cnt/src/fine_counter_carry4_timing.xdc, line 63).
+Applied set_property DONT_TOUCH = true for u_fine_counter/\rising_delay_chain[7].carry4_rising_inst . (constraint file  D:/01-Codes/XilinxCode/Vernier_tdc/fine_cnt/src/fine_counter_carry4_timing.xdc, line 63).
+Applied set_property DONT_TOUCH = true for u_fine_counter/\rising_delay_chain[8].carry4_rising_inst . (constraint file  D:/01-Codes/XilinxCode/Vernier_tdc/fine_cnt/src/fine_counter_carry4_timing.xdc, line 63).
+Applied set_property DONT_TOUCH = true for u_fine_counter/\rising_delay_chain[9].carry4_rising_inst . (constraint file  D:/01-Codes/XilinxCode/Vernier_tdc/fine_cnt/src/fine_counter_carry4_timing.xdc, line 63).
+Applied set_property DONT_TOUCH = true for u_fine_counter/\falling_delay_chain[0].carry4_falling_inst . (constraint file  D:/01-Codes/XilinxCode/Vernier_tdc/fine_cnt/src/fine_counter_carry4_timing.xdc, line 64).
+Applied set_property DONT_TOUCH = true for u_fine_counter/\falling_delay_chain[10].carry4_falling_inst . (constraint file  D:/01-Codes/XilinxCode/Vernier_tdc/fine_cnt/src/fine_counter_carry4_timing.xdc, line 64).
+Applied set_property DONT_TOUCH = true for u_fine_counter/\falling_delay_chain[11].carry4_falling_inst . (constraint file  D:/01-Codes/XilinxCode/Vernier_tdc/fine_cnt/src/fine_counter_carry4_timing.xdc, line 64).
+Applied set_property DONT_TOUCH = true for u_fine_counter/\falling_delay_chain[12].carry4_falling_inst . (constraint file  D:/01-Codes/XilinxCode/Vernier_tdc/fine_cnt/src/fine_counter_carry4_timing.xdc, line 64).
+Applied set_property DONT_TOUCH = true for u_fine_counter/\falling_delay_chain[13].carry4_falling_inst . (constraint file  D:/01-Codes/XilinxCode/Vernier_tdc/fine_cnt/src/fine_counter_carry4_timing.xdc, line 64).
+Applied set_property DONT_TOUCH = true for u_fine_counter/\falling_delay_chain[14].carry4_falling_inst . (constraint file  D:/01-Codes/XilinxCode/Vernier_tdc/fine_cnt/src/fine_counter_carry4_timing.xdc, line 64).
+Applied set_property DONT_TOUCH = true for u_fine_counter/\falling_delay_chain[15].carry4_falling_inst . (constraint file  D:/01-Codes/XilinxCode/Vernier_tdc/fine_cnt/src/fine_counter_carry4_timing.xdc, line 64).
+Applied set_property DONT_TOUCH = true for u_fine_counter/\falling_delay_chain[16].carry4_falling_inst . (constraint file  D:/01-Codes/XilinxCode/Vernier_tdc/fine_cnt/src/fine_counter_carry4_timing.xdc, line 64).
+Applied set_property DONT_TOUCH = true for u_fine_counter/\falling_delay_chain[17].carry4_falling_inst . (constraint file  D:/01-Codes/XilinxCode/Vernier_tdc/fine_cnt/src/fine_counter_carry4_timing.xdc, line 64).
+Applied set_property DONT_TOUCH = true for u_fine_counter/\falling_delay_chain[18].carry4_falling_inst . (constraint file  D:/01-Codes/XilinxCode/Vernier_tdc/fine_cnt/src/fine_counter_carry4_timing.xdc, line 64).
+Applied set_property DONT_TOUCH = true for u_fine_counter/\falling_delay_chain[19].carry4_falling_inst . (constraint file  D:/01-Codes/XilinxCode/Vernier_tdc/fine_cnt/src/fine_counter_carry4_timing.xdc, line 64).
+Applied set_property DONT_TOUCH = true for u_fine_counter/\falling_delay_chain[1].carry4_falling_inst . (constraint file  D:/01-Codes/XilinxCode/Vernier_tdc/fine_cnt/src/fine_counter_carry4_timing.xdc, line 64).
+Applied set_property DONT_TOUCH = true for u_fine_counter/\falling_delay_chain[2].carry4_falling_inst . (constraint file  D:/01-Codes/XilinxCode/Vernier_tdc/fine_cnt/src/fine_counter_carry4_timing.xdc, line 64).
+Applied set_property DONT_TOUCH = true for u_fine_counter/\falling_delay_chain[3].carry4_falling_inst . (constraint file  D:/01-Codes/XilinxCode/Vernier_tdc/fine_cnt/src/fine_counter_carry4_timing.xdc, line 64).
+Applied set_property DONT_TOUCH = true for u_fine_counter/\falling_delay_chain[4].carry4_falling_inst . (constraint file  D:/01-Codes/XilinxCode/Vernier_tdc/fine_cnt/src/fine_counter_carry4_timing.xdc, line 64).
+Applied set_property DONT_TOUCH = true for u_fine_counter/\falling_delay_chain[5].carry4_falling_inst . (constraint file  D:/01-Codes/XilinxCode/Vernier_tdc/fine_cnt/src/fine_counter_carry4_timing.xdc, line 64).
+Applied set_property DONT_TOUCH = true for u_fine_counter/\falling_delay_chain[6].carry4_falling_inst . (constraint file  D:/01-Codes/XilinxCode/Vernier_tdc/fine_cnt/src/fine_counter_carry4_timing.xdc, line 64).
+Applied set_property DONT_TOUCH = true for u_fine_counter/\falling_delay_chain[7].carry4_falling_inst . (constraint file  D:/01-Codes/XilinxCode/Vernier_tdc/fine_cnt/src/fine_counter_carry4_timing.xdc, line 64).
+Applied set_property DONT_TOUCH = true for u_fine_counter/\falling_delay_chain[8].carry4_falling_inst . (constraint file  D:/01-Codes/XilinxCode/Vernier_tdc/fine_cnt/src/fine_counter_carry4_timing.xdc, line 64).
+Applied set_property DONT_TOUCH = true for u_fine_counter/\falling_delay_chain[9].carry4_falling_inst . (constraint file  D:/01-Codes/XilinxCode/Vernier_tdc/fine_cnt/src/fine_counter_carry4_timing.xdc, line 64).
+Applied set_property KEEP_HIERARCHY = SOFT for u_mmcm. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for u_ila. (constraint file  auto generated constraint).
+---------------------------------------------------------------------------------
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:09 ; elapsed = 00:00:10 . Memory (MB): peak = 1350.371 ; gain = 210.246
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:10 ; elapsed = 00:00:10 . Memory (MB): peak = 1350.371 ; gain = 210.246
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
++---Adders : 
+	  80 Input    7 Bit       Adders := 2     
++---Registers : 
+	               80 Bit    Registers := 2     
+	                7 Bit    Registers := 2     
+	                1 Bit    Registers := 2     
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 240 (col length:80)
+BRAMs: 270 (col length: RAMB18 80 RAMB36 40)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:12 ; elapsed = 00:00:13 . Memory (MB): peak = 1350.371 ; gain = 210.246
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying XDC Timing Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:16 ; elapsed = 00:00:17 . Memory (MB): peak = 1350.371 ; gain = 210.246
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:00:16 ; elapsed = 00:00:17 . Memory (MB): peak = 1350.371 ; gain = 210.246
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:00:16 ; elapsed = 00:00:17 . Memory (MB): peak = 1350.371 ; gain = 210.246
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:00:19 ; elapsed = 00:00:20 . Memory (MB): peak = 1355.652 ; gain = 215.527
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:19 ; elapsed = 00:00:20 . Memory (MB): peak = 1355.652 ; gain = 215.527
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:19 ; elapsed = 00:00:20 . Memory (MB): peak = 1355.652 ; gain = 215.527
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:19 ; elapsed = 00:00:20 . Memory (MB): peak = 1355.652 ; gain = 215.527
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:19 ; elapsed = 00:00:20 . Memory (MB): peak = 1355.652 ; gain = 215.527
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:19 ; elapsed = 00:00:20 . Memory (MB): peak = 1355.652 ; gain = 215.527
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+Report BlackBoxes: 
++------+-----------------+----------+
+|      |BlackBox name    |Instances |
++------+-----------------+----------+
+|1     |mmcm_50m_to_400m |         1|
+|2     |ila_0            |         1|
++------+-----------------+----------+
+
+Report Cell Usage: 
++------+-----------------+------+
+|      |Cell             |Count |
++------+-----------------+------+
+|1     |ila              |     1|
+|2     |mmcm_50m_to_400m |     1|
+|3     |CARRY4           |    40|
+|4     |LUT1             |     2|
+|5     |LUT2             |     3|
+|6     |LUT3             |   110|
+|7     |LUT4             |     2|
+|8     |LUT5             |    92|
+|9     |LUT6             |    82|
+|10    |FDCE             |   176|
+|11    |IBUF             |     2|
+|12    |OBUF             |     1|
++------+-----------------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:19 ; elapsed = 00:00:20 . Memory (MB): peak = 1355.652 ; gain = 215.527
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 0 critical warnings and 0 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:13 ; elapsed = 00:00:18 . Memory (MB): peak = 1355.652 ; gain = 96.672
+Synthesis Optimization Complete : Time (s): cpu = 00:00:19 ; elapsed = 00:00:20 . Memory (MB): peak = 1355.652 ; gain = 215.527
+INFO: [Project 1-571] Translating synthesized netlist
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.003 . Memory (MB): peak = 1355.652 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 40 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1364.707 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+INFO: [Common 17-83] Releasing license: Synthesis
+29 Infos, 2 Warnings, 0 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:00:23 ; elapsed = 00:00:26 . Memory (MB): peak = 1364.707 ; gain = 224.582
+INFO: [Common 17-1381] The checkpoint 'D:/01-Codes/XilinxCode/Vernier_tdc/fine_cnt/prj/fine_cnt.runs/synth_1/top_test.dcp' has been generated.
+INFO: [runtcl-4] Executing : report_utilization -file top_test_utilization_synth.rpt -pb top_test_utilization_synth.pb
+INFO: [Common 17-206] Exiting Vivado at Mon Mar 30 22:50:19 2026...
