@@ -24,6 +24,57 @@ module fine_counter_carry4 (
 parameter DELAY_STAGES = 80;      // 延迟级数（80 级 CARRY4）
 parameter CARRY4_BLOCKS = 20;     // CARRY4 模块数量（80/4 = 20）
 
+//--------------------------------------------------------------------------
+// 异步极窄脉冲锁存器 (Pulse Stretching)
+// 任务：只要边沿一到，立刻变高并保持，直到被 400MHz 时钟采完后才清零
+//--------------------------------------------------------------------------
+
+reg pwm_rise_latched;
+reg pwm_fall_latched;
+wire clr_rise;
+wire clr_fall;
+
+// 1. 捕捉上升沿（用原始异步信号当做时钟！）
+always @(posedge pwm_signal or posedge clr_rise) begin
+    if (clr_rise) 
+        pwm_rise_latched <= 1'b0;
+    else 
+        pwm_rise_latched <= 1'b1; // 一旦脉冲到来，死死锁住 1
+end
+
+// 2. 捕捉下降沿
+always @(negedge pwm_signal or posedge clr_fall) begin
+    if (clr_fall) 
+        pwm_fall_latched <= 1'b0;
+    else 
+        pwm_fall_latched <= 1'b1;
+end
+
+//--------------------------------------------------------------------------
+// 采样后反馈清零机制
+// 任务：400MHz 拍完照后，发送清零信号，释放锁存器准备迎接下一个脉冲
+//--------------------------------------------------------------------------
+reg [2:0] rise_clr_sync;
+reg [2:0] fall_clr_sync;
+
+always @(posedge clk_400m or negedge rst_n) begin
+    if (!rst_n) begin
+        rise_clr_sync <= 3'b000;
+        fall_clr_sync <= 3'b000;
+    end else begin
+        // 打三拍同步，生成清零脉冲
+        rise_clr_sync <= {rise_clr_sync[1:0], pwm_rise_latched};
+        fall_clr_sync <= {fall_clr_sync[1:0], pwm_fall_latched};
+    end
+end
+
+// 当同步到高电平后，立刻触发清零
+assign clr_rise = ~rst_n | (rise_clr_sync[2] & rise_clr_sync[1]); 
+assign clr_fall = ~rst_n | (fall_clr_sync[2] & fall_clr_sync[1]);
+
+//--------------------------------------------------------------------------
+// CARRY4 延迟链实现 - 使用进位链正确实现
+//--------------------------------------------------------------------------
 // 延迟链内部信号
 (* keep = "true" *) wire [DELAY_STAGES-1:0] delay_chain_a;  // 上升沿延迟线
 (* keep = "true" *) wire [DELAY_STAGES-1:0] delay_chain_b;  // 下降沿延迟线
@@ -31,30 +82,6 @@ parameter CARRY4_BLOCKS = 20;     // CARRY4 模块数量（80/4 = 20）
 // 采样寄存器 //强制把这些触发器紧紧贴在 CARRY4 的旁边
 (* ASYNC_REG = "TRUE" *)reg [DELAY_STAGES-1:0] sampled_chain_a;
 (* ASYNC_REG = "TRUE" *)reg [DELAY_STAGES-1:0] sampled_chain_b;
-
-// // 边沿检测信号
-// reg pwm_d1, pwm_d2;
-// wire rising_edge;
-// wire falling_edge;
-
-// // 生成上升沿和下降沿脉冲
-// assign rising_edge = pwm_signal & ~pwm_d1;
-// assign falling_edge = ~pwm_signal & pwm_d1;
-
-// // 边沿检测流水线
-// always @(posedge clk_400m or negedge rst_n) begin
-//     if (!rst_n) begin
-//         pwm_d1 <= 1'b0;
-//         pwm_d2 <= 1'b0;
-//     end else begin
-//         pwm_d1 <= pwm_signal;
-//         pwm_d2 <= pwm_d1;
-//     end
-// end
-
-//--------------------------------------------------------------------------
-// CARRY4 延迟链实现 - 使用进位链正确实现
-//--------------------------------------------------------------------------
 
 // 进位链专用的级联信号 (只需 CARRY4_BLOCKS-1 根线，每根 1 bit)
 (* keep = "true" *)wire [CARRY4_BLOCKS-2:0] carry_cascade_a;
@@ -67,21 +94,22 @@ genvar i;
 generate
     for (i = 0; i < CARRY4_BLOCKS; i = i + 1) begin : rising_delay_chain
         
-        // 定义一个 4-bit 的 wire 完整接住当前 CARRY4 的 CO 输出
-        wire [3:0] co_out; 
+        wire [3:0] co_out;
+        wire [3:0] o_out; 
+        
         
         // 实例化 CARRY4 模块
         CARRY4 carry4_rising_inst (
             .CO(co_out),                                    // ✅ 完整提取 4位进位输出
-            .O(),                                           // ✅ 坚决悬空 O 端口
+            .O(o_out),                                           // ✅ 坚决悬空 O 端口
             .CI(i == 0 ? 1'b0 : carry_cascade_a[i-1]),      // ✅ 接收上一级的最高位进位
-            .CYINIT(i == 0 ? pwm_signal : 1'b0),           // ✅ 第一级注入口
+            .CYINIT(i == 0 ? pwm_rise_latched : 1'b0),           // ✅ 第一级注入口
             .DI(4'h0), 
             .S(4'hF) 
         );
 
         // 1. 将 4位 CO 直接作为真实的、未取反的延迟抽头
-        assign delay_chain_a[i*4 +: 4] = co_out;
+        assign delay_chain_a[i*4 +: 4] = o_out;
 
         // 2. 将最高位 CO[3] 提取出来，作为给下一级的物理级联输入
         if (i < CARRY4_BLOCKS - 1) begin
@@ -96,18 +124,19 @@ endgenerate
 generate
     for (i = 0; i < CARRY4_BLOCKS; i = i + 1) begin : falling_delay_chain
         
-        wire [3:0] co_out; 
+        wire [3:0] co_out;
+        wire [3:0] o_out; 
         
         CARRY4 carry4_falling_inst (
             .CO(co_out), 
-            .O(), 
+            .O(o_out), 
             .CI(i == 0 ? 1'b0 : carry_cascade_b[i-1]), 
-            .CYINIT(i == 0 ? ~pwm_signal : 1'b0), 
+            .CYINIT(i == 0 ? pwm_fall_latched : 1'b0), 
             .DI(4'h0), 
             .S(4'hF) 
         );
 
-        assign delay_chain_b[i*4 +: 4] = co_out;
+        assign delay_chain_b[i*4 +: 4] = o_out;
 
         if (i < CARRY4_BLOCKS - 1) begin
             assign carry_cascade_b[i] = co_out[3];
@@ -173,8 +202,8 @@ always @(posedge clk_400m or negedge rst_n) begin
         fine_count_b <= 7'd0;
     end else begin
         // 将温度计码转换为二进制计数值
-        fine_count_a <= count_ones_80bit(sampled_chain_a);
-        fine_count_b <= count_ones_80bit_b(sampled_chain_b);
+        fine_count_a <= count_ones_80bit(~sampled_chain_a);
+        fine_count_b <= count_ones_80bit_b(~sampled_chain_b);
     end
 end
 
