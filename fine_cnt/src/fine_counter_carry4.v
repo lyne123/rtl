@@ -32,25 +32,25 @@ parameter CARRY4_BLOCKS = 20;     // CARRY4 模块数量（80/4 = 20）
 (* ASYNC_REG = "TRUE" *)reg [DELAY_STAGES-1:0] sampled_chain_a;
 (* ASYNC_REG = "TRUE" *)reg [DELAY_STAGES-1:0] sampled_chain_b;
 
-// 边沿检测信号
-reg pwm_d1, pwm_d2;
-wire rising_edge;
-wire falling_edge;
+// // 边沿检测信号
+// reg pwm_d1, pwm_d2;
+// wire rising_edge;
+// wire falling_edge;
 
-// 生成上升沿和下降沿脉冲
-assign rising_edge = pwm_signal & ~pwm_d1;
-assign falling_edge = ~pwm_signal & pwm_d1;
+// // 生成上升沿和下降沿脉冲
+// assign rising_edge = pwm_signal & ~pwm_d1;
+// assign falling_edge = ~pwm_signal & pwm_d1;
 
-// 边沿检测流水线
-always @(posedge clk_400m or negedge rst_n) begin
-    if (!rst_n) begin
-        pwm_d1 <= 1'b0;
-        pwm_d2 <= 1'b0;
-    end else begin
-        pwm_d1 <= pwm_signal;
-        pwm_d2 <= pwm_d1;
-    end
-end
+// // 边沿检测流水线
+// always @(posedge clk_400m or negedge rst_n) begin
+//     if (!rst_n) begin
+//         pwm_d1 <= 1'b0;
+//         pwm_d2 <= 1'b0;
+//     end else begin
+//         pwm_d1 <= pwm_signal;
+//         pwm_d2 <= pwm_d1;
+//     end
+// end
 
 //--------------------------------------------------------------------------
 // CARRY4 延迟链实现 - 使用进位链正确实现
@@ -75,7 +75,7 @@ generate
             .CO(co_out),                                    // ✅ 完整提取 4位进位输出
             .O(),                                           // ✅ 坚决悬空 O 端口
             .CI(i == 0 ? 1'b0 : carry_cascade_a[i-1]),      // ✅ 接收上一级的最高位进位
-            .CYINIT(i == 0 ? rising_edge : 1'b0),           // ✅ 第一级注入口
+            .CYINIT(i == 0 ? pwm_signal : 1'b0),           // ✅ 第一级注入口
             .DI(4'h0), 
             .S(4'hF) 
         );
@@ -102,7 +102,7 @@ generate
             .CO(co_out), 
             .O(), 
             .CI(i == 0 ? 1'b0 : carry_cascade_b[i-1]), 
-            .CYINIT(i == 0 ? falling_edge : 1'b0), 
+            .CYINIT(i == 0 ? ~pwm_signal : 1'b0), 
             .DI(4'h0), 
             .S(4'hF) 
         );
