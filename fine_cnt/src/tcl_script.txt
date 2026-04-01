@@ -1,0 +1,85 @@
+# =========================================================
+# TDC 绝对物理锁定 (LOC & BEL 终极同时绑定版)
+# 使用 -dict 语法，瞬间同时绑定房间和床位，彻底消灭冲突！
+# =========================================================
+
+set start_y 76
+set max_point 24
+
+# ---------------------------------------------------------
+# 1. 上升沿：CARRY4 占 X0，触发器占姊妹列 X1
+# ---------------------------------------------------------
+set carry_x_rise 52
+set reg_x_rise 52
+
+for {set i 0} {$i < max_point} {incr i} {
+    set current_y [expr $start_y + $i]
+    
+    set r0 [expr $i * 4 + 0]
+    set r1 [expr $i * 4 + 1]
+    set r2 [expr $i * 4 + 2]
+    set r3 [expr $i * 4 + 3]
+
+    set carry_cell [get_cells -hierarchical -filter "NAME =~ *rising_delay_chain\[${i}\]*carry4*"]
+    set reg_0 [get_cells -hierarchical -filter "NAME =~ *sampled_chain_a_reg\[${r0}\]*"]
+    set reg_1 [get_cells -hierarchical -filter "NAME =~ *sampled_chain_a_reg\[${r1}\]*"]
+    set reg_2 [get_cells -hierarchical -filter "NAME =~ *sampled_chain_a_reg\[${r2}\]*"]
+    set reg_3 [get_cells -hierarchical -filter "NAME =~ *sampled_chain_a_reg\[${r3}\]*"]
+
+    # CARRY4 只有 LOC 约束
+    set_property LOC SLICE_X${carry_x_rise}Y${current_y} $carry_cell
+    
+    # 【终极必杀】：用 -dict [list ...] 把 LOC 和 BEL 融合成一句话，瞬间执行！
+    set_property -dict [list LOC SLICE_X${reg_x_rise}Y${current_y} BEL AFF] $reg_0
+    set_property -dict [list LOC SLICE_X${reg_x_rise}Y${current_y} BEL BFF] $reg_1
+    set_property -dict [list LOC SLICE_X${reg_x_rise}Y${current_y} BEL CFF] $reg_2
+    set_property -dict [list LOC SLICE_X${reg_x_rise}Y${current_y} BEL DFF] $reg_3
+}
+
+# ---------------------------------------------------------
+# 2. 下降沿：CARRY4 占 X2，触发器占姊妹列 X3
+# ---------------------------------------------------------
+set carry_x_fall 53
+set reg_x_fall 53
+
+for {set i 0} {$i < max_point} {incr i} {
+    set current_y [expr $start_y + $i]
+    
+    set r0 [expr $i * 4 + 0]
+    set r1 [expr $i * 4 + 1]
+    set r2 [expr $i * 4 + 2]
+    set r3 [expr $i * 4 + 3]
+
+    set carry_cell [get_cells -hierarchical -filter "NAME =~ *falling_delay_chain\[${i}\]*carry4*"]
+    set reg_0 [get_cells -hierarchical -filter "NAME =~ *sampled_chain_b_reg\[${r0}\]*"]
+    set reg_1 [get_cells -hierarchical -filter "NAME =~ *sampled_chain_b_reg\[${r1}\]*"]
+    set reg_2 [get_cells -hierarchical -filter "NAME =~ *sampled_chain_b_reg\[${r2}\]*"]
+    set reg_3 [get_cells -hierarchical -filter "NAME =~ *sampled_chain_b_reg\[${r3}\]*"]
+
+    set_property LOC SLICE_X${carry_x_fall}Y${current_y} $carry_cell
+    
+    set_property -dict [list LOC SLICE_X${reg_x_fall}Y${current_y} BEL AFF] $reg_0
+    set_property -dict [list LOC SLICE_X${reg_x_fall}Y${current_y} BEL BFF] $reg_1
+    set_property -dict [list LOC SLICE_X${reg_x_fall}Y${current_y} BEL CFF] $reg_2
+    set_property -dict [list LOC SLICE_X${reg_x_fall}Y${current_y} BEL DFF] $reg_3
+}
+
+# 1. 绑定上升沿触发器 (定位到 Slice 及其内部的 AFF 槽位)
+set_property LOC SLICE_X53Y75 [get_cells -hierarchical -filter {NAME =~ *pwm_rise_latched_reg*}]
+set_property BEL D5FF [get_cells -hierarchical -filter {NAME =~ *pwm_rise_latched_reg*}]
+
+# 2. 绑定上升沿 LUT (定位到同一个 Slice 内部的 A6LUT 槽位)
+set_property LOC SLICE_X53Y75 [get_cells -hierarchical -filter {NAME =~ *pwm_rise_latched_i_1*}]
+set_property BEL A6LUT [get_cells -hierarchical -filter {NAME =~ *pwm_rise_latched_i_1*}]
+
+# 3. 绑定下降沿触发器 (定位到 BFF 槽位)
+set_property LOC SLICE_X53Y75 [get_cells -hierarchical -filter {NAME =~ *pwm_fall_latched_reg*}]
+set_property BEL D5FF [get_cells -hierarchical -filter {NAME =~ *pwm_fall_latched_reg*}]
+
+# 4. 绑定下降沿 LUT (定位到 B6LUT 槽位)
+set_property LOC SLICE_X53Y75 [get_cells -hierarchical -filter {NAME =~ *pwm_fall_latched_i_1*}]
+set_property BEL B6LUT [get_cells -hierarchical -filter {NAME =~ *pwm_fall_latched_i_1*}]
+
+
+#查时序报告的
+report_timing -from [get_pins u_fine_counter/pwm_rise_latched_reg/C] -to [get_pins {u_fine_counter/sampled_chain_a_reg[79]/D}] -delay_type max -name tdc_ff_to_ff

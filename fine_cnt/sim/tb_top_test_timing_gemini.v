@@ -8,8 +8,9 @@ module tb_top_test_timing();
     reg sys_clk;
     reg sys_rst_n;
     reg pwm_signal;
+    wire [3:0] led_out;
     wire valid_out;
-
+    
     // ==========================================
     // 2. 实例化顶层模块 (top_test)
     // 根据你的 XDC 约束推断的端口，如果有不同请自行修改
@@ -18,9 +19,10 @@ module tb_top_test_timing();
         .sys_clk    (sys_clk),
         .sys_rst_n  (sys_rst_n),
         .pwm_signal (pwm_signal),
-        .valid_out  (valid_out)
+        .led_out  (led_out) // 这里我们不关心 LED 输出，所以直接连接到常量  
     );
 
+assign led_out = 4'b0000; // 这里我们不关心 LED 输出，所以直接连接到常量
     // ==========================================
     // 3. 产生 50MHz 系统主时钟
     // 周期 = 20ns = 20000ps -> 半周期 10000ps
@@ -39,7 +41,7 @@ module tb_top_test_timing();
         // 初始化信号
         sys_rst_n = 0;
         pwm_signal = 0;
-
+        
         // 【避坑指南 1】：全局复位等待
         // 必须等 100ns 让底层全局复位网络 (GSR) 释放
         #100000; 

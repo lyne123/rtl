@@ -1,12 +1,12 @@
 /**
  * 基于 CARRY4 延迟线的细计数模块 (TDC 时间-数字转换器)
- * 实现 Nutt 时间插值法，使用 80 级延迟线
+ * 实现 Nutt 时间插值法，使用 DELAY_STAGES 级延迟线
  *
  * 该模块测量细时间间隔 'a' 和 'b'：
  * - 'a': PWM 上升沿到下一个系统时钟上升沿的时间
  * - 'b': PWM 下降沿到下一个系统时钟上升沿的时间
  *
- * 使用两条独立的 CARRY4 延迟链（各 80 级）实现高精度测量，
+ * 使用两条独立的 CARRY4 延迟链（各 DELAY_STAGES 级）实现高精度测量，
  * 不依赖同步计数器逻辑。
  */
 
@@ -15,14 +15,14 @@ module fine_counter_carry4 (
     input wire rst_n,             // 低电平有效复位信号
     input wire pwm_signal,        // PWM 输入信号（异步边沿）
 
-    output reg [6:0] fine_count_a, // 细计数值 'a'（7 位，范围 0-80）
-    output reg [6:0] fine_count_b, // 细计数值 'b'（7 位，范围 0-80）
-    output reg valid_out          // 输出有效信号
+    output reg [7:0] fine_count_a, // 细计数值 'a'（范围 0-DELAY_STAGES）
+    output reg [7:0] fine_count_b, // 细计数值 'b'（范围 0-DELAY_STAGES）
+    output reg valid_out         // 输出有效信号
 );
 
 // 参数定义
-parameter DELAY_STAGES = 80;      // 延迟级数（80 级 CARRY4）
-parameter CARRY4_BLOCKS = 20;     // CARRY4 模块数量（80/4 = 20）
+parameter DELAY_STAGES = 160;      // 延迟级数（160 级）
+parameter CARRY4_BLOCKS = DELAY_STAGES/4;     // CARRY4 模块数量（160/4 = 40）
 
 //--------------------------------------------------------------------------
 // 异步极窄脉冲锁存器 (Pulse Stretching)
@@ -76,87 +76,66 @@ assign clr_fall = ~rst_n | (fall_clr_sync[2] & fall_clr_sync[1]);
 // CARRY4 延迟链实现 - 使用进位链正确实现
 //--------------------------------------------------------------------------
 // 延迟链内部信号
-(* keep = "true" *) wire [DELAY_STAGES-1:0] delay_chain_a;  // 上升沿延迟线
-(* keep = "true" *) wire [DELAY_STAGES-1:0] delay_chain_b;  // 下降沿延迟线
-
-// 采样寄存器 //强制把这些触发器紧紧贴在 CARRY4 的旁边
-(* ASYNC_REG = "TRUE" *)reg [DELAY_STAGES-1:0] sampled_chain_a;
-(* ASYNC_REG = "TRUE" *)reg [DELAY_STAGES-1:0] sampled_chain_b;
-
-// 进位链专用的级联信号 (只需 CARRY4_BLOCKS-1 根线，每根 1 bit)
-(* keep = "true" *)wire [CARRY4_BLOCKS-2:0] carry_cascade_a;
-(* keep = "true" *)wire [CARRY4_BLOCKS-2:0] carry_cascade_b;
+(* keep = "true" *) wire [DELAY_STAGES:0] delay_chain_a;  // 上升沿延迟线
+(* keep = "true" *) wire [DELAY_STAGES:0] delay_chain_b;  // 下降沿延迟线
 
 //--------------------------------------------------------------------------
-// 上升沿延迟链（用于测量 'a'）- 【已彻底修正物理映射】
+// 上升沿延迟链（用于测量 'a'）
 //--------------------------------------------------------------------------
 genvar i;
 generate
     for (i = 0; i < CARRY4_BLOCKS; i = i + 1) begin : rising_delay_chain
-        
-        wire [3:0] co_out;
-        wire [3:0] o_out; 
-        
-        
-        // 实例化 CARRY4 模块
+
+        // CARRY4原语实例化 - 利用内部4级延迟
+        // 每个CARRY4提供4个独立的延迟级
         CARRY4 carry4_rising_inst (
-            .CO(co_out),                                    // ✅ 完整提取 4位进位输出
-            .O(o_out),                                           // ✅ 坚决悬空 O 端口
-            .CI(i == 0 ? 1'b0 : carry_cascade_a[i-1]),      // ✅ 接收上一级的最高位进位
-            .CYINIT(i == 0 ? pwm_rise_latched : 1'b0),           // ✅ 第一级注入口
-            .DI(4'h0), 
-            .S(4'hF) 
+            .CO(delay_chain_a[(i+1)*4:i*4+1]), // CO[3:0] -> 4级延迟输出
+            .O(),                         // 和输出(不使用)
+            .CI(i == 0 ? 1'b0 : delay_chain_a[i*4]), // 第一个CARRY4的CI接地，后续连接前一个CO
+            .CYINIT(i == 0 ? pwm_rise_latched : 1'b0), // 第一个CARRY4使用start信号
+            .DI(4'b0000),                 // 数据输入(全0)
+            .S(4'b1111)                   // 选择信号(全1确保进位传播)
         );
 
-        // 1. 将 4位 CO 直接作为真实的、未取反的延迟抽头
-        assign delay_chain_a[i*4 +: 4] = o_out;
-
-        // 2. 将最高位 CO[3] 提取出来，作为给下一级的物理级联输入
-        if (i < CARRY4_BLOCKS - 1) begin
-            assign carry_cascade_a[i] = co_out[3];
-        end
     end
 endgenerate
 
 //--------------------------------------------------------------------------
-// 下降沿延迟链（用于测量 'b'）- 【同理修正】
+// 下降沿延迟链（用于测量 'b'）
 //--------------------------------------------------------------------------
 generate
     for (i = 0; i < CARRY4_BLOCKS; i = i + 1) begin : falling_delay_chain
-        
-        wire [3:0] co_out;
-        wire [3:0] o_out; 
-        
+
+        // CARRY4原语实例化 - 利用内部4级延迟
+        // 每个CARRY4提供4个独立的延迟级
         CARRY4 carry4_falling_inst (
-            .CO(co_out), 
-            .O(o_out), 
-            .CI(i == 0 ? 1'b0 : carry_cascade_b[i-1]), 
-            .CYINIT(i == 0 ? pwm_fall_latched : 1'b0), 
-            .DI(4'h0), 
-            .S(4'hF) 
+            .CO(delay_chain_b[(i+1)*4:i*4+1]), // CO[3:0] -> 4级延迟输出
+            .O(),                         // 和输出(不使用)
+            .CI(i == 0 ? 1'b0 : delay_chain_b[i*4]), // 第一个CARRY4的CI接地，后续连接前一个CO
+            .CYINIT(i == 0 ? pwm_fall_latched : 1'b0), // 第一个CARRY4使用start信号
+            .DI(4'b0000),                 // 数据输入(全0)
+            .S(4'b1111)                   // 选择信号(全1确保进位传播)
         );
 
-        assign delay_chain_b[i*4 +: 4] = o_out;
-
-        if (i < CARRY4_BLOCKS - 1) begin
-            assign carry_cascade_b[i] = co_out[3];
-        end
     end
 endgenerate
 //--------------------------------------------------------------------------
 // 采样寄存器 - 在时钟边沿捕获延迟线状态
 // 注意：这里采样的是CARRY4的 CO 真实进位输出，形成温度计码
 //--------------------------------------------------------------------------
+
+// 采样寄存器 //强制把这些触发器紧紧贴在 CARRY4 的旁边
+(* ASYNC_REG = "TRUE" *)reg [DELAY_STAGES-1:0] sampled_chain_a;
+(* ASYNC_REG = "TRUE" *)reg [DELAY_STAGES-1:0] sampled_chain_b;
+
 always @(posedge clk_400m or negedge rst_n) begin
     if (!rst_n) begin
         sampled_chain_a <= {DELAY_STAGES{1'b0}};
         sampled_chain_b <= {DELAY_STAGES{1'b0}};
-        valid_out <= 1'b0;
     end else begin
-        // 采样延迟链以捕获温度计码
-        sampled_chain_a <= delay_chain_a;
-        sampled_chain_b <= delay_chain_b;
-        valid_out <= 1'b1;
+        // 采样延迟链以捕获温度计码（从第1级开始，跳过第0级起始信号）
+        sampled_chain_a <= delay_chain_a[DELAY_STAGES:1];
+        sampled_chain_b <= delay_chain_b[DELAY_STAGES:1];
     end
 end
 
@@ -165,45 +144,46 @@ end
 // 通过统计温度计码中 1 的个数来消除气泡错误
 //--------------------------------------------------------------------------
 
-// 上升沿计数器（用于 'a'）
-function [6:0] count_ones_80bit;
-    input [79:0] thermometer_code;
+// 统一的温度计码转二进制加法树函数
+function automatic [7:0] count_ones;
+    input [DELAY_STAGES-1:0] thermometer_code;
     integer j;
-    reg [6:0] count;
+    reg [7:0] count;
     begin
-        count = 7'd0;
-        for (j = 0; j < 80; j = j + 1) begin
+        count = 8'd0; // 建议写明确的位宽，如 8'd0
+        for (j = 0; j < DELAY_STAGES; j = j + 1) begin
             count = count + thermometer_code[j];
         end
-        count_ones_80bit = count;
-    end
-endfunction
-
-// 下降沿计数器（用于 'b'）
-function [6:0] count_ones_80bit_b;
-    input [79:0] thermometer_code;
-    integer j;
-    reg [6:0] count;
-    begin
-        count = 7'd0;
-        for (j = 0; j < 80; j = j + 1) begin
-            count = count + thermometer_code[j];
-        end
-        count_ones_80bit_b = count;
+        count_ones = count;
     end
 endfunction
 
 //--------------------------------------------------------------------------
 // 输出寄存器级
 //--------------------------------------------------------------------------
+
+// 提取数据有效标志位（Data Valid Strobe）
+// 原理：当第一拍同步到高电平，但第二拍还是低电平时，说明这是第一张“快照”！
+wire a_data_valid;
+wire b_data_valid;
+
+assign a_data_valid = rise_clr_sync[0] & ~rise_clr_sync[1];
+assign b_data_valid = fall_clr_sync[0] & ~fall_clr_sync[1];
+
 always @(posedge clk_400m or negedge rst_n) begin
     if (!rst_n) begin
-        fine_count_a <= 7'd0;
-        fine_count_b <= 7'd0;
+        fine_count_a <= 8'd0;
+        fine_count_b <= 8'd0;
+        valid_out <= 1'b0;
     end else begin
-        // 将温度计码转换为二进制计数值
-        fine_count_a <= count_ones_80bit(~sampled_chain_a);
-        fine_count_b <= count_ones_80bit_b(~sampled_chain_b);
+        if (a_data_valid) begin
+            fine_count_a <= count_ones(sampled_chain_a);
+        end
+        if (b_data_valid) begin
+            fine_count_b <= count_ones(sampled_chain_b);
+        end
+        // 只有当两条链的数据都有效时才输出有效信号
+        valid_out <= a_data_valid & b_data_valid;
     end
 end
 
