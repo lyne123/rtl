@@ -1,0 +1,11 @@
+0.7
+2020.2
+Nov 18 2020
+09:47:47
+D:/01-Codes/XilinxCode/Vernier_tdc/combine_fine_pwm_gen/prj/combine_fine_pwm_gen.gen/sources_1/ip/mmcm_50m_to_400m/mmcm_50m_to_400m.v,1775119508,verilog,,D:/01-Codes/XilinxCode/Vernier_tdc/combine_fine_pwm_gen/src/correct_pwm_generator.v,,mmcm_50m_to_400m,,,../../../../combine_fine_pwm_gen.gen/sources_1/ip/mmcm_50m_to_400m,,,,,
+D:/01-Codes/XilinxCode/Vernier_tdc/combine_fine_pwm_gen/prj/combine_fine_pwm_gen.gen/sources_1/ip/mmcm_50m_to_400m/mmcm_50m_to_400m_clk_wiz.v,1775119508,verilog,,D:/01-Codes/XilinxCode/Vernier_tdc/combine_fine_pwm_gen/prj/combine_fine_pwm_gen.gen/sources_1/ip/mmcm_50m_to_400m/mmcm_50m_to_400m.v,,mmcm_50m_to_400m_clk_wiz,,,../../../../combine_fine_pwm_gen.gen/sources_1/ip/mmcm_50m_to_400m,,,,,
+D:/01-Codes/XilinxCode/Vernier_tdc/combine_fine_pwm_gen/prj/combine_fine_pwm_gen.sim/sim_1/behav/xsim/glbl.v,1605673889,verilog,,,,glbl,,,,,,,,
+D:/01-Codes/XilinxCode/Vernier_tdc/combine_fine_pwm_gen/sim/tb_top_test_basic.v,1775119358,verilog,,,,tb_top_test_basic,,,../../../../combine_fine_pwm_gen.gen/sources_1/ip/mmcm_50m_to_400m,,,,,
+D:/01-Codes/XilinxCode/Vernier_tdc/combine_fine_pwm_gen/src/correct_pwm_generator.v,1775118149,verilog,,D:/01-Codes/XilinxCode/Vernier_tdc/combine_fine_pwm_gen/src/fine_counter_carry4.v,,pwm_auto_cycle_scan,,,../../../../combine_fine_pwm_gen.gen/sources_1/ip/mmcm_50m_to_400m,,,,,
+D:/01-Codes/XilinxCode/Vernier_tdc/combine_fine_pwm_gen/src/fine_counter_carry4.v,1775051686,verilog,,D:/01-Codes/XilinxCode/Vernier_tdc/combine_fine_pwm_gen/src/top_test.v,,fine_counter_carry4,,,../../../../combine_fine_pwm_gen.gen/sources_1/ip/mmcm_50m_to_400m,,,,,
+D:/01-Codes/XilinxCode/Vernier_tdc/combine_fine_pwm_gen/src/top_test.v,1775119086,verilog,,D:/01-Codes/XilinxCode/Vernier_tdc/combine_fine_pwm_gen/sim/tb_top_test_basic.v,,top_test,,,../../../../combine_fine_pwm_gen.gen/sources_1/ip/mmcm_50m_to_400m,,,,,

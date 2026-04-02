@@ -1,0 +1,2451 @@
+#-----------------------------------------------------------
+# Vivado v2020.2 (64-bit)
+# SW Build 3064766 on Wed Nov 18 09:12:45 MST 2020
+# IP Build 3064653 on Wed Nov 18 14:17:31 MST 2020
+# Start of session at: Thu Apr  2 16:20:13 2026
+# Process ID: 74480
+# Current directory: D:/01-Codes/XilinxCode/Vernier_tdc/tdc_testbench/prj
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent101596 D:\01-Codes\XilinxCode\Vernier_tdc\tdc_testbench\prj\tdc_testbench.xpr
+# Log file: D:/01-Codes/XilinxCode/Vernier_tdc/tdc_testbench/prj/vivado.log
+# Journal file: D:/01-Codes/XilinxCode/Vernier_tdc/tdc_testbench/prj\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project D:/01-Codes/XilinxCode/Vernier_tdc/tdc_testbench/prj/tdc_testbench.xpr
+Scanning sources...
+Finished scanning sources
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'D:/Vivado/2020.2/data/ip'.
+open_project: Time (s): cpu = 00:00:13 ; elapsed = 00:00:06 . Memory (MB): peak = 1138.773 ; gain = 0.000
+update_compile_order -fileset sources_1
+launch_simulation
+Command: launch_simulation 
+INFO: [Vivado 12-5698] Checking validity of IPs in the design for the 'XSim' simulator...
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'D:/01-Codes/XilinxCode/Vernier_tdc/tdc_testbench/prj/tdc_testbench.sim/sim_1/behav/xsim'
+INFO: [Vivado 12-4795] Using compiled simulation libraries for IPs
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [USF-XSim-7] Finding pre-compiled libraries...
+INFO: [USF-XSim-11] File 'D:/Vivado/2020.2/data/xsim/xsim.ini' copied to run dir:'D:/01-Codes/XilinxCode/Vernier_tdc/tdc_testbench/prj/tdc_testbench.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-54] Inspecting design source files for 'simple_tb_clean' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'D:/01-Codes/XilinxCode/Vernier_tdc/tdc_testbench/prj/tdc_testbench.sim/sim_1/behav/xsim'
+"xvlog --incr --relax -prj simple_tb_clean_vlog.prj"
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/01-Codes/XilinxCode/Vernier_tdc/tdc_testbench/prj/tdc_testbench.gen/sources_1/ip/clk_wiz_0/clk_wiz_0_clk_wiz.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module clk_wiz_0_clk_wiz
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/01-Codes/XilinxCode/Vernier_tdc/tdc_testbench/prj/tdc_testbench.gen/sources_1/ip/clk_wiz_0/clk_wiz_0.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module clk_wiz_0
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/01-Codes/XilinxCode/Vernier_tdc/tdc_testbench/src/correct_pwm_generator.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module pwm_auto_cycle_scan
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/01-Codes/XilinxCode/Vernier_tdc/tdc_testbench/src/top_pwm_gen.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module top_pwm_gen
+INFO: [VRFC 10-2458] undeclared symbol mmcm_locked, assumed default net type wire [D:/01-Codes/XilinxCode/Vernier_tdc/tdc_testbench/src/top_pwm_gen.v:21]
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/01-Codes/XilinxCode/Vernier_tdc/tdc_testbench/src/simple_tb_clean.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module simple_tb_clean
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/01-Codes/XilinxCode/Vernier_tdc/tdc_testbench/prj/tdc_testbench.sim/sim_1/behav/xsim/glbl.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module glbl
+INFO: [USF-XSim-69] 'compile' step finished in '2' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'D:/01-Codes/XilinxCode/Vernier_tdc/tdc_testbench/prj/tdc_testbench.sim/sim_1/behav/xsim'
+"xelab -wto 2b2ed2632fb64bf7a60b84649dc6c631 --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot simple_tb_clean_behav xil_defaultlib.simple_tb_clean xil_defaultlib.glbl -log elaborate.log"
+Vivado Simulator 2020.2
+Copyright 1986-1999, 2001-2020 Xilinx, Inc. All Rights Reserved.
+Running: D:/Vivado/2020.2/bin/unwrapped/win64.o/xelab.exe -wto 2b2ed2632fb64bf7a60b84649dc6c631 --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot simple_tb_clean_behav xil_defaultlib.simple_tb_clean xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module unisims_ver.IBUF
+Compiling module unisims_ver.MMCME2_ADV(CLKFBOUT_MULT_F=20.0,...
+Compiling module unisims_ver.BUFG
+Compiling module xil_defaultlib.clk_wiz_0_clk_wiz
+Compiling module xil_defaultlib.clk_wiz_0
+Compiling module unisims_ver.ODDR(DDR_CLK_EDGE="SAME_EDGE")
+Compiling module xil_defaultlib.pwm_auto_cycle_scan
+Compiling module xil_defaultlib.top_pwm_gen
+Compiling module xil_defaultlib.simple_tb_clean
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot simple_tb_clean_behav
+
+****** Webtalk v2020.2 (64-bit)
+  **** SW Build 3064766 on Wed Nov 18 09:12:45 MST 2020
+  **** IP Build 3064653 on Wed Nov 18 14:17:31 MST 2020
+    ** Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
+
+source D:/01-Codes/XilinxCode/Vernier_tdc/tdc_testbench/prj/tdc_testbench.sim/sim_1/behav/xsim/xsim.dir/simple_tb_clean_behav/webtalk/xsim_webtalk.tcl -notrace
+INFO: [Common 17-206] Exiting Webtalk at Thu Apr  2 16:21:36 2026...
+run_program: Time (s): cpu = 00:00:01 ; elapsed = 00:00:06 . Memory (MB): peak = 1138.773 ; gain = 0.000
+INFO: [USF-XSim-69] 'elaborate' step finished in '6' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in 'D:/01-Codes/XilinxCode/Vernier_tdc/tdc_testbench/prj/tdc_testbench.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "simple_tb_clean_behav -key {Behavioral:sim_1:Functional:simple_tb_clean} -tclbatch {simple_tb_clean.tcl} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Vivado Simulator 2020.2
+Time resolution is 1 ps
+source simple_tb_clean.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# run 1000ns
+[                   0] PWM=x
+[                 100] PWM=0
+[               20000] 复位释放，系统开始工作
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'simple_tb_clean_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 1000ns
+launch_simulation: Time (s): cpu = 00:00:10 ; elapsed = 00:00:13 . Memory (MB): peak = 1138.773 ; gain = 0.000
+run all
+[             1593600] PWM=1
+[             1594850] PWM=0
+[             1643600] PWM=1
+[             1644850] PWM=0
+[             1693600] PWM=1
+[             1694850] PWM=0
+[             1743600] PWM=1
+[             1744850] PWM=0
+[             1793600] PWM=1
+[             1794850] PWM=0
+[             1843600] PWM=1
+[             1844850] PWM=0
+[             1893600] PWM=1
+[             1894850] PWM=0
+[             1943600] PWM=1
+[             1944850] PWM=0
+[             1993600] PWM=1
+[             1994850] PWM=0
+[             2043600] PWM=1
+[             2044850] PWM=0
+[             2093600] PWM=1
+[             2094850] PWM=0
+[             2143600] PWM=1
+[             2144850] PWM=0
+[             2193600] PWM=1
+[             2194850] PWM=0
+[             2243600] PWM=1
+[             2244850] PWM=0
+[             2293600] PWM=1
+[             2294850] PWM=0
+[             2343600] PWM=1
+[             2344850] PWM=0
+[             2393600] PWM=1
+[             2394850] PWM=0
+[             2443600] PWM=1
+[             2444850] PWM=0
+[             2493600] PWM=1
+[             2494850] PWM=0
+[             2543600] PWM=1
+[             2544850] PWM=0
+[             2593600] PWM=1
+[             2594850] PWM=0
+[             2643600] PWM=1
+[             2644850] PWM=0
+[             2693600] PWM=1
+[             2694850] PWM=0
+[             2743600] PWM=1
+[             2744850] PWM=0
+[             2793600] PWM=1
+[             2794850] PWM=0
+[             2843600] PWM=1
+[             2844850] PWM=0
+[             2893600] PWM=1
+[             2894850] PWM=0
+[             2943600] PWM=1
+[             2944850] PWM=0
+[             2993600] PWM=1
+[             2994850] PWM=0
+[             3043600] PWM=1
+[             3044850] PWM=0
+[             3093600] PWM=1
+[             3094850] PWM=0
+[             3143600] PWM=1
+[             3144850] PWM=0
+[             3193600] PWM=1
+[             3194850] PWM=0
+[             3243600] PWM=1
+[             3244850] PWM=0
+[             3293600] PWM=1
+[             3294850] PWM=0
+[             3343600] PWM=1
+[             3344850] PWM=0
+[             3393600] PWM=1
+[             3394850] PWM=0
+[             3443600] PWM=1
+[             3444850] PWM=0
+[             3493600] PWM=1
+[             3494850] PWM=0
+[             3543600] PWM=1
+[             3544850] PWM=0
+[             3593600] PWM=1
+[             3594850] PWM=0
+[             3643600] PWM=1
+[             3644850] PWM=0
+[             3693600] PWM=1
+[             3694850] PWM=0
+[             3743600] PWM=1
+[             3744850] PWM=0
+[             3793600] PWM=1
+[             3794850] PWM=0
+[             3843600] PWM=1
+[             3844850] PWM=0
+[             3893600] PWM=1
+[             3894850] PWM=0
+[             3943600] PWM=1
+[             3944850] PWM=0
+[             3993600] PWM=1
+[             3994850] PWM=0
+[             4043600] PWM=1
+[             4044850] PWM=0
+[             4093600] PWM=1
+[             4094850] PWM=0
+[             4143600] PWM=1
+[             4144850] PWM=0
+[             4193600] PWM=1
+[             4194850] PWM=0
+[             4243600] PWM=1
+[             4244850] PWM=0
+[             4293600] PWM=1
+[             4294850] PWM=0
+[             4343600] PWM=1
+[             4344850] PWM=0
+[             4393600] PWM=1
+[             4394850] PWM=0
+[             4443600] PWM=1
+[             4444850] PWM=0
+[             4493600] PWM=1
+[             4494850] PWM=0
+[             4543600] PWM=1
+[             4544850] PWM=0
+[             4593600] PWM=1
+[             4594850] PWM=0
+[             4643600] PWM=1
+[             4644850] PWM=0
+[             4693600] PWM=1
+[             4694850] PWM=0
+[             4743600] PWM=1
+[             4744850] PWM=0
+[             4793600] PWM=1
+[             4794850] PWM=0
+[             4843600] PWM=1
+[             4844850] PWM=0
+[             4893600] PWM=1
+[             4894850] PWM=0
+[             4943600] PWM=1
+[             4944850] PWM=0
+[             4993600] PWM=1
+[             4994850] PWM=0
+[             5043600] PWM=1
+[             5044850] PWM=0
+[             5093600] PWM=1
+[             5094850] PWM=0
+[             5143600] PWM=1
+[             5144850] PWM=0
+[             5193600] PWM=1
+[             5194850] PWM=0
+[             5243600] PWM=1
+[             5244850] PWM=0
+[             5293600] PWM=1
+[             5294850] PWM=0
+[             5343600] PWM=1
+[             5344850] PWM=0
+[             5393600] PWM=1
+[             5394850] PWM=0
+[             5443600] PWM=1
+[             5444850] PWM=0
+[             5493600] PWM=1
+[             5494850] PWM=0
+[             5543600] PWM=1
+[             5544850] PWM=0
+[             5593600] PWM=1
+[             5594850] PWM=0
+[             5643600] PWM=1
+[             5644850] PWM=0
+[             5693600] PWM=1
+[             5694850] PWM=0
+[             5743600] PWM=1
+[             5744850] PWM=0
+[             5793600] PWM=1
+[             5794850] PWM=0
+[             5843600] PWM=1
+[             5844850] PWM=0
+[             5893600] PWM=1
+[             5894850] PWM=0
+[             5943600] PWM=1
+[             5944850] PWM=0
+[             5993600] PWM=1
+[             5994850] PWM=0
+[             6043600] PWM=1
+[             6044850] PWM=0
+[             6093600] PWM=1
+[             6094850] PWM=0
+[             6143600] PWM=1
+[             6144850] PWM=0
+[             6193600] PWM=1
+[             6194850] PWM=0
+[             6243600] PWM=1
+[             6244850] PWM=0
+[             6293600] PWM=1
+[             6294850] PWM=0
+[             6343600] PWM=1
+[             6344850] PWM=0
+[             6393600] PWM=1
+[             6394850] PWM=0
+[             6443600] PWM=1
+[             6444850] PWM=0
+[             6493600] PWM=1
+[             6494850] PWM=0
+[             6543600] PWM=1
+[             6544850] PWM=0
+[             6593600] PWM=1
+[             6594850] PWM=0
+[             6643600] PWM=1
+[             6644850] PWM=0
+[             6693600] PWM=1
+[             6694850] PWM=0
+[             6743600] PWM=1
+[             6744850] PWM=0
+[             6793600] PWM=1
+[             6794850] PWM=0
+[             6843600] PWM=1
+[             6844850] PWM=0
+[             6893600] PWM=1
+[             6894850] PWM=0
+[             6943600] PWM=1
+[             6944850] PWM=0
+[             6993600] PWM=1
+[             6994850] PWM=0
+[             7043600] PWM=1
+[             7044850] PWM=0
+[             7093600] PWM=1
+[             7094850] PWM=0
+[             7143600] PWM=1
+[             7144850] PWM=0
+[             7193600] PWM=1
+[             7194850] PWM=0
+[             7243600] PWM=1
+[             7244850] PWM=0
+[             7293600] PWM=1
+[             7294850] PWM=0
+[             7343600] PWM=1
+[             7344850] PWM=0
+[             7393600] PWM=1
+[             7394850] PWM=0
+[             7443600] PWM=1
+[             7444850] PWM=0
+[             7493600] PWM=1
+[             7494850] PWM=0
+[             7543600] PWM=1
+[             7544850] PWM=0
+[             7593600] PWM=1
+[             7594850] PWM=0
+[             7643600] PWM=1
+[             7644850] PWM=0
+[             7693600] PWM=1
+[             7694850] PWM=0
+[             7743600] PWM=1
+[             7744850] PWM=0
+[             7793600] PWM=1
+[             7794850] PWM=0
+[             7843600] PWM=1
+[             7844850] PWM=0
+[             7893600] PWM=1
+[             7894850] PWM=0
+[             7943600] PWM=1
+[             7944850] PWM=0
+[             7993600] PWM=1
+[             7994850] PWM=0
+[             8043600] PWM=1
+[             8044850] PWM=0
+[             8093600] PWM=1
+[             8094850] PWM=0
+[             8143600] PWM=1
+[             8144850] PWM=0
+[             8193600] PWM=1
+[             8194850] PWM=0
+[             8243600] PWM=1
+[             8244850] PWM=0
+[             8293600] PWM=1
+[             8294850] PWM=0
+[             8343600] PWM=1
+[             8344850] PWM=0
+[             8393600] PWM=1
+[             8394850] PWM=0
+[             8443600] PWM=1
+[             8444850] PWM=0
+[             8493600] PWM=1
+[             8494850] PWM=0
+[             8543600] PWM=1
+[             8544850] PWM=0
+[             8593600] PWM=1
+[             8594850] PWM=0
+[             8643600] PWM=1
+[             8644850] PWM=0
+[             8693600] PWM=1
+[             8694850] PWM=0
+[             8743600] PWM=1
+[             8744850] PWM=0
+[             8793600] PWM=1
+[             8794850] PWM=0
+[             8843600] PWM=1
+[             8844850] PWM=0
+[             8893600] PWM=1
+[             8894850] PWM=0
+[             8943600] PWM=1
+[             8944850] PWM=0
+[             8993600] PWM=1
+[             8994850] PWM=0
+[             9043600] PWM=1
+[             9044850] PWM=0
+[             9093600] PWM=1
+[             9094850] PWM=0
+[             9143600] PWM=1
+[             9144850] PWM=0
+[             9193600] PWM=1
+[             9194850] PWM=0
+[             9243600] PWM=1
+[             9244850] PWM=0
+[             9293600] PWM=1
+[             9294850] PWM=0
+[             9343600] PWM=1
+[             9344850] PWM=0
+[             9393600] PWM=1
+[             9394850] PWM=0
+[             9443600] PWM=1
+[             9444850] PWM=0
+[             9493600] PWM=1
+[             9494850] PWM=0
+[             9543600] PWM=1
+[             9544850] PWM=0
+[             9593600] PWM=1
+[             9594850] PWM=0
+[             9643600] PWM=1
+[             9644850] PWM=0
+[             9693600] PWM=1
+[             9694850] PWM=0
+[             9743600] PWM=1
+[             9744850] PWM=0
+[             9793600] PWM=1
+[             9794850] PWM=0
+[             9843600] PWM=1
+[             9844850] PWM=0
+[             9893600] PWM=1
+[             9894850] PWM=0
+[             9943600] PWM=1
+[             9944850] PWM=0
+[             9993600] PWM=1
+[             9994850] PWM=0
+[            10000000] 仿真完成
+$finish called at time : 10 us : File "D:/01-Codes/XilinxCode/Vernier_tdc/tdc_testbench/src/simple_tb_clean.v" Line 135
+current_wave_config {Untitled 1}
+Untitled 1
+add_wave {{/simple_tb_clean/uut/u_clk_0/clk_out1}} 
+relaunch_sim
+Command: launch_simulation -simset sim_1 -mode behavioral
+INFO: [Vivado 12-5698] Checking validity of IPs in the design for the 'XSim' simulator...
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'D:/01-Codes/XilinxCode/Vernier_tdc/tdc_testbench/prj/tdc_testbench.sim/sim_1/behav/xsim'
+INFO: [Vivado 12-4795] Using compiled simulation libraries for IPs
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [USF-XSim-7] Finding pre-compiled libraries...
+INFO: [USF-XSim-11] File 'D:/Vivado/2020.2/data/xsim/xsim.ini' copied to run dir:'D:/01-Codes/XilinxCode/Vernier_tdc/tdc_testbench/prj/tdc_testbench.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-54] Inspecting design source files for 'simple_tb_clean' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'D:/01-Codes/XilinxCode/Vernier_tdc/tdc_testbench/prj/tdc_testbench.sim/sim_1/behav/xsim'
+"xvlog --incr --relax -prj simple_tb_clean_vlog.prj"
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/01-Codes/XilinxCode/Vernier_tdc/tdc_testbench/prj/tdc_testbench.gen/sources_1/ip/clk_wiz_0/clk_wiz_0_clk_wiz.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module clk_wiz_0_clk_wiz
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/01-Codes/XilinxCode/Vernier_tdc/tdc_testbench/prj/tdc_testbench.gen/sources_1/ip/clk_wiz_0/clk_wiz_0.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module clk_wiz_0
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/01-Codes/XilinxCode/Vernier_tdc/tdc_testbench/src/correct_pwm_generator.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module pwm_auto_cycle_scan
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/01-Codes/XilinxCode/Vernier_tdc/tdc_testbench/src/top_pwm_gen.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module top_pwm_gen
+INFO: [VRFC 10-2458] undeclared symbol mmcm_locked, assumed default net type wire [D:/01-Codes/XilinxCode/Vernier_tdc/tdc_testbench/src/top_pwm_gen.v:21]
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/01-Codes/XilinxCode/Vernier_tdc/tdc_testbench/src/simple_tb_clean.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module simple_tb_clean
+INFO: [USF-XSim-69] 'compile' step finished in '2' seconds
+Command: launch_simulation -simset sim_1 -mode behavioral
+INFO: [Vivado 12-5698] Checking validity of IPs in the design for the 'XSim' simulator...
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'D:/01-Codes/XilinxCode/Vernier_tdc/tdc_testbench/prj/tdc_testbench.sim/sim_1/behav/xsim'
+INFO: [Vivado 12-4795] Using compiled simulation libraries for IPs
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'D:/01-Codes/XilinxCode/Vernier_tdc/tdc_testbench/prj/tdc_testbench.sim/sim_1/behav/xsim'
+"xelab -wto 2b2ed2632fb64bf7a60b84649dc6c631 --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot simple_tb_clean_behav xil_defaultlib.simple_tb_clean xil_defaultlib.glbl -log elaborate.log"
+Vivado Simulator 2020.2
+Copyright 1986-1999, 2001-2020 Xilinx, Inc. All Rights Reserved.
+Running: D:/Vivado/2020.2/bin/unwrapped/win64.o/xelab.exe -wto 2b2ed2632fb64bf7a60b84649dc6c631 --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot simple_tb_clean_behav xil_defaultlib.simple_tb_clean xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module unisims_ver.IBUF
+Compiling module unisims_ver.MMCME2_ADV(CLKFBOUT_MULT_F=20.0,...
+Compiling module unisims_ver.BUFG
+Compiling module xil_defaultlib.clk_wiz_0_clk_wiz
+Compiling module xil_defaultlib.clk_wiz_0
+Compiling module unisims_ver.ODDR(DDR_CLK_EDGE="SAME_EDGE")
+Compiling module xil_defaultlib.pwm_auto_cycle_scan
+Compiling module xil_defaultlib.top_pwm_gen
+Compiling module xil_defaultlib.simple_tb_clean
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot simple_tb_clean_behav
+INFO: [USF-XSim-69] 'elaborate' step finished in '4' seconds
+Vivado Simulator 2020.2
+Time resolution is 1 ps
+[                   0] PWM=x
+[                 100] PWM=0
+[               20000] 复位释放，系统开始工作
+relaunch_sim: Time (s): cpu = 00:00:03 ; elapsed = 00:00:13 . Memory (MB): peak = 1138.773 ; gain = 0.000
+run all
+[             1593600] PWM=1
+[             1594850] PWM=0
+[             1643600] PWM=1
+[             1646100] PWM=0
+[             1693600] PWM=1
+[             1697350] PWM=0
+[             1743600] PWM=1
+[             1748600] PWM=0
+[             1793600] PWM=1
+[             1799850] PWM=0
+[             1843600] PWM=1
+[             1851100] PWM=0
+[             1893600] PWM=1
+[             1902350] PWM=0
+[             1943600] PWM=1
+[             1950000] PWM周期         x: 100000.0ns
+[             1953600] PWM=0
+[             1993600] PWM=1
+[             2004850] PWM=0
+[             2043600] PWM=1
+[             2050000] PWM周期         x: 100000.0ns
+[             2056100] PWM=0
+[             2093600] PWM=1
+[             2107350] PWM=0
+[             2143600] PWM=1
+[             2150000] PWM周期         x: 100000.0ns
+[             2158600] PWM=0
+[             2193600] PWM=1
+[             2209850] PWM=0
+[             2243600] PWM=1
+[             2250000] PWM周期         x: 100000.0ns
+[             2261100] PWM=0
+[             2293600] PWM=1
+[             2310000] PWM周期         x: 60000.0ns
+[             2312350] PWM=0
+[             2343600] PWM=1
+[             2350000] PWM周期         x: 40000.0ns
+[             2363600] PWM=0
+[             2393600] PWM=1
+[             2410000] PWM周期         x: 60000.0ns
+[             2414850] PWM=0
+[             2443600] PWM=1
+[             2450000] PWM周期         x: 40000.0ns
+[             2466100] PWM=0
+[             2493600] PWM=1
+[             2510000] PWM周期         x: 60000.0ns
+[             2517350] PWM=0
+[             2543600] PWM=1
+[             2550000] PWM周期         x: 40000.0ns
+[             2568600] PWM=0
+[             2593600] PWM=1
+[             2610000] PWM周期         x: 60000.0ns
+[             2619850] PWM=0
+[             2643600] PWM=1
+[             2650000] PWM周期         x: 40000.0ns
+[             2671100] PWM=0
+[             2693600] PWM=1
+[             2710000] PWM周期         x: 60000.0ns
+[             2722350] PWM=0
+[             2743600] PWM=1
+[             2750000] PWM周期         x: 40000.0ns
+[             2773600] PWM=0
+[             2793600] PWM=1
+[             2810000] PWM周期         x: 60000.0ns
+[             2824850] PWM=0
+[             2843600] PWM=1
+[             2850000] PWM周期         x: 40000.0ns
+[             2876100] PWM=0
+[             2893600] PWM=1
+[             2910000] PWM周期         x: 60000.0ns
+[             2927350] PWM=0
+[             2943600] PWM=1
+[             2950000] PWM周期         x: 40000.0ns
+[             2978600] PWM=0
+[             2993600] PWM=1
+[             3010000] PWM周期         x: 60000.0ns
+[             3029850] PWM=0
+[             3043600] PWM=1
+[             3050000] PWM周期         x: 40000.0ns
+[             3081100] PWM=0
+[             3093600] PWM=1
+[             3110000] PWM周期         x: 60000.0ns
+[             3132350] PWM=0
+[             3143600] PWM=1
+[             3183600] PWM=0
+[             3193600] PWM=1
+[             3210000] PWM周期         x: 100000.0ns
+[             3234850] PWM=0
+[             3243600] PWM=1
+[             3286100] PWM=0
+[             3293600] PWM=1
+[             3310000] PWM周期         x: 100000.0ns
+[             3337350] PWM=0
+[             3343600] PWM=1
+[             3388600] PWM=0
+[             3393600] PWM=1
+[             3410000] PWM周期         x: 100000.0ns
+[             3439850] PWM=0
+[             3443600] PWM=1
+[             3491100] PWM=0
+[             3493600] PWM=1
+[             3542350] PWM=0
+[             3543600] PWM=1
+[             3544850] PWM=0
+[             3593600] PWM=1
+[             3596100] PWM=0
+[             3643600] PWM=1
+[             3647350] PWM=0
+[             3693600] PWM=1
+[             3698600] PWM=0
+[             3743600] PWM=1
+[             3749850] PWM=0
+[             3793600] PWM=1
+[             3801100] PWM=0
+[             3843600] PWM=1
+[             3850000] PWM周期         x: 440000.0ns
+[             3852350] PWM=0
+[             3893600] PWM=1
+[             3903600] PWM=0
+[             3943600] PWM=1
+[             3950000] PWM周期         x: 100000.0ns
+[             3954850] PWM=0
+[             3993600] PWM=1
+[             4006100] PWM=0
+[             4043600] PWM=1
+[             4050000] PWM周期         x: 100000.0ns
+[             4057350] PWM=0
+[             4093600] PWM=1
+[             4108600] PWM=0
+[             4143600] PWM=1
+[             4150000] PWM周期         x: 100000.0ns
+[             4159850] PWM=0
+[             4193600] PWM=1
+[             4210000] PWM周期         x: 60000.0ns
+[             4211100] PWM=0
+[             4243600] PWM=1
+[             4250000] PWM周期         x: 40000.0ns
+[             4262350] PWM=0
+[             4293600] PWM=1
+[             4310000] PWM周期         x: 60000.0ns
+[             4313600] PWM=0
+[             4343600] PWM=1
+[             4350000] PWM周期         x: 40000.0ns
+[             4364850] PWM=0
+[             4393600] PWM=1
+[             4410000] PWM周期         x: 60000.0ns
+[             4416100] PWM=0
+[             4443600] PWM=1
+[             4450000] PWM周期         x: 40000.0ns
+[             4467350] PWM=0
+[             4493600] PWM=1
+[             4510000] PWM周期         x: 60000.0ns
+[             4518600] PWM=0
+[             4543600] PWM=1
+[             4550000] PWM周期         x: 40000.0ns
+[             4569850] PWM=0
+[             4593600] PWM=1
+[             4610000] PWM周期         x: 60000.0ns
+[             4621100] PWM=0
+[             4643600] PWM=1
+[             4650000] PWM周期         x: 40000.0ns
+[             4672350] PWM=0
+[             4693600] PWM=1
+[             4710000] PWM周期         x: 60000.0ns
+[             4723600] PWM=0
+[             4743600] PWM=1
+[             4750000] PWM周期         x: 40000.0ns
+[             4774850] PWM=0
+[             4793600] PWM=1
+[             4810000] PWM周期         x: 60000.0ns
+[             4826100] PWM=0
+[             4843600] PWM=1
+[             4850000] PWM周期         x: 40000.0ns
+[             4877350] PWM=0
+[             4893600] PWM=1
+[             4910000] PWM周期         x: 60000.0ns
+[             4928600] PWM=0
+[             4943600] PWM=1
+[             4950000] PWM周期         x: 40000.0ns
+[             4979850] PWM=0
+[             4993600] PWM=1
+[             5010000] PWM周期         x: 60000.0ns
+[             5031100] PWM=0
+[             5043600] PWM=1
+[             5082350] PWM=0
+[             5093600] PWM=1
+[             5110000] PWM周期         x: 100000.0ns
+[             5133600] PWM=0
+[             5143600] PWM=1
+[             5184850] PWM=0
+[             5193600] PWM=1
+[             5210000] PWM周期         x: 100000.0ns
+[             5236100] PWM=0
+[             5243600] PWM=1
+[             5287350] PWM=0
+[             5293600] PWM=1
+[             5310000] PWM周期         x: 100000.0ns
+[             5338600] PWM=0
+[             5343600] PWM=1
+[             5389850] PWM=0
+[             5393600] PWM=1
+[             5410000] PWM周期         x: 100000.0ns
+[             5441100] PWM=0
+[             5443600] PWM=1
+[             5492350] PWM=0
+[             5493600] PWM=1
+[             5494850] PWM=0
+[             5543600] PWM=1
+[             5546100] PWM=0
+[             5593600] PWM=1
+[             5597350] PWM=0
+[             5643600] PWM=1
+[             5648600] PWM=0
+[             5693600] PWM=1
+[             5699850] PWM=0
+[             5743600] PWM=1
+[             5750000] PWM周期         x: 340000.0ns
+[             5751100] PWM=0
+[             5793600] PWM=1
+[             5802350] PWM=0
+[             5843600] PWM=1
+[             5850000] PWM周期         x: 100000.0ns
+[             5853600] PWM=0
+[             5893600] PWM=1
+[             5904850] PWM=0
+[             5943600] PWM=1
+[             5950000] PWM周期         x: 100000.0ns
+[             5956100] PWM=0
+[             5993600] PWM=1
+[             6007350] PWM=0
+[             6043600] PWM=1
+[             6050000] PWM周期         x: 100000.0ns
+[             6058600] PWM=0
+[             6093600] PWM=1
+[             6109850] PWM=0
+[             6143600] PWM=1
+[             6150000] PWM周期         x: 100000.0ns
+[             6161100] PWM=0
+[             6193600] PWM=1
+[             6210000] PWM周期         x: 60000.0ns
+[             6212350] PWM=0
+[             6243600] PWM=1
+[             6250000] PWM周期         x: 40000.0ns
+[             6263600] PWM=0
+[             6293600] PWM=1
+[             6310000] PWM周期         x: 60000.0ns
+[             6314850] PWM=0
+[             6343600] PWM=1
+[             6350000] PWM周期         x: 40000.0ns
+[             6366100] PWM=0
+[             6393600] PWM=1
+[             6410000] PWM周期         x: 60000.0ns
+[             6417350] PWM=0
+[             6443600] PWM=1
+[             6450000] PWM周期         x: 40000.0ns
+[             6468600] PWM=0
+[             6493600] PWM=1
+[             6510000] PWM周期         x: 60000.0ns
+[             6519850] PWM=0
+[             6543600] PWM=1
+[             6550000] PWM周期         x: 40000.0ns
+[             6571100] PWM=0
+[             6593600] PWM=1
+[             6610000] PWM周期         x: 60000.0ns
+[             6622350] PWM=0
+[             6643600] PWM=1
+[             6650000] PWM周期         x: 40000.0ns
+[             6673600] PWM=0
+[             6693600] PWM=1
+[             6710000] PWM周期         x: 60000.0ns
+[             6724850] PWM=0
+[             6743600] PWM=1
+[             6750000] PWM周期         x: 40000.0ns
+[             6776100] PWM=0
+[             6793600] PWM=1
+[             6810000] PWM周期         x: 60000.0ns
+[             6827350] PWM=0
+[             6843600] PWM=1
+[             6850000] PWM周期         x: 40000.0ns
+[             6878600] PWM=0
+[             6893600] PWM=1
+[             6910000] PWM周期         x: 60000.0ns
+[             6929850] PWM=0
+[             6943600] PWM=1
+[             6950000] PWM周期         x: 40000.0ns
+[             6981100] PWM=0
+[             6993600] PWM=1
+[             7010000] PWM周期         x: 60000.0ns
+[             7032350] PWM=0
+[             7043600] PWM=1
+[             7083600] PWM=0
+[             7093600] PWM=1
+[             7110000] PWM周期         x: 100000.0ns
+[             7134850] PWM=0
+[             7143600] PWM=1
+[             7186100] PWM=0
+[             7193600] PWM=1
+[             7210000] PWM周期         x: 100000.0ns
+[             7237350] PWM=0
+[             7243600] PWM=1
+[             7288600] PWM=0
+[             7293600] PWM=1
+[             7310000] PWM周期         x: 100000.0ns
+[             7339850] PWM=0
+[             7343600] PWM=1
+[             7391100] PWM=0
+[             7393600] PWM=1
+[             7442350] PWM=0
+[             7443600] PWM=1
+[             7444850] PWM=0
+[             7493600] PWM=1
+[             7496100] PWM=0
+[             7543600] PWM=1
+[             7547350] PWM=0
+[             7593600] PWM=1
+[             7598600] PWM=0
+[             7643600] PWM=1
+[             7649850] PWM=0
+[             7693600] PWM=1
+[             7701100] PWM=0
+[             7743600] PWM=1
+[             7750000] PWM周期         x: 440000.0ns
+[             7752350] PWM=0
+[             7793600] PWM=1
+[             7803600] PWM=0
+[             7843600] PWM=1
+[             7850000] PWM周期         x: 100000.0ns
+[             7854850] PWM=0
+[             7893600] PWM=1
+[             7906100] PWM=0
+[             7943600] PWM=1
+[             7950000] PWM周期         x: 100000.0ns
+[             7957350] PWM=0
+[             7993600] PWM=1
+[             8008600] PWM=0
+[             8043600] PWM=1
+[             8050000] PWM周期         x: 100000.0ns
+[             8059850] PWM=0
+[             8093600] PWM=1
+[             8110000] PWM周期         x: 60000.0ns
+[             8111100] PWM=0
+[             8143600] PWM=1
+[             8150000] PWM周期         x: 40000.0ns
+[             8162350] PWM=0
+[             8193600] PWM=1
+[             8210000] PWM周期         x: 60000.0ns
+[             8213600] PWM=0
+[             8243600] PWM=1
+[             8250000] PWM周期         x: 40000.0ns
+[             8264850] PWM=0
+[             8293600] PWM=1
+[             8310000] PWM周期         x: 60000.0ns
+[             8316100] PWM=0
+[             8343600] PWM=1
+[             8350000] PWM周期         x: 40000.0ns
+[             8367350] PWM=0
+[             8393600] PWM=1
+[             8410000] PWM周期         x: 60000.0ns
+[             8418600] PWM=0
+[             8443600] PWM=1
+[             8450000] PWM周期         x: 40000.0ns
+[             8469850] PWM=0
+[             8493600] PWM=1
+[             8510000] PWM周期         x: 60000.0ns
+[             8521100] PWM=0
+[             8543600] PWM=1
+[             8550000] PWM周期         x: 40000.0ns
+[             8572350] PWM=0
+[             8593600] PWM=1
+[             8610000] PWM周期         x: 60000.0ns
+[             8623600] PWM=0
+[             8643600] PWM=1
+[             8650000] PWM周期         x: 40000.0ns
+[             8674850] PWM=0
+[             8693600] PWM=1
+[             8710000] PWM周期         x: 60000.0ns
+[             8726100] PWM=0
+[             8743600] PWM=1
+[             8750000] PWM周期         x: 40000.0ns
+[             8777350] PWM=0
+[             8793600] PWM=1
+[             8810000] PWM周期         x: 60000.0ns
+[             8828600] PWM=0
+[             8843600] PWM=1
+[             8850000] PWM周期         x: 40000.0ns
+[             8879850] PWM=0
+[             8893600] PWM=1
+[             8910000] PWM周期         x: 60000.0ns
+[             8931100] PWM=0
+[             8943600] PWM=1
+[             8982350] PWM=0
+[             8993600] PWM=1
+[             9010000] PWM周期         x: 100000.0ns
+[             9033600] PWM=0
+[             9043600] PWM=1
+[             9084850] PWM=0
+[             9093600] PWM=1
+[             9110000] PWM周期         x: 100000.0ns
+[             9136100] PWM=0
+[             9143600] PWM=1
+[             9187350] PWM=0
+[             9193600] PWM=1
+[             9210000] PWM周期         x: 100000.0ns
+[             9238600] PWM=0
+[             9243600] PWM=1
+[             9289850] PWM=0
+[             9293600] PWM=1
+[             9310000] PWM周期         x: 100000.0ns
+[             9341100] PWM=0
+[             9343600] PWM=1
+[             9392350] PWM=0
+[             9393600] PWM=1
+[             9394850] PWM=0
+[             9443600] PWM=1
+[             9446100] PWM=0
+[             9493600] PWM=1
+[             9497350] PWM=0
+[             9543600] PWM=1
+[             9548600] PWM=0
+[             9593600] PWM=1
+[             9599850] PWM=0
+[             9643600] PWM=1
+[             9650000] PWM周期         x: 340000.0ns
+[             9651100] PWM=0
+[             9693600] PWM=1
+[             9702350] PWM=0
+[             9743600] PWM=1
+[             9750000] PWM周期         x: 100000.0ns
+[             9753600] PWM=0
+[             9793600] PWM=1
+[             9804850] PWM=0
+[             9843600] PWM=1
+[             9850000] PWM周期         x: 100000.0ns
+[             9856100] PWM=0
+[             9893600] PWM=1
+[             9907350] PWM=0
+[             9943600] PWM=1
+[             9950000] PWM周期         x: 100000.0ns
+[             9958600] PWM=0
+[             9993600] PWM=1
+[            10000000] 仿真完成
+$finish called at time : 10 us : File "D:/01-Codes/XilinxCode/Vernier_tdc/tdc_testbench/src/simple_tb_clean.v" Line 135
+set_property -dict [list CONFIG.CLKOUT2_USED {true} CONFIG.CLKOUT2_REQUESTED_PHASE {0.000} CONFIG.MMCM_CLKFBOUT_MULT_F {24.000} CONFIG.MMCM_CLKOUT0_DIVIDE_F {3.000} CONFIG.MMCM_CLKOUT0_PHASE {150.000} CONFIG.MMCM_CLKOUT1_DIVIDE {3} CONFIG.MMCM_CLKOUT1_PHASE {0.000} CONFIG.NUM_OUT_CLKS {2} CONFIG.CLKOUT1_JITTER {111.427} CONFIG.CLKOUT1_PHASE_ERROR {154.678} CONFIG.CLKOUT2_JITTER {111.427} CONFIG.CLKOUT2_PHASE_ERROR {154.678}] [get_ips clk_wiz_0]
+generate_target all [get_files  D:/01-Codes/XilinxCode/Vernier_tdc/tdc_testbench/prj/tdc_testbench.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0.xci]
+INFO: [IP_Flow 19-1686] Generating 'Instantiation Template' target for IP 'clk_wiz_0'...
+INFO: [IP_Flow 19-1686] Generating 'Synthesis' target for IP 'clk_wiz_0'...
+INFO: [IP_Flow 19-1686] Generating 'Simulation' target for IP 'clk_wiz_0'...
+INFO: [IP_Flow 19-1686] Generating 'Implementation' target for IP 'clk_wiz_0'...
+INFO: [IP_Flow 19-1686] Generating 'Change Log' target for IP 'clk_wiz_0'...
+catch { config_ip_cache -export [get_ips -all clk_wiz_0] }
+export_ip_user_files -of_objects [get_files D:/01-Codes/XilinxCode/Vernier_tdc/tdc_testbench/prj/tdc_testbench.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0.xci] -no_script -sync -force -quiet
+reset_run clk_wiz_0_synth_1
+WARNING: [Vivado 12-1017] Problems encountered:
+1. Failed to delete one or more files in run directory D:/01-Codes/XilinxCode/Vernier_tdc/tdc_testbench/prj/tdc_testbench.runs/clk_wiz_0_synth_1
+
+launch_runs clk_wiz_0_synth_1 -jobs 6
+[Thu Apr  2 16:23:55 2026] Launched clk_wiz_0_synth_1...
+Run output will be captured here: D:/01-Codes/XilinxCode/Vernier_tdc/tdc_testbench/prj/tdc_testbench.runs/clk_wiz_0_synth_1/runme.log
+export_simulation -of_objects [get_files D:/01-Codes/XilinxCode/Vernier_tdc/tdc_testbench/prj/tdc_testbench.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0.xci] -directory D:/01-Codes/XilinxCode/Vernier_tdc/tdc_testbench/prj/tdc_testbench.ip_user_files/sim_scripts -ip_user_files_dir D:/01-Codes/XilinxCode/Vernier_tdc/tdc_testbench/prj/tdc_testbench.ip_user_files -ipstatic_source_dir D:/01-Codes/XilinxCode/Vernier_tdc/tdc_testbench/prj/tdc_testbench.ip_user_files/ipstatic -lib_map_path [list {modelsim=D:/01-Codes/XilinxCode/Vernier_tdc/tdc_testbench/prj/tdc_testbench.cache/compile_simlib/modelsim} {questa=D:/01-Codes/XilinxCode/Vernier_tdc/tdc_testbench/prj/tdc_testbench.cache/compile_simlib/questa} {riviera=D:/01-Codes/XilinxCode/Vernier_tdc/tdc_testbench/prj/tdc_testbench.cache/compile_simlib/riviera} {activehdl=D:/01-Codes/XilinxCode/Vernier_tdc/tdc_testbench/prj/tdc_testbench.cache/compile_simlib/activehdl}] -use_ip_compiled_libs -force -quiet
+relaunch_sim
+Command: launch_simulation -simset sim_1 -mode behavioral
+INFO: [Vivado 12-5698] Checking validity of IPs in the design for the 'XSim' simulator...
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'D:/01-Codes/XilinxCode/Vernier_tdc/tdc_testbench/prj/tdc_testbench.sim/sim_1/behav/xsim'
+INFO: [Vivado 12-4795] Using compiled simulation libraries for IPs
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [USF-XSim-7] Finding pre-compiled libraries...
+INFO: [USF-XSim-11] File 'D:/Vivado/2020.2/data/xsim/xsim.ini' copied to run dir:'D:/01-Codes/XilinxCode/Vernier_tdc/tdc_testbench/prj/tdc_testbench.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-54] Inspecting design source files for 'simple_tb_clean' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'D:/01-Codes/XilinxCode/Vernier_tdc/tdc_testbench/prj/tdc_testbench.sim/sim_1/behav/xsim'
+"xvlog --incr --relax -prj simple_tb_clean_vlog.prj"
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/01-Codes/XilinxCode/Vernier_tdc/tdc_testbench/prj/tdc_testbench.gen/sources_1/ip/clk_wiz_0/clk_wiz_0_clk_wiz.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module clk_wiz_0_clk_wiz
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/01-Codes/XilinxCode/Vernier_tdc/tdc_testbench/prj/tdc_testbench.gen/sources_1/ip/clk_wiz_0/clk_wiz_0.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module clk_wiz_0
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/01-Codes/XilinxCode/Vernier_tdc/tdc_testbench/src/correct_pwm_generator.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module pwm_auto_cycle_scan
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/01-Codes/XilinxCode/Vernier_tdc/tdc_testbench/src/top_pwm_gen.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module top_pwm_gen
+INFO: [VRFC 10-2458] undeclared symbol mmcm_locked, assumed default net type wire [D:/01-Codes/XilinxCode/Vernier_tdc/tdc_testbench/src/top_pwm_gen.v:23]
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/01-Codes/XilinxCode/Vernier_tdc/tdc_testbench/src/simple_tb_clean.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module simple_tb_clean
+INFO: [USF-XSim-69] 'compile' step finished in '1' seconds
+Command: launch_simulation -simset sim_1 -mode behavioral
+INFO: [Vivado 12-5698] Checking validity of IPs in the design for the 'XSim' simulator...
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'D:/01-Codes/XilinxCode/Vernier_tdc/tdc_testbench/prj/tdc_testbench.sim/sim_1/behav/xsim'
+INFO: [Vivado 12-4795] Using compiled simulation libraries for IPs
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'D:/01-Codes/XilinxCode/Vernier_tdc/tdc_testbench/prj/tdc_testbench.sim/sim_1/behav/xsim'
+"xelab -wto 2b2ed2632fb64bf7a60b84649dc6c631 --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot simple_tb_clean_behav xil_defaultlib.simple_tb_clean xil_defaultlib.glbl -log elaborate.log"
+Vivado Simulator 2020.2
+Copyright 1986-1999, 2001-2020 Xilinx, Inc. All Rights Reserved.
+Running: D:/Vivado/2020.2/bin/unwrapped/win64.o/xelab.exe -wto 2b2ed2632fb64bf7a60b84649dc6c631 --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot simple_tb_clean_behav xil_defaultlib.simple_tb_clean xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module unisims_ver.IBUF
+Compiling module unisims_ver.MMCME2_ADV(CLKFBOUT_MULT_F=24.0,...
+Compiling module unisims_ver.BUFG
+Compiling module xil_defaultlib.clk_wiz_0_clk_wiz
+Compiling module xil_defaultlib.clk_wiz_0
+Compiling module unisims_ver.ODDR(DDR_CLK_EDGE="SAME_EDGE")
+Compiling module xil_defaultlib.pwm_auto_cycle_scan
+Compiling module xil_defaultlib.top_pwm_gen
+Compiling module xil_defaultlib.simple_tb_clean
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot simple_tb_clean_behav
+INFO: [USF-XSim-69] 'elaborate' step finished in '4' seconds
+Vivado Simulator 2020.2
+Time resolution is 1 ps
+[                   0] PWM=x
+[                 100] PWM=0
+[               20000] 复位释放，系统开始工作
+relaunch_sim: Time (s): cpu = 00:00:01 ; elapsed = 00:00:10 . Memory (MB): peak = 1324.387 ; gain = 0.000
+current_wave_config {Untitled 1}
+Untitled 1
+add_wave {{/simple_tb_clean/uut/u_clk_0/clk_out2}} 
+relaunch_sim
+Command: launch_simulation -simset sim_1 -mode behavioral
+INFO: [Vivado 12-5698] Checking validity of IPs in the design for the 'XSim' simulator...
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'D:/01-Codes/XilinxCode/Vernier_tdc/tdc_testbench/prj/tdc_testbench.sim/sim_1/behav/xsim'
+INFO: [Vivado 12-4795] Using compiled simulation libraries for IPs
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [USF-XSim-7] Finding pre-compiled libraries...
+INFO: [USF-XSim-11] File 'D:/Vivado/2020.2/data/xsim/xsim.ini' copied to run dir:'D:/01-Codes/XilinxCode/Vernier_tdc/tdc_testbench/prj/tdc_testbench.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-54] Inspecting design source files for 'simple_tb_clean' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'D:/01-Codes/XilinxCode/Vernier_tdc/tdc_testbench/prj/tdc_testbench.sim/sim_1/behav/xsim'
+"xvlog --incr --relax -prj simple_tb_clean_vlog.prj"
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/01-Codes/XilinxCode/Vernier_tdc/tdc_testbench/prj/tdc_testbench.gen/sources_1/ip/clk_wiz_0/clk_wiz_0_clk_wiz.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module clk_wiz_0_clk_wiz
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/01-Codes/XilinxCode/Vernier_tdc/tdc_testbench/prj/tdc_testbench.gen/sources_1/ip/clk_wiz_0/clk_wiz_0.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module clk_wiz_0
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/01-Codes/XilinxCode/Vernier_tdc/tdc_testbench/src/correct_pwm_generator.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module pwm_auto_cycle_scan
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/01-Codes/XilinxCode/Vernier_tdc/tdc_testbench/src/top_pwm_gen.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module top_pwm_gen
+INFO: [VRFC 10-2458] undeclared symbol mmcm_locked, assumed default net type wire [D:/01-Codes/XilinxCode/Vernier_tdc/tdc_testbench/src/top_pwm_gen.v:23]
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/01-Codes/XilinxCode/Vernier_tdc/tdc_testbench/src/simple_tb_clean.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module simple_tb_clean
+INFO: [USF-XSim-69] 'compile' step finished in '1' seconds
+Command: launch_simulation -simset sim_1 -mode behavioral
+INFO: [Vivado 12-5698] Checking validity of IPs in the design for the 'XSim' simulator...
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'D:/01-Codes/XilinxCode/Vernier_tdc/tdc_testbench/prj/tdc_testbench.sim/sim_1/behav/xsim'
+INFO: [Vivado 12-4795] Using compiled simulation libraries for IPs
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'D:/01-Codes/XilinxCode/Vernier_tdc/tdc_testbench/prj/tdc_testbench.sim/sim_1/behav/xsim'
+"xelab -wto 2b2ed2632fb64bf7a60b84649dc6c631 --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot simple_tb_clean_behav xil_defaultlib.simple_tb_clean xil_defaultlib.glbl -log elaborate.log"
+Vivado Simulator 2020.2
+Copyright 1986-1999, 2001-2020 Xilinx, Inc. All Rights Reserved.
+Running: D:/Vivado/2020.2/bin/unwrapped/win64.o/xelab.exe -wto 2b2ed2632fb64bf7a60b84649dc6c631 --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot simple_tb_clean_behav xil_defaultlib.simple_tb_clean xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module unisims_ver.IBUF
+Compiling module unisims_ver.MMCME2_ADV(CLKFBOUT_MULT_F=24.0,...
+Compiling module unisims_ver.BUFG
+Compiling module xil_defaultlib.clk_wiz_0_clk_wiz
+Compiling module xil_defaultlib.clk_wiz_0
+Compiling module unisims_ver.ODDR(DDR_CLK_EDGE="SAME_EDGE")
+Compiling module xil_defaultlib.pwm_auto_cycle_scan
+Compiling module xil_defaultlib.top_pwm_gen
+Compiling module xil_defaultlib.simple_tb_clean
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot simple_tb_clean_behav
+INFO: [USF-XSim-69] 'elaborate' step finished in '4' seconds
+Vivado Simulator 2020.2
+Time resolution is 1 ps
+[                   0] PWM=x
+[                 100] PWM=0
+[               20000] 复位释放，系统开始工作
+relaunch_sim: Time (s): cpu = 00:00:02 ; elapsed = 00:00:10 . Memory (MB): peak = 1324.387 ; gain = 0.000
+run 1 us
+[             1833641] PWM=1
+[             1834891] PWM=0
+[             1883641] PWM=1
+[             1886141] PWM=0
+[             1933641] PWM=1
+[             1937391] PWM=0
+[             1983641] PWM=1
+[             1988641] PWM=0
+run 1 us
+[             2033641] PWM=1
+[             2039891] PWM=0
+[             2083641] PWM=1
+[             2091141] PWM=0
+[             2133641] PWM=1
+[             2142391] PWM=0
+[             2183641] PWM=1
+[             2190000] PWM周期         x: 100000.0ns
+[             2193641] PWM=0
+[             2233641] PWM=1
+[             2244891] PWM=0
+[             2283641] PWM=1
+[             2290000] PWM周期         x: 100000.0ns
+[             2296141] PWM=0
+[             2333641] PWM=1
+[             2347391] PWM=0
+[             2383641] PWM=1
+[             2390000] PWM周期         x: 100000.0ns
+[             2398641] PWM=0
+[             2433641] PWM=1
+[             2449891] PWM=0
+[             2483641] PWM=1
+[             2490000] PWM周期         x: 100000.0ns
+[             2501141] PWM=0
+[             2533641] PWM=1
+[             2550000] PWM周期         x: 60000.0ns
+[             2552391] PWM=0
+[             2583641] PWM=1
+[             2590000] PWM周期         x: 40000.0ns
+[             2603641] PWM=0
+[             2633641] PWM=1
+[             2650000] PWM周期         x: 60000.0ns
+[             2654891] PWM=0
+[             2683641] PWM=1
+[             2690000] PWM周期         x: 40000.0ns
+[             2706141] PWM=0
+[             2733641] PWM=1
+[             2750000] PWM周期         x: 60000.0ns
+[             2757391] PWM=0
+[             2783641] PWM=1
+[             2790000] PWM周期         x: 40000.0ns
+[             2808641] PWM=0
+[             2833641] PWM=1
+[             2850000] PWM周期         x: 60000.0ns
+[             2859891] PWM=0
+[             2883641] PWM=1
+[             2890000] PWM周期         x: 40000.0ns
+[             2911141] PWM=0
+[             2933641] PWM=1
+[             2950000] PWM周期         x: 60000.0ns
+[             2962391] PWM=0
+[             2983641] PWM=1
+[             2990000] PWM周期         x: 40000.0ns
+current_wave_config {Untitled 1}
+Untitled 1
+add_wave {{/simple_tb_clean/uut/u_pwm_gen/duty_slots_internal}} 
+relaunch_sim
+Command: launch_simulation -simset sim_1 -mode behavioral
+INFO: [Vivado 12-5698] Checking validity of IPs in the design for the 'XSim' simulator...
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'D:/01-Codes/XilinxCode/Vernier_tdc/tdc_testbench/prj/tdc_testbench.sim/sim_1/behav/xsim'
+INFO: [Vivado 12-4795] Using compiled simulation libraries for IPs
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [USF-XSim-7] Finding pre-compiled libraries...
+INFO: [USF-XSim-11] File 'D:/Vivado/2020.2/data/xsim/xsim.ini' copied to run dir:'D:/01-Codes/XilinxCode/Vernier_tdc/tdc_testbench/prj/tdc_testbench.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-54] Inspecting design source files for 'simple_tb_clean' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'D:/01-Codes/XilinxCode/Vernier_tdc/tdc_testbench/prj/tdc_testbench.sim/sim_1/behav/xsim'
+"xvlog --incr --relax -prj simple_tb_clean_vlog.prj"
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/01-Codes/XilinxCode/Vernier_tdc/tdc_testbench/prj/tdc_testbench.gen/sources_1/ip/clk_wiz_0/clk_wiz_0_clk_wiz.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module clk_wiz_0_clk_wiz
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/01-Codes/XilinxCode/Vernier_tdc/tdc_testbench/prj/tdc_testbench.gen/sources_1/ip/clk_wiz_0/clk_wiz_0.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module clk_wiz_0
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/01-Codes/XilinxCode/Vernier_tdc/tdc_testbench/src/correct_pwm_generator.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module pwm_auto_cycle_scan
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/01-Codes/XilinxCode/Vernier_tdc/tdc_testbench/src/top_pwm_gen.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module top_pwm_gen
+INFO: [VRFC 10-2458] undeclared symbol mmcm_locked, assumed default net type wire [D:/01-Codes/XilinxCode/Vernier_tdc/tdc_testbench/src/top_pwm_gen.v:23]
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/01-Codes/XilinxCode/Vernier_tdc/tdc_testbench/src/simple_tb_clean.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module simple_tb_clean
+INFO: [USF-XSim-69] 'compile' step finished in '2' seconds
+Command: launch_simulation -simset sim_1 -mode behavioral
+INFO: [Vivado 12-5698] Checking validity of IPs in the design for the 'XSim' simulator...
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'D:/01-Codes/XilinxCode/Vernier_tdc/tdc_testbench/prj/tdc_testbench.sim/sim_1/behav/xsim'
+INFO: [Vivado 12-4795] Using compiled simulation libraries for IPs
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'D:/01-Codes/XilinxCode/Vernier_tdc/tdc_testbench/prj/tdc_testbench.sim/sim_1/behav/xsim'
+"xelab -wto 2b2ed2632fb64bf7a60b84649dc6c631 --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot simple_tb_clean_behav xil_defaultlib.simple_tb_clean xil_defaultlib.glbl -log elaborate.log"
+Vivado Simulator 2020.2
+Copyright 1986-1999, 2001-2020 Xilinx, Inc. All Rights Reserved.
+Running: D:/Vivado/2020.2/bin/unwrapped/win64.o/xelab.exe -wto 2b2ed2632fb64bf7a60b84649dc6c631 --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot simple_tb_clean_behav xil_defaultlib.simple_tb_clean xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module unisims_ver.IBUF
+Compiling module unisims_ver.MMCME2_ADV(CLKFBOUT_MULT_F=24.0,...
+Compiling module unisims_ver.BUFG
+Compiling module xil_defaultlib.clk_wiz_0_clk_wiz
+Compiling module xil_defaultlib.clk_wiz_0
+Compiling module unisims_ver.ODDR(DDR_CLK_EDGE="SAME_EDGE")
+Compiling module xil_defaultlib.pwm_auto_cycle_scan
+Compiling module xil_defaultlib.top_pwm_gen
+Compiling module xil_defaultlib.simple_tb_clean
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot simple_tb_clean_behav
+INFO: [USF-XSim-69] 'elaborate' step finished in '4' seconds
+Vivado Simulator 2020.2
+Time resolution is 1 ps
+[                   0] PWM=x
+[                 100] PWM=0
+[               20000] 复位释放，系统开始工作
+relaunch_sim: Time (s): cpu = 00:00:02 ; elapsed = 00:00:10 . Memory (MB): peak = 1331.277 ; gain = 0.453
+run all
+[             1833641] PWM=1
+[             1834891] PWM=0
+[             1883641] PWM=1
+[             1886141] PWM=0
+[             1933641] PWM=1
+[             1937391] PWM=0
+[             1983641] PWM=1
+[             1988641] PWM=0
+[             2033641] PWM=1
+[             2039891] PWM=0
+[             2083641] PWM=1
+[             2091141] PWM=0
+[             2133641] PWM=1
+[             2142391] PWM=0
+[             2183641] PWM=1
+[             2190000] PWM周期         x: 100000.0ns
+[             2193641] PWM=0
+[             2233641] PWM=1
+[             2244891] PWM=0
+[             2283641] PWM=1
+[             2290000] PWM周期         x: 100000.0ns
+[             2296141] PWM=0
+[             2333641] PWM=1
+[             2347391] PWM=0
+[             2383641] PWM=1
+[             2390000] PWM周期         x: 100000.0ns
+[             2398641] PWM=0
+[             2433641] PWM=1
+[             2449891] PWM=0
+[             2483641] PWM=1
+[             2490000] PWM周期         x: 100000.0ns
+[             2501141] PWM=0
+[             2533641] PWM=1
+[             2550000] PWM周期         x: 60000.0ns
+[             2552391] PWM=0
+[             2583641] PWM=1
+[             2590000] PWM周期         x: 40000.0ns
+[             2603641] PWM=0
+[             2633641] PWM=1
+[             2650000] PWM周期         x: 60000.0ns
+[             2654891] PWM=0
+[             2683641] PWM=1
+[             2690000] PWM周期         x: 40000.0ns
+[             2706141] PWM=0
+[             2733641] PWM=1
+[             2750000] PWM周期         x: 60000.0ns
+[             2757391] PWM=0
+[             2783641] PWM=1
+[             2790000] PWM周期         x: 40000.0ns
+[             2808641] PWM=0
+[             2833641] PWM=1
+[             2850000] PWM周期         x: 60000.0ns
+[             2859891] PWM=0
+[             2883641] PWM=1
+[             2890000] PWM周期         x: 40000.0ns
+[             2911141] PWM=0
+[             2933641] PWM=1
+[             2950000] PWM周期         x: 60000.0ns
+[             2962391] PWM=0
+[             2983641] PWM=1
+[             2990000] PWM周期         x: 40000.0ns
+[             3013641] PWM=0
+[             3033641] PWM=1
+[             3050000] PWM周期         x: 60000.0ns
+[             3064891] PWM=0
+[             3083641] PWM=1
+[             3090000] PWM周期         x: 40000.0ns
+[             3116141] PWM=0
+[             3133641] PWM=1
+[             3150000] PWM周期         x: 60000.0ns
+[             3167391] PWM=0
+[             3183641] PWM=1
+[             3190000] PWM周期         x: 40000.0ns
+[             3218641] PWM=0
+[             3233641] PWM=1
+[             3250000] PWM周期         x: 60000.0ns
+[             3269891] PWM=0
+[             3283641] PWM=1
+[             3290000] PWM周期         x: 40000.0ns
+[             3321141] PWM=0
+[             3333641] PWM=1
+[             3350000] PWM周期         x: 60000.0ns
+[             3372391] PWM=0
+[             3383641] PWM=1
+[             3423641] PWM=0
+[             3433641] PWM=1
+[             3450000] PWM周期         x: 100000.0ns
+[             3474891] PWM=0
+[             3483641] PWM=1
+[             3526141] PWM=0
+[             3533641] PWM=1
+[             3550000] PWM周期         x: 100000.0ns
+[             3577391] PWM=0
+[             3583641] PWM=1
+[             3628641] PWM=0
+[             3633641] PWM=1
+[             3650000] PWM周期         x: 100000.0ns
+[             3679891] PWM=0
+[             3683641] PWM=1
+[             3731141] PWM=0
+[             3733641] PWM=1
+[             3782391] PWM=0
+[             3783641] PWM=1
+[             3784891] PWM=0
+[             3833641] PWM=1
+[             3836141] PWM=0
+[             3883641] PWM=1
+[             3887391] PWM=0
+[             3933641] PWM=1
+[             3938641] PWM=0
+[             3983641] PWM=1
+[             3989891] PWM=0
+[             4033641] PWM=1
+[             4041141] PWM=0
+[             4083641] PWM=1
+[             4090000] PWM周期         x: 440000.0ns
+[             4092391] PWM=0
+[             4133641] PWM=1
+[             4143641] PWM=0
+[             4183641] PWM=1
+[             4190000] PWM周期         x: 100000.0ns
+[             4194891] PWM=0
+[             4233641] PWM=1
+[             4246141] PWM=0
+[             4283641] PWM=1
+[             4290000] PWM周期         x: 100000.0ns
+[             4297391] PWM=0
+[             4333641] PWM=1
+[             4348641] PWM=0
+[             4383641] PWM=1
+[             4390000] PWM周期         x: 100000.0ns
+[             4399891] PWM=0
+[             4433641] PWM=1
+[             4450000] PWM周期         x: 60000.0ns
+[             4451141] PWM=0
+[             4483641] PWM=1
+[             4490000] PWM周期         x: 40000.0ns
+[             4502391] PWM=0
+[             4533641] PWM=1
+[             4550000] PWM周期         x: 60000.0ns
+[             4553641] PWM=0
+[             4583641] PWM=1
+[             4590000] PWM周期         x: 40000.0ns
+[             4604891] PWM=0
+[             4633641] PWM=1
+[             4650000] PWM周期         x: 60000.0ns
+[             4656141] PWM=0
+[             4683641] PWM=1
+[             4690000] PWM周期         x: 40000.0ns
+[             4707391] PWM=0
+[             4733641] PWM=1
+[             4750000] PWM周期         x: 60000.0ns
+[             4758641] PWM=0
+[             4783641] PWM=1
+[             4790000] PWM周期         x: 40000.0ns
+[             4809891] PWM=0
+[             4833641] PWM=1
+[             4850000] PWM周期         x: 60000.0ns
+[             4861141] PWM=0
+[             4883641] PWM=1
+[             4890000] PWM周期         x: 40000.0ns
+[             4912391] PWM=0
+[             4933641] PWM=1
+[             4950000] PWM周期         x: 60000.0ns
+[             4963641] PWM=0
+[             4983641] PWM=1
+[             4990000] PWM周期         x: 40000.0ns
+[             5014891] PWM=0
+[             5033641] PWM=1
+[             5050000] PWM周期         x: 60000.0ns
+[             5066141] PWM=0
+[             5083641] PWM=1
+[             5090000] PWM周期         x: 40000.0ns
+[             5117391] PWM=0
+[             5133641] PWM=1
+[             5150000] PWM周期         x: 60000.0ns
+[             5168641] PWM=0
+[             5183641] PWM=1
+[             5190000] PWM周期         x: 40000.0ns
+[             5219891] PWM=0
+[             5233641] PWM=1
+[             5250000] PWM周期         x: 60000.0ns
+[             5271141] PWM=0
+[             5283641] PWM=1
+[             5322391] PWM=0
+[             5333641] PWM=1
+[             5350000] PWM周期         x: 100000.0ns
+[             5373641] PWM=0
+[             5383641] PWM=1
+[             5424891] PWM=0
+[             5433641] PWM=1
+[             5450000] PWM周期         x: 100000.0ns
+[             5476141] PWM=0
+[             5483641] PWM=1
+[             5527391] PWM=0
+[             5533641] PWM=1
+[             5550000] PWM周期         x: 100000.0ns
+[             5578641] PWM=0
+[             5583641] PWM=1
+[             5629891] PWM=0
+[             5633641] PWM=1
+[             5650000] PWM周期         x: 100000.0ns
+[             5681141] PWM=0
+[             5683641] PWM=1
+[             5732391] PWM=0
+[             5733641] PWM=1
+[             5734891] PWM=0
+[             5783641] PWM=1
+[             5786141] PWM=0
+[             5833641] PWM=1
+[             5837391] PWM=0
+[             5883641] PWM=1
+[             5888641] PWM=0
+[             5933641] PWM=1
+[             5939891] PWM=0
+[             5983641] PWM=1
+[             5990000] PWM周期         x: 340000.0ns
+[             5991141] PWM=0
+[             6033641] PWM=1
+[             6042391] PWM=0
+[             6083641] PWM=1
+[             6090000] PWM周期         x: 100000.0ns
+[             6093641] PWM=0
+[             6133641] PWM=1
+[             6144891] PWM=0
+[             6183641] PWM=1
+[             6190000] PWM周期         x: 100000.0ns
+[             6196141] PWM=0
+[             6233641] PWM=1
+[             6247391] PWM=0
+[             6283641] PWM=1
+[             6290000] PWM周期         x: 100000.0ns
+[             6298641] PWM=0
+[             6333641] PWM=1
+[             6349891] PWM=0
+[             6383641] PWM=1
+[             6390000] PWM周期         x: 100000.0ns
+[             6401141] PWM=0
+[             6433641] PWM=1
+[             6450000] PWM周期         x: 60000.0ns
+[             6452391] PWM=0
+[             6483641] PWM=1
+[             6490000] PWM周期         x: 40000.0ns
+[             6503641] PWM=0
+[             6533641] PWM=1
+[             6550000] PWM周期         x: 60000.0ns
+[             6554891] PWM=0
+[             6583641] PWM=1
+[             6590000] PWM周期         x: 40000.0ns
+[             6606141] PWM=0
+[             6633641] PWM=1
+[             6650000] PWM周期         x: 60000.0ns
+[             6657391] PWM=0
+[             6683641] PWM=1
+[             6690000] PWM周期         x: 40000.0ns
+[             6708641] PWM=0
+[             6733641] PWM=1
+[             6750000] PWM周期         x: 60000.0ns
+[             6759891] PWM=0
+[             6783641] PWM=1
+[             6790000] PWM周期         x: 40000.0ns
+[             6811141] PWM=0
+[             6833641] PWM=1
+[             6850000] PWM周期         x: 60000.0ns
+[             6862391] PWM=0
+[             6883641] PWM=1
+[             6890000] PWM周期         x: 40000.0ns
+[             6913641] PWM=0
+[             6933641] PWM=1
+[             6950000] PWM周期         x: 60000.0ns
+[             6964891] PWM=0
+[             6983641] PWM=1
+[             6990000] PWM周期         x: 40000.0ns
+[             7016141] PWM=0
+[             7033641] PWM=1
+[             7050000] PWM周期         x: 60000.0ns
+[             7067391] PWM=0
+[             7083641] PWM=1
+[             7090000] PWM周期         x: 40000.0ns
+[             7118641] PWM=0
+[             7133641] PWM=1
+[             7150000] PWM周期         x: 60000.0ns
+[             7169891] PWM=0
+[             7183641] PWM=1
+[             7190000] PWM周期         x: 40000.0ns
+[             7221141] PWM=0
+[             7233641] PWM=1
+[             7250000] PWM周期         x: 60000.0ns
+[             7272391] PWM=0
+[             7283641] PWM=1
+[             7323641] PWM=0
+[             7333641] PWM=1
+[             7350000] PWM周期         x: 100000.0ns
+[             7374891] PWM=0
+[             7383641] PWM=1
+[             7426141] PWM=0
+[             7433641] PWM=1
+[             7450000] PWM周期         x: 100000.0ns
+[             7477391] PWM=0
+[             7483641] PWM=1
+[             7528641] PWM=0
+[             7533641] PWM=1
+[             7550000] PWM周期         x: 100000.0ns
+[             7579891] PWM=0
+[             7583641] PWM=1
+[             7631141] PWM=0
+[             7633641] PWM=1
+[             7682391] PWM=0
+[             7683641] PWM=1
+[             7684891] PWM=0
+[             7733641] PWM=1
+[             7736141] PWM=0
+[             7783641] PWM=1
+[             7787391] PWM=0
+[             7833641] PWM=1
+[             7838641] PWM=0
+[             7883641] PWM=1
+[             7889891] PWM=0
+[             7933641] PWM=1
+[             7941141] PWM=0
+[             7983641] PWM=1
+[             7990000] PWM周期         x: 440000.0ns
+[             7992391] PWM=0
+[             8033641] PWM=1
+[             8043641] PWM=0
+[             8083641] PWM=1
+[             8090000] PWM周期         x: 100000.0ns
+[             8094891] PWM=0
+[             8133641] PWM=1
+[             8146141] PWM=0
+[             8183641] PWM=1
+[             8190000] PWM周期         x: 100000.0ns
+[             8197391] PWM=0
+[             8233641] PWM=1
+[             8248641] PWM=0
+[             8283641] PWM=1
+[             8290000] PWM周期         x: 100000.0ns
+[             8299891] PWM=0
+[             8333641] PWM=1
+[             8350000] PWM周期         x: 60000.0ns
+[             8351141] PWM=0
+[             8383641] PWM=1
+[             8390000] PWM周期         x: 40000.0ns
+[             8402391] PWM=0
+[             8433641] PWM=1
+[             8450000] PWM周期         x: 60000.0ns
+[             8453641] PWM=0
+[             8483641] PWM=1
+[             8490000] PWM周期         x: 40000.0ns
+[             8504891] PWM=0
+[             8533641] PWM=1
+[             8550000] PWM周期         x: 60000.0ns
+[             8556141] PWM=0
+[             8583641] PWM=1
+[             8590000] PWM周期         x: 40000.0ns
+[             8607391] PWM=0
+[             8633641] PWM=1
+[             8650000] PWM周期         x: 60000.0ns
+[             8658641] PWM=0
+[             8683641] PWM=1
+[             8690000] PWM周期         x: 40000.0ns
+[             8709891] PWM=0
+[             8733641] PWM=1
+[             8750000] PWM周期         x: 60000.0ns
+[             8761141] PWM=0
+[             8783641] PWM=1
+[             8790000] PWM周期         x: 40000.0ns
+[             8812391] PWM=0
+[             8833641] PWM=1
+[             8850000] PWM周期         x: 60000.0ns
+[             8863641] PWM=0
+[             8883641] PWM=1
+[             8890000] PWM周期         x: 40000.0ns
+[             8914891] PWM=0
+[             8933641] PWM=1
+[             8950000] PWM周期         x: 60000.0ns
+[             8966141] PWM=0
+[             8983641] PWM=1
+[             8990000] PWM周期         x: 40000.0ns
+[             9017391] PWM=0
+[             9033641] PWM=1
+[             9050000] PWM周期         x: 60000.0ns
+[             9068641] PWM=0
+[             9083641] PWM=1
+[             9090000] PWM周期         x: 40000.0ns
+[             9119891] PWM=0
+[             9133641] PWM=1
+[             9150000] PWM周期         x: 60000.0ns
+[             9171141] PWM=0
+[             9183641] PWM=1
+[             9222391] PWM=0
+[             9233641] PWM=1
+[             9250000] PWM周期         x: 100000.0ns
+[             9273641] PWM=0
+[             9283641] PWM=1
+[             9324891] PWM=0
+[             9333641] PWM=1
+[             9350000] PWM周期         x: 100000.0ns
+[             9376141] PWM=0
+[             9383641] PWM=1
+[             9427391] PWM=0
+[             9433641] PWM=1
+[             9450000] PWM周期         x: 100000.0ns
+[             9478641] PWM=0
+[             9483641] PWM=1
+[             9529891] PWM=0
+[             9533641] PWM=1
+[             9550000] PWM周期         x: 100000.0ns
+[             9581141] PWM=0
+[             9583641] PWM=1
+[             9632391] PWM=0
+[             9633641] PWM=1
+[             9634891] PWM=0
+[             9683641] PWM=1
+[             9686141] PWM=0
+[             9733641] PWM=1
+[             9737391] PWM=0
+[             9783641] PWM=1
+[             9788641] PWM=0
+[             9833641] PWM=1
+[             9839891] PWM=0
+[             9883641] PWM=1
+[             9890000] PWM周期         x: 340000.0ns
+[             9891141] PWM=0
+[             9933641] PWM=1
+[             9942391] PWM=0
+[             9983641] PWM=1
+[             9990000] PWM周期         x: 100000.0ns
+[             9993641] PWM=0
+[            10000000] 仿真完成
+$finish called at time : 10 us : File "D:/01-Codes/XilinxCode/Vernier_tdc/tdc_testbench/src/simple_tb_clean.v" Line 135
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+close_project
+create_project combine_fine_pwm_gen D:/01-Codes/XilinxCode/Vernier_tdc/combine_fine_pwm_gen/prj -part xc7a100tfgg484-2
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'D:/Vivado/2020.2/data/ip'.
+add_files -norecurse {D:/01-Codes/XilinxCode/Vernier_tdc/combine_fine_pwm_gen/src/correct_pwm_generator.v D:/01-Codes/XilinxCode/Vernier_tdc/combine_fine_pwm_gen/src/fine_counter_carry4.v D:/01-Codes/XilinxCode/Vernier_tdc/combine_fine_pwm_gen/src/top_test.v}
+update_compile_order -fileset sources_1
+create_ip -name clk_wiz -vendor xilinx.com -library ip -version 6.0 -module_name mmcm_50m_to_400m
+set_property -dict [list CONFIG.Component_Name {mmcm_50m_to_400m} CONFIG.PRIM_IN_FREQ {50.000} CONFIG.CLKOUT2_USED {true} CONFIG.CLKOUT1_REQUESTED_OUT_FREQ {400.000} CONFIG.CLKOUT2_REQUESTED_OUT_FREQ {400.000} CONFIG.CLKOUT2_REQUESTED_PHASE {144.000} CONFIG.CLKIN1_JITTER_PS {200.0} CONFIG.MMCM_CLKFBOUT_MULT_F {24.000} CONFIG.MMCM_CLKIN1_PERIOD {20.000} CONFIG.MMCM_CLKIN2_PERIOD {10.0} CONFIG.MMCM_CLKOUT0_DIVIDE_F {3.000} CONFIG.MMCM_CLKOUT1_DIVIDE {3} CONFIG.MMCM_CLKOUT1_PHASE {150.000} CONFIG.NUM_OUT_CLKS {2} CONFIG.CLKOUT1_JITTER {111.427} CONFIG.CLKOUT1_PHASE_ERROR {154.678} CONFIG.CLKOUT2_JITTER {111.427} CONFIG.CLKOUT2_PHASE_ERROR {154.678}] [get_ips mmcm_50m_to_400m]
+WARNING: [Vivado 12-3523] Attempt to change 'Component_Name' from 'mmcm_50m_to_400m' to 'mmcm_50m_to_400m' is not allowed and is ignored.
+generate_target {instantiation_template} [get_files d:/01-Codes/XilinxCode/Vernier_tdc/combine_fine_pwm_gen/prj/combine_fine_pwm_gen.srcs/sources_1/ip/mmcm_50m_to_400m/mmcm_50m_to_400m.xci]
+INFO: [IP_Flow 19-1686] Generating 'Instantiation Template' target for IP 'mmcm_50m_to_400m'...
+generate_target all [get_files  d:/01-Codes/XilinxCode/Vernier_tdc/combine_fine_pwm_gen/prj/combine_fine_pwm_gen.srcs/sources_1/ip/mmcm_50m_to_400m/mmcm_50m_to_400m.xci]
+INFO: [IP_Flow 19-1686] Generating 'Synthesis' target for IP 'mmcm_50m_to_400m'...
+INFO: [IP_Flow 19-1686] Generating 'Simulation' target for IP 'mmcm_50m_to_400m'...
+INFO: [IP_Flow 19-1686] Generating 'Implementation' target for IP 'mmcm_50m_to_400m'...
+INFO: [IP_Flow 19-1686] Generating 'Change Log' target for IP 'mmcm_50m_to_400m'...
+catch { config_ip_cache -export [get_ips -all mmcm_50m_to_400m] }
+export_ip_user_files -of_objects [get_files d:/01-Codes/XilinxCode/Vernier_tdc/combine_fine_pwm_gen/prj/combine_fine_pwm_gen.srcs/sources_1/ip/mmcm_50m_to_400m/mmcm_50m_to_400m.xci] -no_script -sync -force -quiet
+create_ip_run [get_files -of_objects [get_fileset sources_1] d:/01-Codes/XilinxCode/Vernier_tdc/combine_fine_pwm_gen/prj/combine_fine_pwm_gen.srcs/sources_1/ip/mmcm_50m_to_400m/mmcm_50m_to_400m.xci]
+launch_runs mmcm_50m_to_400m_synth_1 -jobs 6
+[Thu Apr  2 16:45:10 2026] Launched mmcm_50m_to_400m_synth_1...
+Run output will be captured here: D:/01-Codes/XilinxCode/Vernier_tdc/combine_fine_pwm_gen/prj/combine_fine_pwm_gen.runs/mmcm_50m_to_400m_synth_1/runme.log
+export_simulation -of_objects [get_files d:/01-Codes/XilinxCode/Vernier_tdc/combine_fine_pwm_gen/prj/combine_fine_pwm_gen.srcs/sources_1/ip/mmcm_50m_to_400m/mmcm_50m_to_400m.xci] -directory D:/01-Codes/XilinxCode/Vernier_tdc/combine_fine_pwm_gen/prj/combine_fine_pwm_gen.ip_user_files/sim_scripts -ip_user_files_dir D:/01-Codes/XilinxCode/Vernier_tdc/combine_fine_pwm_gen/prj/combine_fine_pwm_gen.ip_user_files -ipstatic_source_dir D:/01-Codes/XilinxCode/Vernier_tdc/combine_fine_pwm_gen/prj/combine_fine_pwm_gen.ip_user_files/ipstatic -lib_map_path [list {modelsim=D:/01-Codes/XilinxCode/Vernier_tdc/combine_fine_pwm_gen/prj/combine_fine_pwm_gen.cache/compile_simlib/modelsim} {questa=D:/01-Codes/XilinxCode/Vernier_tdc/combine_fine_pwm_gen/prj/combine_fine_pwm_gen.cache/compile_simlib/questa} {riviera=D:/01-Codes/XilinxCode/Vernier_tdc/combine_fine_pwm_gen/prj/combine_fine_pwm_gen.cache/compile_simlib/riviera} {activehdl=D:/01-Codes/XilinxCode/Vernier_tdc/combine_fine_pwm_gen/prj/combine_fine_pwm_gen.cache/compile_simlib/activehdl}] -use_ip_compiled_libs -force -quiet
+wait_on_run mmcm_50m_to_400m_synth_1
+[Thu Apr  2 16:45:19 2026] Waiting for mmcm_50m_to_400m_synth_1 to finish...
+[Thu Apr  2 16:45:24 2026] Waiting for mmcm_50m_to_400m_synth_1 to finish...
+[Thu Apr  2 16:45:29 2026] Waiting for mmcm_50m_to_400m_synth_1 to finish...
+[Thu Apr  2 16:45:34 2026] Waiting for mmcm_50m_to_400m_synth_1 to finish...
+[Thu Apr  2 16:45:44 2026] Waiting for mmcm_50m_to_400m_synth_1 to finish...
+
+*** Running vivado
+    with args -log mmcm_50m_to_400m.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source mmcm_50m_to_400m.tcl
+
+
+
+****** Vivado v2020.2 (64-bit)
+  **** SW Build 3064766 on Wed Nov 18 09:12:45 MST 2020
+  **** IP Build 3064653 on Wed Nov 18 14:17:31 MST 2020
+    ** Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
+
+source mmcm_50m_to_400m.tcl -notrace
+Command: synth_design -top mmcm_50m_to_400m -part xc7a100tfgg484-2 -mode out_of_context
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7a100t'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a100t'
+INFO: [Device 21-403] Loading part xc7a100tfgg484-2
+INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
+INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
+INFO: [Synth 8-7075] Helper process launched with PID 115020
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:04 . Memory (MB): peak = 1154.434 ; gain = 12.852
+---------------------------------------------------------------------------------
+INFO: [Synth 8-6157] synthesizing module 'mmcm_50m_to_400m' [d:/01-Codes/XilinxCode/Vernier_tdc/combine_fine_pwm_gen/prj/combine_fine_pwm_gen.gen/sources_1/ip/mmcm_50m_to_400m/mmcm_50m_to_400m.v:71]
+INFO: [Synth 8-6157] synthesizing module 'mmcm_50m_to_400m_clk_wiz' [d:/01-Codes/XilinxCode/Vernier_tdc/combine_fine_pwm_gen/prj/combine_fine_pwm_gen.gen/sources_1/ip/mmcm_50m_to_400m/mmcm_50m_to_400m_clk_wiz.v:69]
+INFO: [Synth 8-6157] synthesizing module 'IBUF' [D:/Vivado/2020.2/scripts/rt/data/unisim_comp.v:32983]
+	Parameter CAPACITANCE bound to: DONT_CARE - type: string 
+	Parameter IBUF_DELAY_VALUE bound to: 0 - type: string 
+	Parameter IBUF_LOW_PWR bound to: TRUE - type: string 
+	Parameter IFD_DELAY_VALUE bound to: AUTO - type: string 
+	Parameter IOSTANDARD bound to: DEFAULT - type: string 
+INFO: [Synth 8-6155] done synthesizing module 'IBUF' (1#1) [D:/Vivado/2020.2/scripts/rt/data/unisim_comp.v:32983]
+INFO: [Synth 8-6157] synthesizing module 'MMCME2_ADV' [D:/Vivado/2020.2/scripts/rt/data/unisim_comp.v:39998]
+	Parameter BANDWIDTH bound to: OPTIMIZED - type: string 
+	Parameter CLKFBOUT_MULT_F bound to: 24.000000 - type: double 
+	Parameter CLKFBOUT_PHASE bound to: 0.000000 - type: double 
+	Parameter CLKFBOUT_USE_FINE_PS bound to: FALSE - type: string 
+	Parameter CLKIN1_PERIOD bound to: 20.000000 - type: double 
+	Parameter CLKIN2_PERIOD bound to: 0.000000 - type: double 
+	Parameter CLKOUT0_DIVIDE_F bound to: 3.000000 - type: double 
+	Parameter CLKOUT0_DUTY_CYCLE bound to: 0.500000 - type: double 
+	Parameter CLKOUT0_PHASE bound to: 0.000000 - type: double 
+	Parameter CLKOUT0_USE_FINE_PS bound to: FALSE - type: string 
+	Parameter CLKOUT1_DIVIDE bound to: 3 - type: integer 
+	Parameter CLKOUT1_DUTY_CYCLE bound to: 0.500000 - type: double 
+	Parameter CLKOUT1_PHASE bound to: 150.000000 - type: double 
+	Parameter CLKOUT1_USE_FINE_PS bound to: FALSE - type: string 
+	Parameter CLKOUT2_DIVIDE bound to: 1 - type: integer 
+	Parameter CLKOUT2_DUTY_CYCLE bound to: 0.500000 - type: double 
+	Parameter CLKOUT2_PHASE bound to: 0.000000 - type: double 
+	Parameter CLKOUT2_USE_FINE_PS bound to: FALSE - type: string 
+	Parameter CLKOUT3_DIVIDE bound to: 1 - type: integer 
+	Parameter CLKOUT3_DUTY_CYCLE bound to: 0.500000 - type: double 
+	Parameter CLKOUT3_PHASE bound to: 0.000000 - type: double 
+	Parameter CLKOUT3_USE_FINE_PS bound to: FALSE - type: string 
+	Parameter CLKOUT4_CASCADE bound to: FALSE - type: string 
+	Parameter CLKOUT4_DIVIDE bound to: 1 - type: integer 
+	Parameter CLKOUT4_DUTY_CYCLE bound to: 0.500000 - type: double 
+	Parameter CLKOUT4_PHASE bound to: 0.000000 - type: double 
+	Parameter CLKOUT4_USE_FINE_PS bound to: FALSE - type: string 
+	Parameter CLKOUT5_DIVIDE bound to: 1 - type: integer 
+	Parameter CLKOUT5_DUTY_CYCLE bound to: 0.500000 - type: double 
+	Parameter CLKOUT5_PHASE bound to: 0.000000 - type: double 
+	Parameter CLKOUT5_USE_FINE_PS bound to: FALSE - type: string 
+	Parameter CLKOUT6_DIVIDE bound to: 1 - type: integer 
+	Parameter CLKOUT6_DUTY_CYCLE bound to: 0.500000 - type: double 
+	Parameter CLKOUT6_PHASE bound to: 0.000000 - type: double 
+	Parameter CLKOUT6_USE_FINE_PS bound to: FALSE - type: string 
+	Parameter COMPENSATION bound to: ZHOLD - type: string 
+	Parameter DIVCLK_DIVIDE bound to: 1 - type: integer 
+	Parameter IS_CLKINSEL_INVERTED bound to: 1'b0 
+	Parameter IS_PSEN_INVERTED bound to: 1'b0 
+	Parameter IS_PSINCDEC_INVERTED bound to: 1'b0 
+	Parameter IS_PWRDWN_INVERTED bound to: 1'b0 
+	Parameter IS_RST_INVERTED bound to: 1'b0 
+	Parameter REF_JITTER1 bound to: 0.010000 - type: double 
+	Parameter REF_JITTER2 bound to: 0.010000 - type: double 
+	Parameter SS_EN bound to: FALSE - type: string 
+	Parameter SS_MODE bound to: CENTER_HIGH - type: string 
+	Parameter SS_MOD_PERIOD bound to: 10000 - type: integer 
+	Parameter STARTUP_WAIT bound to: FALSE - type: string 
+INFO: [Synth 8-6155] done synthesizing module 'MMCME2_ADV' (2#1) [D:/Vivado/2020.2/scripts/rt/data/unisim_comp.v:39998]
+INFO: [Synth 8-6157] synthesizing module 'BUFG' [D:/Vivado/2020.2/scripts/rt/data/unisim_comp.v:1083]
+INFO: [Synth 8-6155] done synthesizing module 'BUFG' (3#1) [D:/Vivado/2020.2/scripts/rt/data/unisim_comp.v:1083]
+INFO: [Synth 8-6155] done synthesizing module 'mmcm_50m_to_400m_clk_wiz' (4#1) [d:/01-Codes/XilinxCode/Vernier_tdc/combine_fine_pwm_gen/prj/combine_fine_pwm_gen.gen/sources_1/ip/mmcm_50m_to_400m/mmcm_50m_to_400m_clk_wiz.v:69]
+INFO: [Synth 8-6155] done synthesizing module 'mmcm_50m_to_400m' (5#1) [d:/01-Codes/XilinxCode/Vernier_tdc/combine_fine_pwm_gen/prj/combine_fine_pwm_gen.gen/sources_1/ip/mmcm_50m_to_400m/mmcm_50m_to_400m.v:71]
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 1206.156 ; gain = 64.574
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 1224.082 ; gain = 82.500
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 1224.082 ; gain = 82.500
+---------------------------------------------------------------------------------
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1236.125 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 1 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Parsing XDC File [d:/01-Codes/XilinxCode/Vernier_tdc/combine_fine_pwm_gen/prj/combine_fine_pwm_gen.gen/sources_1/ip/mmcm_50m_to_400m/mmcm_50m_to_400m_ooc.xdc] for cell 'inst'
+Finished Parsing XDC File [d:/01-Codes/XilinxCode/Vernier_tdc/combine_fine_pwm_gen/prj/combine_fine_pwm_gen.gen/sources_1/ip/mmcm_50m_to_400m/mmcm_50m_to_400m_ooc.xdc] for cell 'inst'
+Parsing XDC File [d:/01-Codes/XilinxCode/Vernier_tdc/combine_fine_pwm_gen/prj/combine_fine_pwm_gen.gen/sources_1/ip/mmcm_50m_to_400m/mmcm_50m_to_400m_board.xdc] for cell 'inst'
+Finished Parsing XDC File [d:/01-Codes/XilinxCode/Vernier_tdc/combine_fine_pwm_gen/prj/combine_fine_pwm_gen.gen/sources_1/ip/mmcm_50m_to_400m/mmcm_50m_to_400m_board.xdc] for cell 'inst'
+Parsing XDC File [d:/01-Codes/XilinxCode/Vernier_tdc/combine_fine_pwm_gen/prj/combine_fine_pwm_gen.gen/sources_1/ip/mmcm_50m_to_400m/mmcm_50m_to_400m.xdc] for cell 'inst'
+Finished Parsing XDC File [d:/01-Codes/XilinxCode/Vernier_tdc/combine_fine_pwm_gen/prj/combine_fine_pwm_gen.gen/sources_1/ip/mmcm_50m_to_400m/mmcm_50m_to_400m.xdc] for cell 'inst'
+INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [d:/01-Codes/XilinxCode/Vernier_tdc/combine_fine_pwm_gen/prj/combine_fine_pwm_gen.gen/sources_1/ip/mmcm_50m_to_400m/mmcm_50m_to_400m.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/mmcm_50m_to_400m_propImpl.xdc].
+Resolution: To avoid this warning, move constraints listed in [.Xil/mmcm_50m_to_400m_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
+INFO: [Timing 38-2] Deriving generated clocks
+Parsing XDC File [D:/01-Codes/XilinxCode/Vernier_tdc/combine_fine_pwm_gen/prj/combine_fine_pwm_gen.runs/mmcm_50m_to_400m_synth_1/dont_touch.xdc]
+Finished Parsing XDC File [D:/01-Codes/XilinxCode/Vernier_tdc/combine_fine_pwm_gen/prj/combine_fine_pwm_gen.runs/mmcm_50m_to_400m_synth_1/dont_touch.xdc]
+Completed Processing XDC Constraints
+
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1259.656 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.014 . Memory (MB): peak = 1259.656 ; gain = 0.000
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:09 ; elapsed = 00:00:10 . Memory (MB): peak = 1259.656 ; gain = 118.074
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xc7a100tfgg484-2
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:09 ; elapsed = 00:00:10 . Memory (MB): peak = 1259.656 ; gain = 118.074
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying 'set_property' XDC Constraints
+---------------------------------------------------------------------------------
+Applied set_property KEEP_HIERARCHY = SOFT for inst. (constraint file  D:/01-Codes/XilinxCode/Vernier_tdc/combine_fine_pwm_gen/prj/combine_fine_pwm_gen.runs/mmcm_50m_to_400m_synth_1/dont_touch.xdc, line 9).
+---------------------------------------------------------------------------------
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:09 ; elapsed = 00:00:10 . Memory (MB): peak = 1259.656 ; gain = 118.074
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:09 ; elapsed = 00:00:10 . Memory (MB): peak = 1259.656 ; gain = 118.074
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 240 (col length:80)
+BRAMs: 270 (col length: RAMB18 80 RAMB36 40)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:10 ; elapsed = 00:00:11 . Memory (MB): peak = 1259.656 ; gain = 118.074
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying XDC Timing Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:14 ; elapsed = 00:00:15 . Memory (MB): peak = 1276.828 ; gain = 135.246
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:00:14 ; elapsed = 00:00:15 . Memory (MB): peak = 1276.828 ; gain = 135.246
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:00:14 ; elapsed = 00:00:15 . Memory (MB): peak = 1295.934 ; gain = 154.352
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:00:16 ; elapsed = 00:00:17 . Memory (MB): peak = 1300.691 ; gain = 159.109
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:16 ; elapsed = 00:00:17 . Memory (MB): peak = 1300.691 ; gain = 159.109
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:16 ; elapsed = 00:00:17 . Memory (MB): peak = 1300.691 ; gain = 159.109
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:16 ; elapsed = 00:00:17 . Memory (MB): peak = 1300.691 ; gain = 159.109
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:16 ; elapsed = 00:00:17 . Memory (MB): peak = 1300.691 ; gain = 159.109
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:16 ; elapsed = 00:00:17 . Memory (MB): peak = 1300.691 ; gain = 159.109
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+Report BlackBoxes: 
++-+--------------+----------+
+| |BlackBox name |Instances |
++-+--------------+----------+
++-+--------------+----------+
+
+Report Cell Usage: 
++------+-----------+------+
+|      |Cell       |Count |
++------+-----------+------+
+|1     |BUFG       |     3|
+|2     |MMCME2_ADV |     1|
+|3     |IBUF       |     1|
++------+-----------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:16 ; elapsed = 00:00:17 . Memory (MB): peak = 1300.691 ; gain = 159.109
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 0 critical warnings and 0 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:10 ; elapsed = 00:00:15 . Memory (MB): peak = 1300.691 ; gain = 123.535
+Synthesis Optimization Complete : Time (s): cpu = 00:00:16 ; elapsed = 00:00:17 . Memory (MB): peak = 1300.691 ; gain = 159.109
+INFO: [Project 1-571] Translating synthesized netlist
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1300.691 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 1 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1318.980 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+INFO: [Common 17-83] Releasing license: Synthesis
+28 Infos, 0 Warnings, 0 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:00:21 ; elapsed = 00:00:24 . Memory (MB): peak = 1318.980 ; gain = 177.398
+INFO: [Common 17-1381] The checkpoint 'D:/01-Codes/XilinxCode/Vernier_tdc/combine_fine_pwm_gen/prj/combine_fine_pwm_gen.runs/mmcm_50m_to_400m_synth_1/mmcm_50m_to_400m.dcp' has been generated.
+WARNING: [Common 17-576] 'use_project_ipc' is deprecated. This option is deprecated and no longer used.
+INFO: [Coretcl 2-1648] Added synthesis output to IP cache for IP mmcm_50m_to_400m, cache-ID = 7464738d8f17bab6
+INFO: [Common 17-1381] The checkpoint 'D:/01-Codes/XilinxCode/Vernier_tdc/combine_fine_pwm_gen/prj/combine_fine_pwm_gen.runs/mmcm_50m_to_400m_synth_1/mmcm_50m_to_400m.dcp' has been generated.
+INFO: [runtcl-4] Executing : report_utilization -file mmcm_50m_to_400m_utilization_synth.rpt -pb mmcm_50m_to_400m_utilization_synth.pb
+INFO: [Common 17-206] Exiting Vivado at Thu Apr  2 16:45:46 2026...
+[Thu Apr  2 16:45:49 2026] mmcm_50m_to_400m_synth_1 finished
+wait_on_run: Time (s): cpu = 00:00:02 ; elapsed = 00:00:30 . Memory (MB): peak = 1355.059 ; gain = 0.000
+synth_design -rtl -rtl_skip_mlo -name rtl_1
+Command: synth_design -rtl -rtl_skip_mlo -name rtl_1
+Starting synth_design
+Using part: xc7a100tfgg484-2
+Top: top_test
+INFO: [Device 21-403] Loading part xc7a100tfgg484-2
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 1787.832 ; gain = 244.977
+---------------------------------------------------------------------------------
+INFO: [Synth 8-6157] synthesizing module 'top_test' [D:/01-Codes/XilinxCode/Vernier_tdc/combine_fine_pwm_gen/src/top_test.v:8]
+INFO: [Synth 8-6157] synthesizing module 'mmcm_50m_to_400m' [D:/01-Codes/XilinxCode/Vernier_tdc/tdc_testbench/prj/.Xil/Vivado-74480-lyne/realtime/mmcm_50m_to_400m_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'mmcm_50m_to_400m' (1#1) [D:/01-Codes/XilinxCode/Vernier_tdc/tdc_testbench/prj/.Xil/Vivado-74480-lyne/realtime/mmcm_50m_to_400m_stub.v:5]
+INFO: [Synth 8-6157] synthesizing module 'pwm_auto_cycle_scan' [D:/01-Codes/XilinxCode/Vernier_tdc/combine_fine_pwm_gen/src/correct_pwm_generator.v:5]
+	Parameter STEP_RATE bound to: 16'b0000000000000000 
+INFO: [Synth 8-6157] synthesizing module 'ODDR' [D:/Vivado/2020.2/scripts/rt/data/unisim_comp.v:49791]
+	Parameter DDR_CLK_EDGE bound to: SAME_EDGE - type: string 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D1_INVERTED bound to: 1'b0 
+	Parameter IS_D2_INVERTED bound to: 1'b0 
+	Parameter SRTYPE bound to: SYNC - type: string 
+INFO: [Synth 8-6155] done synthesizing module 'ODDR' (2#1) [D:/Vivado/2020.2/scripts/rt/data/unisim_comp.v:49791]
+INFO: [Synth 8-6155] done synthesizing module 'pwm_auto_cycle_scan' (3#1) [D:/01-Codes/XilinxCode/Vernier_tdc/combine_fine_pwm_gen/src/correct_pwm_generator.v:5]
+INFO: [Synth 8-6157] synthesizing module 'fine_counter_carry4' [D:/01-Codes/XilinxCode/Vernier_tdc/combine_fine_pwm_gen/src/fine_counter_carry4.v:13]
+	Parameter DELAY_STAGES bound to: 160 - type: integer 
+	Parameter CARRY4_BLOCKS bound to: 40 - type: integer 
+INFO: [Synth 8-6157] synthesizing module 'CARRY4' [D:/Vivado/2020.2/scripts/rt/data/unisim_comp.v:1487]
+INFO: [Synth 8-6155] done synthesizing module 'CARRY4' (4#1) [D:/Vivado/2020.2/scripts/rt/data/unisim_comp.v:1487]
+INFO: [Synth 8-6155] done synthesizing module 'fine_counter_carry4' (5#1) [D:/01-Codes/XilinxCode/Vernier_tdc/combine_fine_pwm_gen/src/fine_counter_carry4.v:13]
+INFO: [Synth 8-6155] done synthesizing module 'top_test' (6#1) [D:/01-Codes/XilinxCode/Vernier_tdc/combine_fine_pwm_gen/src/top_test.v:8]
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 1847.344 ; gain = 304.488
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 1868.262 ; gain = 325.406
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 1868.262 ; gain = 325.406
+---------------------------------------------------------------------------------
+INFO: [Project 1-454] Reading design checkpoint 'd:/01-Codes/XilinxCode/Vernier_tdc/combine_fine_pwm_gen/prj/combine_fine_pwm_gen.gen/sources_1/ip/mmcm_50m_to_400m/mmcm_50m_to_400m.dcp' for cell 'u_mmcm'
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.007 . Memory (MB): peak = 1880.289 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 82 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 1 CPU seconds
+INFO: [Project 1-479] Netlist was created with Vivado 2020.2
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Parsing XDC File [d:/01-Codes/XilinxCode/Vernier_tdc/combine_fine_pwm_gen/prj/combine_fine_pwm_gen.gen/sources_1/ip/mmcm_50m_to_400m/mmcm_50m_to_400m_board.xdc] for cell 'u_mmcm/inst'
+Finished Parsing XDC File [d:/01-Codes/XilinxCode/Vernier_tdc/combine_fine_pwm_gen/prj/combine_fine_pwm_gen.gen/sources_1/ip/mmcm_50m_to_400m/mmcm_50m_to_400m_board.xdc] for cell 'u_mmcm/inst'
+Parsing XDC File [d:/01-Codes/XilinxCode/Vernier_tdc/combine_fine_pwm_gen/prj/combine_fine_pwm_gen.gen/sources_1/ip/mmcm_50m_to_400m/mmcm_50m_to_400m.xdc] for cell 'u_mmcm/inst'
+Finished Parsing XDC File [d:/01-Codes/XilinxCode/Vernier_tdc/combine_fine_pwm_gen/prj/combine_fine_pwm_gen.gen/sources_1/ip/mmcm_50m_to_400m/mmcm_50m_to_400m.xdc] for cell 'u_mmcm/inst'
+INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [d:/01-Codes/XilinxCode/Vernier_tdc/combine_fine_pwm_gen/prj/combine_fine_pwm_gen.gen/sources_1/ip/mmcm_50m_to_400m/mmcm_50m_to_400m.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/top_test_propImpl.xdc].
+Resolution: To avoid this warning, move constraints listed in [.Xil/top_test_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
+INFO: [Timing 38-2] Deriving generated clocks
+Completed Processing XDC Constraints
+
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1992.852 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+RTL Elaboration Complete:  : Time (s): cpu = 00:00:12 ; elapsed = 00:00:08 . Memory (MB): peak = 2058.137 ; gain = 515.281
+21 Infos, 0 Warnings, 0 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:00:16 ; elapsed = 00:00:14 . Memory (MB): peak = 2058.137 ; gain = 703.078
+launch_simulation
+Command: launch_simulation 
+INFO: [Vivado 12-5698] Checking validity of IPs in the design for the 'XSim' simulator...
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'D:/01-Codes/XilinxCode/Vernier_tdc/combine_fine_pwm_gen/prj/combine_fine_pwm_gen.sim/sim_1/behav/xsim'
+INFO: [Vivado 12-4795] Using compiled simulation libraries for IPs
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [USF-XSim-7] Finding pre-compiled libraries...
+INFO: [USF-XSim-11] File 'D:/Vivado/2020.2/data/xsim/xsim.ini' copied to run dir:'D:/01-Codes/XilinxCode/Vernier_tdc/combine_fine_pwm_gen/prj/combine_fine_pwm_gen.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-54] Inspecting design source files for 'top_test' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'D:/01-Codes/XilinxCode/Vernier_tdc/combine_fine_pwm_gen/prj/combine_fine_pwm_gen.sim/sim_1/behav/xsim'
+"xvlog --incr --relax -prj top_test_vlog.prj"
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/01-Codes/XilinxCode/Vernier_tdc/combine_fine_pwm_gen/prj/combine_fine_pwm_gen.gen/sources_1/ip/mmcm_50m_to_400m/mmcm_50m_to_400m_clk_wiz.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module mmcm_50m_to_400m_clk_wiz
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/01-Codes/XilinxCode/Vernier_tdc/combine_fine_pwm_gen/prj/combine_fine_pwm_gen.gen/sources_1/ip/mmcm_50m_to_400m/mmcm_50m_to_400m.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module mmcm_50m_to_400m
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/01-Codes/XilinxCode/Vernier_tdc/combine_fine_pwm_gen/src/correct_pwm_generator.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module pwm_auto_cycle_scan
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/01-Codes/XilinxCode/Vernier_tdc/combine_fine_pwm_gen/src/fine_counter_carry4.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module fine_counter_carry4
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/01-Codes/XilinxCode/Vernier_tdc/combine_fine_pwm_gen/src/top_test.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module top_test
+INFO: [VRFC 10-2458] undeclared symbol pwm_out, assumed default net type wire [D:/01-Codes/XilinxCode/Vernier_tdc/combine_fine_pwm_gen/src/top_test.v:41]
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/01-Codes/XilinxCode/Vernier_tdc/combine_fine_pwm_gen/prj/combine_fine_pwm_gen.sim/sim_1/behav/xsim/glbl.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module glbl
+INFO: [USF-XSim-69] 'compile' step finished in '2' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'D:/01-Codes/XilinxCode/Vernier_tdc/combine_fine_pwm_gen/prj/combine_fine_pwm_gen.sim/sim_1/behav/xsim'
+"xelab -wto 5d23af610c894a7b9aca44b86bcdb3f5 --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot top_test_behav xil_defaultlib.top_test xil_defaultlib.glbl -log elaborate.log"
+Vivado Simulator 2020.2
+Copyright 1986-1999, 2001-2020 Xilinx, Inc. All Rights Reserved.
+Running: D:/Vivado/2020.2/bin/unwrapped/win64.o/xelab.exe -wto 5d23af610c894a7b9aca44b86bcdb3f5 --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot top_test_behav xil_defaultlib.top_test xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module unisims_ver.IBUF
+Compiling module unisims_ver.MMCME2_ADV(CLKFBOUT_MULT_F=24.0,...
+Compiling module unisims_ver.BUFG
+Compiling module xil_defaultlib.mmcm_50m_to_400m_clk_wiz
+Compiling module xil_defaultlib.mmcm_50m_to_400m
+Compiling module unisims_ver.ODDR(DDR_CLK_EDGE="SAME_EDGE")
+Compiling module xil_defaultlib.pwm_auto_cycle_scan
+Compiling module unisims_ver.CARRY4
+Compiling module xil_defaultlib.fine_counter_carry4_default
+Compiling module xil_defaultlib.top_test
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot top_test_behav
+
+****** Webtalk v2020.2 (64-bit)
+  **** SW Build 3064766 on Wed Nov 18 09:12:45 MST 2020
+  **** IP Build 3064653 on Wed Nov 18 14:17:31 MST 2020
+    ** Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
+
+source D:/01-Codes/XilinxCode/Vernier_tdc/combine_fine_pwm_gen/prj/combine_fine_pwm_gen.sim/sim_1/behav/xsim/xsim.dir/top_test_behav/webtalk/xsim_webtalk.tcl -notrace
+INFO: [Common 17-206] Exiting Webtalk at Thu Apr  2 16:46:29 2026...
+run_program: Time (s): cpu = 00:00:01 ; elapsed = 00:00:06 . Memory (MB): peak = 2159.824 ; gain = 0.000
+INFO: [USF-XSim-69] 'elaborate' step finished in '6' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in 'D:/01-Codes/XilinxCode/Vernier_tdc/combine_fine_pwm_gen/prj/combine_fine_pwm_gen.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "top_test_behav -key {Behavioral:sim_1:Functional:top_test} -tclbatch {top_test.tcl} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Vivado Simulator 2020.2
+Time resolution is 1 ps
+source top_test.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# run 1000ns
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'top_test_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 1000ns
+launch_simulation: Time (s): cpu = 00:00:05 ; elapsed = 00:00:11 . Memory (MB): peak = 2178.703 ; gain = 18.879
+set_property SOURCE_SET sources_1 [get_filesets sim_1]
+add_files -fileset sim_1 -norecurse D:/01-Codes/XilinxCode/Vernier_tdc/combine_fine_pwm_gen/sim/tb_top_test_basic.v
+update_compile_order -fileset sim_1
+update_compile_order -fileset sim_1
+relaunch_sim
+Command: launch_simulation -simset sim_1 -mode behavioral
+INFO: [Vivado 12-5698] Checking validity of IPs in the design for the 'XSim' simulator...
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'D:/01-Codes/XilinxCode/Vernier_tdc/combine_fine_pwm_gen/prj/combine_fine_pwm_gen.sim/sim_1/behav/xsim'
+INFO: [Vivado 12-4795] Using compiled simulation libraries for IPs
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [USF-XSim-7] Finding pre-compiled libraries...
+INFO: [USF-XSim-11] File 'D:/Vivado/2020.2/data/xsim/xsim.ini' copied to run dir:'D:/01-Codes/XilinxCode/Vernier_tdc/combine_fine_pwm_gen/prj/combine_fine_pwm_gen.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-54] Inspecting design source files for 'tb_top_test_basic' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'D:/01-Codes/XilinxCode/Vernier_tdc/combine_fine_pwm_gen/prj/combine_fine_pwm_gen.sim/sim_1/behav/xsim'
+"xvlog --incr --relax -prj tb_top_test_basic_vlog.prj"
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/01-Codes/XilinxCode/Vernier_tdc/combine_fine_pwm_gen/sim/tb_top_test_basic.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module tb_top_test_basic
+INFO: [USF-XSim-69] 'compile' step finished in '2' seconds
+Command: launch_simulation -simset sim_1 -mode behavioral
+INFO: [Vivado 12-5698] Checking validity of IPs in the design for the 'XSim' simulator...
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'D:/01-Codes/XilinxCode/Vernier_tdc/combine_fine_pwm_gen/prj/combine_fine_pwm_gen.sim/sim_1/behav/xsim'
+INFO: [Vivado 12-4795] Using compiled simulation libraries for IPs
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'D:/01-Codes/XilinxCode/Vernier_tdc/combine_fine_pwm_gen/prj/combine_fine_pwm_gen.sim/sim_1/behav/xsim'
+"xelab -wto 5d23af610c894a7b9aca44b86bcdb3f5 --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot tb_top_test_basic_behav xil_defaultlib.tb_top_test_basic xil_defaultlib.glbl -log elaborate.log"
+Vivado Simulator 2020.2
+Copyright 1986-1999, 2001-2020 Xilinx, Inc. All Rights Reserved.
+Running: D:/Vivado/2020.2/bin/unwrapped/win64.o/xelab.exe -wto 5d23af610c894a7b9aca44b86bcdb3f5 --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot tb_top_test_basic_behav xil_defaultlib.tb_top_test_basic xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module unisims_ver.IBUF
+Compiling module unisims_ver.MMCME2_ADV(CLKFBOUT_MULT_F=24.0,...
+Compiling module unisims_ver.BUFG
+Compiling module xil_defaultlib.mmcm_50m_to_400m_clk_wiz
+Compiling module xil_defaultlib.mmcm_50m_to_400m
+Compiling module unisims_ver.ODDR(DDR_CLK_EDGE="SAME_EDGE")
+Compiling module xil_defaultlib.pwm_auto_cycle_scan
+Compiling module unisims_ver.CARRY4
+Compiling module xil_defaultlib.fine_counter_carry4_default
+Compiling module xil_defaultlib.top_test
+Compiling module xil_defaultlib.tb_top_test_basic
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot tb_top_test_basic_behav
+
+****** Webtalk v2020.2 (64-bit)
+  **** SW Build 3064766 on Wed Nov 18 09:12:45 MST 2020
+  **** IP Build 3064653 on Wed Nov 18 14:17:31 MST 2020
+    ** Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
+
+source D:/01-Codes/XilinxCode/Vernier_tdc/combine_fine_pwm_gen/prj/combine_fine_pwm_gen.sim/sim_1/behav/xsim/xsim.dir/tb_top_test_basic_behav/webtalk/xsim_webtalk.tcl -notrace
+INFO: [Common 17-206] Exiting Webtalk at Thu Apr  2 16:50:19 2026...
+run_program: Time (s): cpu = 00:00:00 ; elapsed = 00:00:06 . Memory (MB): peak = 2178.703 ; gain = 0.000
+INFO: [USF-XSim-69] 'elaborate' step finished in '6' seconds
+launch_simulation: Time (s): cpu = 00:00:00 ; elapsed = 00:00:06 . Memory (MB): peak = 2178.703 ; gain = 0.000
+Vivado Simulator 2020.2
+Time resolution is 1 ps
+relaunch_sim: Time (s): cpu = 00:00:02 ; elapsed = 00:00:14 . Memory (MB): peak = 2178.703 ; gain = 0.000
+reset_simulation -simset sim_1 -mode behavioral
+INFO: [Vivado 12-2266] Removing simulation data...
+WARNING: [Vivado 12-3661] Failed to remove file:D:/01-Codes/XilinxCode/Vernier_tdc/combine_fine_pwm_gen/prj/combine_fine_pwm_gen.sim/sim_1/behav/xsim/simulate.log
+WARNING: [Vivado 12-3661] Failed to remove file:D:/01-Codes/XilinxCode/Vernier_tdc/combine_fine_pwm_gen/prj/combine_fine_pwm_gen.sim/sim_1/behav/xsim/top_test_behav.wdb
+WARNING: [Vivado 12-3661] Failed to remove file:D:/01-Codes/XilinxCode/Vernier_tdc/combine_fine_pwm_gen/prj/combine_fine_pwm_gen.sim/sim_1/behav/xsim/xsim.dir/top_test_behav/xsim.xdbg
+WARNING: [Vivado 12-3661] Failed to remove file:D:/01-Codes/XilinxCode/Vernier_tdc/combine_fine_pwm_gen/prj/combine_fine_pwm_gen.sim/sim_1/behav/xsim/xsim.dir/top_test_behav/xsimcrash.log
+WARNING: [Vivado 12-3661] Failed to remove file:D:/01-Codes/XilinxCode/Vernier_tdc/combine_fine_pwm_gen/prj/combine_fine_pwm_gen.sim/sim_1/behav/xsim/xsim.dir/top_test_behav/xsimk.exe
+WARNING: [Vivado 12-3661] Failed to remove file:D:/01-Codes/XilinxCode/Vernier_tdc/combine_fine_pwm_gen/prj/combine_fine_pwm_gen.sim/sim_1/behav/xsim/xsim.dir/top_test_behav/xsimkernel.log
+WARNING: [Vivado 12-4421] Failed to remove directory:D:/01-Codes/XilinxCode/Vernier_tdc/combine_fine_pwm_gen/prj/combine_fine_pwm_gen.sim/sim_1/behav/xsim/xsim.dir/top_test_behav
+WARNING: [Vivado 12-4421] Failed to remove directory:D:/01-Codes/XilinxCode/Vernier_tdc/combine_fine_pwm_gen/prj/combine_fine_pwm_gen.sim/sim_1/behav/xsim/xsim.dir
+INFO: [Vivado 12-2267] Reset complete
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+launch_simulation
+Command: launch_simulation 
+INFO: [Vivado 12-5698] Checking validity of IPs in the design for the 'XSim' simulator...
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'D:/01-Codes/XilinxCode/Vernier_tdc/combine_fine_pwm_gen/prj/combine_fine_pwm_gen.sim/sim_1/behav/xsim'
+INFO: [Vivado 12-4795] Using compiled simulation libraries for IPs
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [USF-XSim-7] Finding pre-compiled libraries...
+INFO: [USF-XSim-11] File 'D:/Vivado/2020.2/data/xsim/xsim.ini' copied to run dir:'D:/01-Codes/XilinxCode/Vernier_tdc/combine_fine_pwm_gen/prj/combine_fine_pwm_gen.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-54] Inspecting design source files for 'tb_top_test_basic' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'D:/01-Codes/XilinxCode/Vernier_tdc/combine_fine_pwm_gen/prj/combine_fine_pwm_gen.sim/sim_1/behav/xsim'
+"xvlog --incr --relax -prj tb_top_test_basic_vlog.prj"
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/01-Codes/XilinxCode/Vernier_tdc/combine_fine_pwm_gen/prj/combine_fine_pwm_gen.gen/sources_1/ip/mmcm_50m_to_400m/mmcm_50m_to_400m_clk_wiz.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module mmcm_50m_to_400m_clk_wiz
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/01-Codes/XilinxCode/Vernier_tdc/combine_fine_pwm_gen/prj/combine_fine_pwm_gen.gen/sources_1/ip/mmcm_50m_to_400m/mmcm_50m_to_400m.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module mmcm_50m_to_400m
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/01-Codes/XilinxCode/Vernier_tdc/combine_fine_pwm_gen/src/correct_pwm_generator.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module pwm_auto_cycle_scan
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/01-Codes/XilinxCode/Vernier_tdc/combine_fine_pwm_gen/src/fine_counter_carry4.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module fine_counter_carry4
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/01-Codes/XilinxCode/Vernier_tdc/combine_fine_pwm_gen/src/top_test.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module top_test
+INFO: [VRFC 10-2458] undeclared symbol pwm_out, assumed default net type wire [D:/01-Codes/XilinxCode/Vernier_tdc/combine_fine_pwm_gen/src/top_test.v:41]
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/01-Codes/XilinxCode/Vernier_tdc/combine_fine_pwm_gen/sim/tb_top_test_basic.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module tb_top_test_basic
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/01-Codes/XilinxCode/Vernier_tdc/combine_fine_pwm_gen/prj/combine_fine_pwm_gen.sim/sim_1/behav/xsim/glbl.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module glbl
+INFO: [USF-XSim-69] 'compile' step finished in '1' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'D:/01-Codes/XilinxCode/Vernier_tdc/combine_fine_pwm_gen/prj/combine_fine_pwm_gen.sim/sim_1/behav/xsim'
+"xelab -wto 5d23af610c894a7b9aca44b86bcdb3f5 --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot tb_top_test_basic_behav xil_defaultlib.tb_top_test_basic xil_defaultlib.glbl -log elaborate.log"
+Vivado Simulator 2020.2
+Copyright 1986-1999, 2001-2020 Xilinx, Inc. All Rights Reserved.
+Running: D:/Vivado/2020.2/bin/unwrapped/win64.o/xelab.exe -wto 5d23af610c894a7b9aca44b86bcdb3f5 --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot tb_top_test_basic_behav xil_defaultlib.tb_top_test_basic xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module unisims_ver.IBUF
+Compiling module unisims_ver.MMCME2_ADV(CLKFBOUT_MULT_F=24.0,...
+Compiling module unisims_ver.BUFG
+Compiling module xil_defaultlib.mmcm_50m_to_400m_clk_wiz
+Compiling module xil_defaultlib.mmcm_50m_to_400m
+Compiling module unisims_ver.ODDR(DDR_CLK_EDGE="SAME_EDGE")
+Compiling module xil_defaultlib.pwm_auto_cycle_scan
+Compiling module unisims_ver.CARRY4
+Compiling module xil_defaultlib.fine_counter_carry4_default
+Compiling module xil_defaultlib.top_test
+Compiling module xil_defaultlib.tb_top_test_basic
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot tb_top_test_basic_behav
+
+****** Webtalk v2020.2 (64-bit)
+  **** SW Build 3064766 on Wed Nov 18 09:12:45 MST 2020
+  **** IP Build 3064653 on Wed Nov 18 14:17:31 MST 2020
+    ** Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
+
+source D:/01-Codes/XilinxCode/Vernier_tdc/combine_fine_pwm_gen/prj/combine_fine_pwm_gen.sim/sim_1/behav/xsim/xsim.dir/tb_top_test_basic_behav/webtalk/xsim_webtalk.tcl -notrace
+INFO: [Common 17-206] Exiting Webtalk at Thu Apr  2 16:50:47 2026...
+run_program: Time (s): cpu = 00:00:00 ; elapsed = 00:00:05 . Memory (MB): peak = 2178.703 ; gain = 0.000
+INFO: [USF-XSim-69] 'elaborate' step finished in '6' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in 'D:/01-Codes/XilinxCode/Vernier_tdc/combine_fine_pwm_gen/prj/combine_fine_pwm_gen.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "tb_top_test_basic_behav -key {Behavioral:sim_1:Functional:tb_top_test_basic} -tclbatch {tb_top_test_basic.tcl} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Vivado Simulator 2020.2
+Time resolution is 1 ps
+source tb_top_test_basic.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# run 1000ns
+=================================================================
+顶层模块连接测试开始
+=================================================================
+[0] 复位状态: rst_n=x, tdc_rst_n=z
+[0] 复位状态: rst_n=0, tdc_rst_n=z
+[100000] 释放系统复位
+[600000] 系统运行中...
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'tb_top_test_basic_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 1000ns
+launch_simulation: Time (s): cpu = 00:00:03 ; elapsed = 00:00:10 . Memory (MB): peak = 2195.512 ; gain = 16.809
+current_wave_config {Untitled 3}
+Untitled 3
+add_wave {{/tb_top_test_basic/uut/u_mmcm/clk_out1}} {{/tb_top_test_basic/uut/u_mmcm/clk_out2}} 
+current_wave_config {Untitled 3}
+Untitled 3
+add_wave {{/tb_top_test_basic/uut/u_pwm_gen/rst_n}} 
+current_wave_config {Untitled 3}
+Untitled 3
+add_wave {{/tb_top_test_basic/uut/u_pwm_gen/pwm_out}} 
+current_wave_config {Untitled 3}
+Untitled 3
+add_wave {{/tb_top_test_basic/uut/u_pwm_gen/duty_slots_internal}} 
+current_wave_config {Untitled 3}
+Untitled 3
+add_wave {{/tb_top_test_basic/uut/u_fine_counter/pwm_signal}} 
+current_wave_config {Untitled 3}
+Untitled 3
+add_wave {{/tb_top_test_basic/uut/u_fine_counter/pwm_rise_latched}} {{/tb_top_test_basic/uut/u_fine_counter/pwm_fall_latched}} 
+current_wave_config {Untitled 3}
+Untitled 3
+add_wave {{/tb_top_test_basic/uut/u_fine_counter/clr_rise}} {{/tb_top_test_basic/uut/u_fine_counter/clr_fall}} 
+current_wave_config {Untitled 3}
+Untitled 3
+add_wave {{/tb_top_test_basic/uut/u_fine_counter/rise_clr_sync}} {{/tb_top_test_basic/uut/u_fine_counter/fall_clr_sync}} 
+current_wave_config {Untitled 3}
+Untitled 3
+add_wave {{/tb_top_test_basic/uut/u_fine_counter/pipe1_valid_a}} {{/tb_top_test_basic/uut/u_fine_counter/pipe1_valid_b}} {{/tb_top_test_basic/uut/u_fine_counter/a_data_valid}} {{/tb_top_test_basic/uut/u_fine_counter/b_data_valid}} 
+current_wave_config {Untitled 3}
+Untitled 3
+add_wave {{/tb_top_test_basic/uut/u_fine_counter/sampled_chain_a}} {{/tb_top_test_basic/uut/u_fine_counter/sampled_chain_b}} 
+current_wave_config {Untitled 3}
+Untitled 3
+add_wave {{/tb_top_test_basic/uut/u_fine_counter/fine_count_a}} {{/tb_top_test_basic/uut/u_fine_counter/fine_count_b}} 
+current_wave_config {Untitled 3}
+Untitled 3
+add_wave {{/tb_top_test_basic/uut/u_fine_counter/valid_out}} 
+relaunch_sim
+Command: launch_simulation -simset sim_1 -mode behavioral
+INFO: [Vivado 12-5698] Checking validity of IPs in the design for the 'XSim' simulator...
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'D:/01-Codes/XilinxCode/Vernier_tdc/combine_fine_pwm_gen/prj/combine_fine_pwm_gen.sim/sim_1/behav/xsim'
+INFO: [Vivado 12-4795] Using compiled simulation libraries for IPs
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [USF-XSim-7] Finding pre-compiled libraries...
+INFO: [USF-XSim-11] File 'D:/Vivado/2020.2/data/xsim/xsim.ini' copied to run dir:'D:/01-Codes/XilinxCode/Vernier_tdc/combine_fine_pwm_gen/prj/combine_fine_pwm_gen.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-54] Inspecting design source files for 'tb_top_test_basic' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'D:/01-Codes/XilinxCode/Vernier_tdc/combine_fine_pwm_gen/prj/combine_fine_pwm_gen.sim/sim_1/behav/xsim'
+"xvlog --incr --relax -prj tb_top_test_basic_vlog.prj"
+INFO: [USF-XSim-69] 'compile' step finished in '2' seconds
+Command: launch_simulation -simset sim_1 -mode behavioral
+INFO: [Vivado 12-5698] Checking validity of IPs in the design for the 'XSim' simulator...
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'D:/01-Codes/XilinxCode/Vernier_tdc/combine_fine_pwm_gen/prj/combine_fine_pwm_gen.sim/sim_1/behav/xsim'
+INFO: [Vivado 12-4795] Using compiled simulation libraries for IPs
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'D:/01-Codes/XilinxCode/Vernier_tdc/combine_fine_pwm_gen/prj/combine_fine_pwm_gen.sim/sim_1/behav/xsim'
+"xelab -wto 5d23af610c894a7b9aca44b86bcdb3f5 --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot tb_top_test_basic_behav xil_defaultlib.tb_top_test_basic xil_defaultlib.glbl -log elaborate.log"
+Vivado Simulator 2020.2
+Copyright 1986-1999, 2001-2020 Xilinx, Inc. All Rights Reserved.
+Running: D:/Vivado/2020.2/bin/unwrapped/win64.o/xelab.exe -wto 5d23af610c894a7b9aca44b86bcdb3f5 --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot tb_top_test_basic_behav xil_defaultlib.tb_top_test_basic xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+Completed static elaboration
+INFO: [XSIM 43-4323] No Change in HDL. Linking previously generated obj files to create kernel
+INFO: [USF-XSim-69] 'elaborate' step finished in '2' seconds
+Vivado Simulator 2020.2
+Time resolution is 1 ps
+=================================================================
+顶层模块连接测试开始
+=================================================================
+[0] 复位状态: rst_n=x, tdc_rst_n=z
+[0] 复位状态: rst_n=0, tdc_rst_n=z
+[100000] 释放系统复位
+[600000] 系统运行中...
+relaunch_sim: Time (s): cpu = 00:00:02 ; elapsed = 00:00:10 . Memory (MB): peak = 2196.184 ; gain = 0.000
+run 1 us
+[1850000] MMCM已锁定
+[1850000] 复位状态: rst_n=1, tdc_rst_n=z
+[1860000] TDC输出: A=160, B=160
+[1910000] TDC输出: A=160, B=160
+[1960000] TDC输出: A=160, B=160
+run 1 us
+[2010000] TDC输出: A=160, B=160
+[2015000] TDC输出: A=160, B=160
+[2060000] TDC输出: A=160, B=160
+[2065000] TDC输出: A=160, B=160
+[2110000] TDC输出: A=160, B=160
+[2118000] TDC输出: A=160, B=160
+[2160000] TDC输出: A=160, B=160
+[2168000] TDC输出: A=160, B=160
+[2210000] TDC输出: A=160, B=160
+[2220000] TDC输出: A=160, B=160
+[2260000] TDC输出: A=160, B=160
+[2270000] TDC输出: A=160, B=160
+[2310000] TDC输出: A=160, B=160
+[2323000] TDC输出: A=160, B=160
+[2360000] TDC输出: A=160, B=160
+[2373000] TDC输出: A=160, B=160
+[2410000] TDC输出: A=160, B=160
+[2425000] TDC输出: A=160, B=160
+[2460000] TDC输出: A=160, B=160
+[2475000] TDC输出: A=160, B=160
+[2510000] TDC输出: A=160, B=160
+[2528000] TDC输出: A=160, B=160
+[2560000] TDC输出: A=160, B=160
+[2578000] TDC输出: A=160, B=160
+[2610000] TDC输出: A=160, B=160
+[2630000] TDC输出: A=160, B=160
+[2660000] TDC输出: A=160, B=160
+[2680000] TDC输出: A=160, B=160
+[2710000] TDC输出: A=160, B=160
+[2733000] TDC输出: A=160, B=160
+[2760000] TDC输出: A=160, B=160
+[2783000] TDC输出: A=160, B=160
+[2810000] TDC输出: A=160, B=160
+[2835000] TDC输出: A=160, B=160
+[2860000] TDC输出: A=160, B=160
+[2885000] TDC输出: A=160, B=160
+[2910000] TDC输出: A=160, B=160
+[2938000] TDC输出: A=160, B=160
+[2960000] TDC输出: A=160, B=160
+[2988000] TDC输出: A=160, B=160
+run 1 us
+[3010000] TDC输出: A=160, B=160
+[3040000] TDC输出: A=160, B=160
+[3060000] TDC输出: A=160, B=160
+[3090000] TDC输出: A=160, B=160
+[3110000] TDC输出: A=160, B=160
+[3143000] TDC输出: A=160, B=160
+[3160000] TDC输出: A=160, B=160
+[3193000] TDC输出: A=160, B=160
+[3210000] TDC输出: A=160, B=160
+[3245000] TDC输出: A=160, B=160
+[3260000] TDC输出: A=160, B=160
+[3295000] TDC输出: A=160, B=160
+[3310000] TDC输出: A=160, B=160
+[3348000] TDC输出: A=160, B=160
+[3360000] TDC输出: A=160, B=160
+[3398000] TDC输出: A=160, B=160
+[3410000] TDC输出: A=160, B=160
+[3450000] TDC输出: A=160, B=160
+[3460000] TDC输出: A=160, B=160
+[3500000] TDC输出: A=160, B=160
+[3510000] TDC输出: A=160, B=160
+[3553000] TDC输出: A=160, B=160
+[3560000] TDC输出: A=160, B=160
+[3603000] TDC输出: A=160, B=160
+[3610000] TDC输出: A=160, B=160
+[3655000] TDC输出: A=160, B=160
+[3660000] TDC输出: A=160, B=160
+[3705000] TDC输出: A=160, B=160
+[3710000] TDC输出: A=160, B=160
+[3758000] TDC输出: A=160, B=160
+[3808000] TDC输出: A=160, B=160
+[3860000] TDC输出: A=160, B=160
+[3910000] TDC输出: A=160, B=160
+[3960000] TDC输出: A=160, B=160
+[3965000] TDC输出: A=160, B=160
+launch_runs synth_1 -jobs 6
+[Thu Apr  2 16:53:49 2026] Launched synth_1...
+Run output will be captured here: D:/01-Codes/XilinxCode/Vernier_tdc/combine_fine_pwm_gen/prj/combine_fine_pwm_gen.runs/synth_1/runme.log

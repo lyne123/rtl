@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Vivado v2020.2 (64-bit)
+# SW Build 3064766 on Wed Nov 18 09:12:45 MST 2020
+# IP Build 3064653 on Wed Nov 18 14:17:31 MST 2020
+# Start of session at: Thu Apr  2 16:45:13 2026
+# Process ID: 105600
+# Current directory: D:/01-Codes/XilinxCode/Vernier_tdc/combine_fine_pwm_gen/prj/combine_fine_pwm_gen.runs/mmcm_50m_to_400m_synth_1
+# Command line: vivado.exe -log mmcm_50m_to_400m.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source mmcm_50m_to_400m.tcl
+# Log file: D:/01-Codes/XilinxCode/Vernier_tdc/combine_fine_pwm_gen/prj/combine_fine_pwm_gen.runs/mmcm_50m_to_400m_synth_1/mmcm_50m_to_400m.vds
+# Journal file: D:/01-Codes/XilinxCode/Vernier_tdc/combine_fine_pwm_gen/prj/combine_fine_pwm_gen.runs/mmcm_50m_to_400m_synth_1\vivado.jou
+#-----------------------------------------------------------
+source mmcm_50m_to_400m.tcl -notrace

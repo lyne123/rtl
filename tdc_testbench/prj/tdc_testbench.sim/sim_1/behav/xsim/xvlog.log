@@ -1,0 +1,11 @@
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/01-Codes/XilinxCode/Vernier_tdc/tdc_testbench/prj/tdc_testbench.gen/sources_1/ip/clk_wiz_0/clk_wiz_0_clk_wiz.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module clk_wiz_0_clk_wiz
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/01-Codes/XilinxCode/Vernier_tdc/tdc_testbench/prj/tdc_testbench.gen/sources_1/ip/clk_wiz_0/clk_wiz_0.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module clk_wiz_0
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/01-Codes/XilinxCode/Vernier_tdc/tdc_testbench/src/correct_pwm_generator.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module pwm_auto_cycle_scan
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/01-Codes/XilinxCode/Vernier_tdc/tdc_testbench/src/top_pwm_gen.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module top_pwm_gen
+INFO: [VRFC 10-2458] undeclared symbol mmcm_locked, assumed default net type wire [D:/01-Codes/XilinxCode/Vernier_tdc/tdc_testbench/src/top_pwm_gen.v:23]
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/01-Codes/XilinxCode/Vernier_tdc/tdc_testbench/src/simple_tb_clean.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module simple_tb_clean

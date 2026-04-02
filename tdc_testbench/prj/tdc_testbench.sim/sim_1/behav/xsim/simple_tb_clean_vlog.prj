@@ -1,0 +1,13 @@
+# compile verilog/system verilog design source files
+verilog xil_defaultlib  --include "../../../../tdc_testbench.gen/sources_1/ip/clk_wiz_0" \
+"../../../../tdc_testbench.gen/sources_1/ip/clk_wiz_0/clk_wiz_0_clk_wiz.v" \
+"../../../../tdc_testbench.gen/sources_1/ip/clk_wiz_0/clk_wiz_0.v" \
+"../../../../../src/correct_pwm_generator.v" \
+"../../../../../src/top_pwm_gen.v" \
+"../../../../../src/simple_tb_clean.v" \
+
+# compile glbl module
+verilog xil_defaultlib "glbl.v"
+
+# Do not sort compile order
+nosort

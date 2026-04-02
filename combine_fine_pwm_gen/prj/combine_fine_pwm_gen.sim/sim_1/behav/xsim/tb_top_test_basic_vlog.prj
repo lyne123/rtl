@@ -1,0 +1,14 @@
+# compile verilog/system verilog design source files
+verilog xil_defaultlib  --include "../../../../combine_fine_pwm_gen.gen/sources_1/ip/mmcm_50m_to_400m" \
+"../../../../combine_fine_pwm_gen.gen/sources_1/ip/mmcm_50m_to_400m/mmcm_50m_to_400m_clk_wiz.v" \
+"../../../../combine_fine_pwm_gen.gen/sources_1/ip/mmcm_50m_to_400m/mmcm_50m_to_400m.v" \
+"../../../../../src/correct_pwm_generator.v" \
+"../../../../../src/fine_counter_carry4.v" \
+"../../../../../src/top_test.v" \
+"../../../../../sim/tb_top_test_basic.v" \
+
+# compile glbl module
+verilog xil_defaultlib "glbl.v"
+
+# Do not sort compile order
+nosort
